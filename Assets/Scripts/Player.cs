@@ -6,7 +6,10 @@ public class Player : MonoBehaviour
 {
     Rigidbody rigidBody;
 
-    [SerializeField] float moveSpeed = 10f;
+    public float moveSpeed = 10f;
+    public float dashSpeed = 100f;
+    public float turnSpeed = 75f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +21,35 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveForward();
+        // Target Phase
+
+        inputHandler();
+
+    }
+
+    private void inputHandler()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            moveForward();
+        }
+
+        if (Input.GetKey(KeyCode.W))
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.S))
+            transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.A))
+            transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.D))
+            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+
     }
 
     private void moveForward()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            rigidBody.velocity = (new Vector3( 0, 0, -moveSpeed));
-        }
+        transform.Translate(Vector3.forward * dashSpeed * Time.deltaTime);
     }
 }
