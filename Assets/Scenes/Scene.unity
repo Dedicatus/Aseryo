@@ -365,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
@@ -375,7 +375,7 @@ PrefabInstance:
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2588191
+      value: 0.42261827
       objectReference: {fileID: 0}
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
@@ -390,7 +390,7 @@ PrefabInstance:
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9659258
+      value: 0.9063079
       objectReference: {fileID: 0}
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
@@ -400,7 +400,7 @@ PrefabInstance:
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 30
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
@@ -416,6 +416,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1011415227}
+    - target: {fileID: 963194229, guid: 89a79501bbbc244b7bb4bfb392db4600, type: 3}
+      propertyPath: offset.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194229, guid: 89a79501bbbc244b7bb4bfb392db4600, type: 3}
+      propertyPath: offset.z
+      value: -11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89a79501bbbc244b7bb4bfb392db4600, type: 3}
 --- !u!1001 &5988566489265321316
