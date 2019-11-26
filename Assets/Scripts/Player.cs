@@ -27,56 +27,33 @@ public class Player : MonoBehaviour
 
     }
 
+    float get_angle(float x, float y)
+    {
+        float theta = Mathf.Atan2(x, y) - Mathf.Atan2(0, 1.0f);
+        if (theta > (float)Mathf.PI)
+            theta -= (float)Mathf.PI;
+        if (theta < -(float)Mathf.PI)
+            theta += (float)Mathf.PI;
+
+        theta = (float)(theta * 180.0f / (float)Mathf.PI);
+        return theta;
+    }
+
     private void inputHandler()
     {
         if (Input.GetKey(KeyCode.JoystickButton0))
         {
             moveForward();
         }
-        if (Input.GetAxis("Horizontal_L") > 0.19f)
+        if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f||Mathf.Abs(Input.GetAxis("Vertical_L"))>0.19f)
         {
-            float angle = (transform.localEulerAngles.y % 360 + 360) % 360;
-            if (Mathf.Abs(angle - 90) > 3)
-            {
-                if (angle >= 90 && angle < 270)
-                    transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-                else transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-            }
+            float x = Input.GetAxis("Horizontal_L"),y= Input.GetAxis("Vertical_L");
+
+            float angle = get_angle(x, y), currentAngle = (transform.localEulerAngles.y % 360 + 360) % 360; ;
+            transform.Rotate(Vector3.up, angle-currentAngle);
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
-        if (Input.GetAxis("Horizontal_L") < -0.19f)
-        {
-            float angle = (transform.localEulerAngles.y % 360 + 360) % 360;
-            if (Mathf.Abs(angle - 270) > 3)
-            {
-                if (angle >= 90 && angle < 270)
-                    transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                else transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-            }
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetAxis("Vertical_L") > 0.19f)
-        {
-            float angle = transform.localEulerAngles.y%360;
-            if (Mathf.Abs(angle) > 3)
-            {
-                if (angle >= 0 && angle < 180)
-                    transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-                else transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-            }
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetAxis("Vertical_L") <-0.19f)
-        {
-            float angle = transform.localEulerAngles.y%360;
-            if (Mathf.Abs(angle-180) > 3)
-            {
-                if (angle >= 0 && angle < 180)
-                    transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                else transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-            }
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        }
+        
 
         if (Input.GetKey(KeyCode.W))
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
