@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     Rigidbody rigidBody;
 
-    public float moveSpeed = 100f;
-    public float dashForce = 100f;
+    public float moveSpeed = 10f;
+    public float dashSpeed = 100f;
     public float turnSpeed = 500000;
 
 
@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // Target Phase
 
@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
 
             float angle = get_angle(x, y), currentAngle = (transform.localEulerAngles.y % 360 + 360) % 360; ;
             transform.Rotate(Vector3.up, angle-currentAngle);
-            //rigidBody.AddForce(transform.forward * moveSpeed);
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         }
         
@@ -72,6 +71,6 @@ public class Player : MonoBehaviour
 
     private void moveForward()
     {
-        rigidBody.AddForce(transform.forward * dashForce);
+        transform.Translate(Vector3.forward * dashSpeed * Time.deltaTime);
     }
 }
