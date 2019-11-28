@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  dashForce: 800
+  dashForce: 750
   turnSpeed: 175
   dashTime: 0.5
   dashCD: 0.2
