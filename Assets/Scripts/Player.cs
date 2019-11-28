@@ -35,8 +35,8 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
         playerCollider = GetComponent<BoxCollider>();
-        dashCollider = transform.FindChild("DashCollider").gameObject.GetComponent<BoxCollider>();
-        exploseColliderObject = transform.FindChild("ExploseCollider").gameObject;
+        dashCollider = transform.FindChild("Colliders").gameObject.transform.FindChild("DashCollider").gameObject.GetComponent<BoxCollider>();
+        exploseColliderObject = transform.FindChild("Colliders").gameObject.transform.FindChild("ExploseCollider").gameObject;
         dashTimer = 0.0f;
         playerStates state = playerStates.MOVING;
         isDashed = false;
