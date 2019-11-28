@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     }
     Rigidbody rigidBody;
     BoxCollider playerCollider, dashCollider;
+    GameObject exploseColliderObject;
     public enum playerStates { MOVING, DASHING };
     public float moveSpeed = 10f;
     public float dashForce = 500f;
@@ -18,10 +19,16 @@ public class Player : MonoBehaviour
     public float turnSpeed = 500000f;
     public float dashTime = 0.5f;
     public float dashCD = 0.1f;
+    public float exploseTime = 0.3f;
     public playerStates state;
+
+    bool isDashed;
+    bool isExplosed;
+    bool explosionFinished;
 
     float dashTimer;
     float dashCDcount;
+    float exploseTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +36,13 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
         playerCollider = GetComponent<BoxCollider>();
-        dashCollider = transform.FindChild("DashCollider").gameObject.GetComponent<BoxCollider>();
+        dashCollider = transform.FindChild("Colliders").gameObject.transform.FindChild("DashCollider").gameObject.GetComponent<BoxCollider>();
+        exploseColliderObject = transform.FindChild("Colliders").gameObject.transform.FindChild("ExploseCollider").gameObject;
         dashTimer = 0.0f;
         playerStates state = playerStates.MOVING;
+        isDashed = false;
+        isExplosed = false;
+        explosionFinished = true;
     }
 
     // Update is called once per frame
@@ -63,13 +74,31 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
             {
-                if (state == playerStates.MOVING)
+                if ((state == playerStates.MOVING) && (isDashed == false))
                 {
                     dashTimer = dashTime;
-                    state = playerStates.DASHING;                 
+                    state = playerStates.DASHING;
+                    isDashed = true;
                 }
                 dashCollider.enabled = true;
             }
+        }
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton0))
+        {
+            isDashed = false;
+        }
+
+        if (Input.GetKey(KeyCode.JoystickButton7) && (isExplosed == false) && (explosionFinished == true))
+        {
+            startExplosion();
+        }
+
+        checkExplosionFinished();
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton7))
+        {
+            isExplosed = false;
         }
 
         switch (state)
@@ -86,6 +115,24 @@ public class Player : MonoBehaviour
 
         }
 
+    }
+
+    private void checkExplosionFinished()
+    {
+        if (exploseTimer <= 0.0f)
+        {
+            exploseColliderObject.SetActive(false);
+            explosionFinished = true;
+        }
+        exploseTimer -= Time.deltaTime;
+    }
+
+    private void startExplosion()
+    {
+        exploseColliderObject.SetActive(true);
+        isExplosed = true;
+        explosionFinished = false;
+        exploseTimer = exploseTime;
     }
 
     private void movePlayer()
