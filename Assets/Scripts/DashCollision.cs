@@ -16,11 +16,11 @@ public class DashCollision : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider coll)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (coll.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
+            Destroy(coll.gameObject);
         }
     }
 }
