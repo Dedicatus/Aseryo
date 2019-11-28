@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     }
     Rigidbody rigidBody;
-
+    BoxCollider playerCollider, dashCollider;
     public enum playerStates { MOVING, DASHING };
     public float moveSpeed = 10f;
     public float dashForce = 500f;
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
+        playerCollider = GetComponent<BoxCollider>();
         dashTimer = 0.0f;
         playerStates state = playerStates.MOVING;
     }
@@ -35,11 +36,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Target Phase
-        if (state == playerStates.MOVING)
-            inputHandler();
-        if (state == playerStates.DASHING)
-            dashForward();
+        inputHandler();    
     }
 
 
@@ -62,13 +59,38 @@ public class Player : MonoBehaviour
             dashCDcount -= Time.deltaTime;
 
         if (dashCDcount <= 0.0f)
-        { 
+        {
             if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
             {
                 dashTimer = dashTime;
                 state = playerStates.DASHING;
+                playerCollider.enabled = false;
             }
         }
+
+        if (state == playerStates.DASHING)
+        {
+            dashForward();
+        }
+
+        switch (state)
+        {
+            case playerStates.MOVING:
+                playerCollider.enabled = true;
+                movePlayer();
+                break;
+
+            case playerStates.DASHING:
+                playerCollider.enabled = false;
+                dashForward();
+                break;
+
+        }
+
+    }
+
+    private void movePlayer()
+    {
         if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f || Mathf.Abs(Input.GetAxis("Vertical_L")) > 0.19f)
         {
             float x = Input.GetAxis("Horizontal_L"), y = Input.GetAxis("Vertical_L");
