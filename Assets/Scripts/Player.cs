@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Player()
+    {
+        state = playerStates.MOVING;
+
+    }
     Rigidbody rigidBody;
     BoxCollider playerCollider, dashCollider;
     public enum playerStates { MOVING, DASHING };

@@ -7,7 +7,7 @@ public class EnemyTrigger : MonoBehaviour
 
     bool triggered = false;
     bool allDead = false;
-
+    public Player target;
     public GameObject[] enemies;
     public GameObject[] spawnPoints;
     int enemyCount = 0;
@@ -26,6 +26,7 @@ public class EnemyTrigger : MonoBehaviour
         for (int i = 0; i < enemies.Length; ++i)
         {
             Instantiate(enemies[i], spawnPoints[i].gameObject.transform);
+            //enemies[i].player = target;
             enemyCount++;
         }
 
