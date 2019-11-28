@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
 {
-
+    public Transform player;
     bool triggered = false;
     bool allDead = false;
     public GameObject[] enemies;
@@ -21,7 +21,6 @@ public class EnemyTrigger : MonoBehaviour
     {
         if (triggered == true || coll.tag != "Player") return;
         triggered = true;
-
         for (int i = 0; i < enemies.Length; ++i)
         {
             Instantiate(enemies[i], spawnPoints[i].gameObject.transform);
