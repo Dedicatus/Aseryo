@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
 
         if (dashCDcount <= 0.0f)
         {
-            if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
             {
                 if ((state == playerStates.MOVING) && (isDashed == false))
                 {
@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.JoystickButton0))
+        if (Input.GetKeyUp(KeyCode.JoystickButton1))
         {
             isDashed = false;
         }
