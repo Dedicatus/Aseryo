@@ -5,14 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody rigidBody;
-    public enum playerStates {MOVING, DASHING};
+
+    public enum playerStates { MOVING, DASHING };
     public float moveSpeed = 10f;
     public float dashForce = 500f;
+
+    public float dashSpeed = 100f;
     public float turnSpeed = 500000;
     public float dashTime = 0.5f;
     public float dashCD = 0.1f;
     public playerStates state;
-    
+
     float dashTimer;
     float dashCDcount;
 
@@ -26,7 +29,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         // Target Phase
         if (state == playerStates.MOVING)
@@ -34,6 +37,7 @@ public class Player : MonoBehaviour
         if (state == playerStates.DASHING)
             dashForward();
     }
+
 
     float get_angle(float x, float y)
     {
@@ -45,6 +49,7 @@ public class Player : MonoBehaviour
 
         theta = (float)(theta * 180.0f / (float)Mathf.PI);
         return theta;
+
     }
 
     private void inputHandler()
@@ -52,40 +57,40 @@ public class Player : MonoBehaviour
         if (dashCDcount >= 0.0f)
             dashCDcount -= Time.deltaTime;
 
-        if(dashCDcount<=0.0f)
+        if (dashCDcount <= 0.0f)
             if (Input.GetKey(KeyCode.JoystickButton0))
             {
                 dashTimer = dashTime;
                 state = playerStates.DASHING;
             }
-            if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f || Mathf.Abs(Input.GetAxis("Vertical_L")) > 0.19f)
-            {
-                float x = Input.GetAxis("Horizontal_L"), y = Input.GetAxis("Vertical_L");
+        if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f || Mathf.Abs(Input.GetAxis("Vertical_L")) > 0.19f)
+        {
+            float x = Input.GetAxis("Horizontal_L"), y = Input.GetAxis("Vertical_L");
 
-                float angle = get_angle(x, y), currentAngle = (transform.localEulerAngles.y % 360 + 360) % 360; ;
-                transform.Rotate(Vector3.up, angle - currentAngle);
-                //rigidBody.AddForce(transform.forward * moveSpeed);
-                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-            }
+            float angle = get_angle(x, y), currentAngle = (transform.localEulerAngles.y % 360 + 360) % 360; ;
+            transform.Rotate(Vector3.up, angle - currentAngle);
+            //rigidBody.AddForce(transform.forward * moveSpeed);
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        }
 
 
-            if (Input.GetKey(KeyCode.W))
-                transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.W))
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 
-            if (Input.GetKey(KeyCode.S))
-                transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.S))
+            transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
 
-            if (Input.GetKey(KeyCode.A))
-                transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.A))
+            transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
 
-            if (Input.GetKey(KeyCode.D))
-                transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-
+        if (Input.GetKey(KeyCode.D))
+            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
     }
 
     private void dashForward()
     {
-        if (dashTimer >= dashTime-0.1f)
+
+        if (dashTimer >= dashTime - 0.1f)
             rigidBody.AddForce(transform.forward * dashForce);
         else rigidBody.AddForce(transform.forward * 50.0f);
         if (dashTimer <= 0.0f)
@@ -95,6 +100,6 @@ public class Player : MonoBehaviour
             //rigidBody.AddForce(transform.forward * -dashForce);
         }
         dashTimer -= Time.deltaTime;
-        
+
     }
 }
