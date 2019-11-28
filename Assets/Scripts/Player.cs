@@ -10,8 +10,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 10f;
     public float dashForce = 500f;
 
-    public float dashSpeed = 100f;
-    public float turnSpeed = 500000;
+    public float turnSpeed = 500000f;
     public float dashTime = 0.5f;
     public float dashCD = 0.1f;
     public playerStates state;
@@ -29,7 +28,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Target Phase
         if (state == playerStates.MOVING)
