@@ -57,11 +57,13 @@ public class Player : MonoBehaviour
             dashCDcount -= Time.deltaTime;
 
         if (dashCDcount <= 0.0f)
-            if (Input.GetKey(KeyCode.JoystickButton0))
+        { 
+            if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
             {
                 dashTimer = dashTime;
                 state = playerStates.DASHING;
             }
+        }
         if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f || Mathf.Abs(Input.GetAxis("Vertical_L")) > 0.19f)
         {
             float x = Input.GetAxis("Horizontal_L"), y = Input.GetAxis("Vertical_L");
