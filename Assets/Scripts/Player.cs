@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     public float dashCD = 0.1f;
     public playerStates state;
 
+    bool isDashed;
+
     float dashTimer;
     float dashCDcount;
 
@@ -32,6 +34,7 @@ public class Player : MonoBehaviour
         dashCollider = transform.FindChild("DashCollider").gameObject.GetComponent<BoxCollider>();
         dashTimer = 0.0f;
         playerStates state = playerStates.MOVING;
+        isDashed = false;
     }
 
     // Update is called once per frame
@@ -63,13 +66,19 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
             {
-                if (state == playerStates.MOVING)
+                if ((state == playerStates.MOVING) && (isDashed == false))
                 {
                     dashTimer = dashTime;
-                    state = playerStates.DASHING;                 
+                    state = playerStates.DASHING;
+                    isDashed = true;
                 }
                 dashCollider.enabled = true;
             }
+        }
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton0))
+        {
+            isDashed = false;
         }
 
         switch (state)
