@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     bool isDashed;
     bool isExplosed;
+    bool explosionFinished;
 
     float dashTimer;
     float dashCDcount;
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
         playerStates state = playerStates.MOVING;
         isDashed = false;
         isExplosed = false;
+        explosionFinished = true;
     }
 
     // Update is called once per frame
@@ -87,19 +89,17 @@ public class Player : MonoBehaviour
             isDashed = false;
         }
 
-        if (Input.GetKey(KeyCode.JoystickButton7) && (isExplosed == false))
+        if (Input.GetKey(KeyCode.JoystickButton7) && (isExplosed == false) && (explosionFinished == true))
         {
-            exploseColliderObject.SetActive(true);
-            isExplosed = true;
-            exploseTimer = exploseTime;
+            startExplosion();
         }
 
-        if (exploseTimer <= 0.0f)
+        checkExplosionFinished();
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton7))
         {
-            exploseColliderObject.SetActive(false);
             isExplosed = false;
         }
-        exploseTimer -= Time.deltaTime;
 
         switch (state)
         {
@@ -115,6 +115,24 @@ public class Player : MonoBehaviour
 
         }
 
+    }
+
+    private void checkExplosionFinished()
+    {
+        if (exploseTimer <= 0.0f)
+        {
+            exploseColliderObject.SetActive(false);
+            explosionFinished = true;
+        }
+        exploseTimer -= Time.deltaTime;
+    }
+
+    private void startExplosion()
+    {
+        exploseColliderObject.SetActive(true);
+        isExplosed = true;
+        explosionFinished = false;
+        exploseTimer = exploseTime;
     }
 
     private void movePlayer()
