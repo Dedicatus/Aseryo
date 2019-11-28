@@ -12,23 +12,17 @@ public class DashCollision : MonoBehaviour
     void Start()
     {
         mPlayer = parent.GetComponent<Player>();
-
-        Debug.Log("My state is:" + mPlayer.state);
     }
 
     // Update is called once per frame
     void Update()
     {
         mPlayer = parent.GetComponent<Player>();
-
-        Debug.Log("My state is:" + mPlayer.state);
-        //gameObject.transform.parent.GetComponent(Player).state =
-        //Debug.Log(gameObject.transform.parent.GetComponent(Player).state);
     }
 
     private void OnTriggerEnter(Collider coll)
     {
-        if (coll.gameObject.tag == "Enemy" && mPlayer.state == playerStates.DASHING)
+        if (coll.gameObject.tag == "Enemy")
         {
             Destroy(coll.gameObject);
         }

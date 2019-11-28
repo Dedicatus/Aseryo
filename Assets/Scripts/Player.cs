@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
         playerCollider = GetComponent<BoxCollider>();
+        dashCollider = transform.FindChild("DashCollider").gameObject.GetComponent<BoxCollider>();
         dashTimer = 0.0f;
         playerStates state = playerStates.MOVING;
     }
@@ -57,26 +58,24 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
             {
-                dashTimer = dashTime;
-                state = playerStates.DASHING;
-                playerCollider.enabled = false;
+                if (state == playerStates.MOVING)
+                {
+                    dashTimer = dashTime;
+                    state = playerStates.DASHING;                 
+                }
+                dashCollider.enabled = true;
             }
-        }
-
-        if (state == playerStates.DASHING)
-        {
-            dashForward();
         }
 
         switch (state)
         {
             case playerStates.MOVING:
-                playerCollider.enabled = true;
+                dashCollider.enabled = false;
                 movePlayer();
                 break;
 
             case playerStates.DASHING:
-                playerCollider.enabled = false;
+                //playerCollider.enabled = false;
                 dashForward();
                 break;
 
