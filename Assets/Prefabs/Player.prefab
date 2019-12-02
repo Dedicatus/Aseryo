@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &4082285805171958100
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,8 +315,8 @@ MonoBehaviour:
   turnSpeed: 175
   dashTime: 0.5
   dashBaseCD: 0.2
-  dashCD: 2
-  UltTime: 5
+  dashCD: 1
+  UltTime: 10
   UltCost: 5
   exploseTime: 0.3
   state: 0
@@ -443,7 +442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &4665505444236312633
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,8 +98,7 @@ public class Player : MonoBehaviour
                     if ((state == playerStates.MOVING) && (isDashed == false))
                     {
                         dashTimer = dashTime;
-                        state = playerStates.DASHING;
-                        isDashed = true;
+                        state = playerStates.DASHING;                 
                     }
                     dashCollider.enabled = true;
                 }

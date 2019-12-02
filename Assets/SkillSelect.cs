@@ -21,12 +21,13 @@ public class SkillSelect : MonoBehaviour
     public void startChoose()
     {
         gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void chooseTrait()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
-
 
 }
