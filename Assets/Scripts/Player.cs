@@ -12,10 +12,15 @@ public class Player : MonoBehaviour
     Rigidbody rigidBody;
     BoxCollider playerCollider, dashCollider;
     GameObject exploseColliderObject;
+    public float Health = 3f;
+    public float Attack = 1f;
+    public float ultCharge = 0f;
+    public float exp = 0f;
+
     public enum playerStates { MOVING, DASHING };
     public float moveSpeed = 10f;
     public float dashForce = 500f;
-
+    
     public float turnSpeed = 500000f;
     public float dashTime = 0.5f;
     public float dashCD = 0.1f;
@@ -84,7 +89,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.JoystickButton1))
+        if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.Space))
         {
             isDashed = false;
         }
@@ -175,5 +180,12 @@ public class Player : MonoBehaviour
         }
         dashTimer -= Time.deltaTime;
 
+    }
+
+    public bool isCollision()
+    {
+        if (state == playerStates.DASHING)
+            return false;
+        return true;
     }
 }
