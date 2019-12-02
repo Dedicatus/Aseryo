@@ -13,7 +13,7 @@ public class Shrine : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(activated);
+        inputHandler();
     }
 
     public void ShrineEntered()
@@ -25,4 +25,13 @@ public class Shrine : MonoBehaviour
     {
         activated = false;
     }
+
+    private void inputHandler()
+    {
+        if (Input.GetKey(KeyCode.JoystickButton6) && activated)
+        {
+            GameObject.Find("UImanager").transform.Find("SkillSelect").GetComponent<SkillSelect>().startChoose();
+        }
+    }
+
 }

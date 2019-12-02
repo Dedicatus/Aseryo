@@ -12,13 +12,11 @@ public class ShrineArea : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider coll)
     {
-        Shrine shrine = transform.parent.GetComponent<Shrine>();
-        shrine.ShrineEntered();
+        transform.parent.GetComponent<Shrine>().ShrineEntered();
     }
 
     private void OnTriggerExit(Collider coll)
     {
-        Shrine shrine = transform.parent.GetComponent<Shrine>();
-        shrine.ShrineExited();
+        transform.parent.GetComponent<Shrine>().ShrineExited();
     }
 }
