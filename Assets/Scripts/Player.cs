@@ -71,6 +71,11 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    public void resetUltCharge()
+    {
+        UltCharge = 0;
+    }
+
     float get_angle(float x, float y)
     {
         float theta = Mathf.Atan2(x, y) - Mathf.Atan2(0, 1.0f);
@@ -131,7 +136,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11)&&UltCharge>=UltCost)
+        if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11) && UltCharge >= UltCost)
         {
             isUltra = true;
             UltCharge -= UltCost;

@@ -31,6 +31,7 @@ public class Shrine : MonoBehaviour
         if (Input.GetKey(KeyCode.JoystickButton6) && activated && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().checkUlt())
         {
             GameObject.Find("UImanager").transform.Find("SkillSelect").GetComponent<SkillSelect>().startChoose();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().resetUltCharge();
         }
     }
 
