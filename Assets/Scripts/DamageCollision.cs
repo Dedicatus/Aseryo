@@ -5,17 +5,21 @@ using static Player;
 
 public class DamageCollision : MonoBehaviour
 {
-    GameObject player;
+    public GameObject player;
     
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Enemy")
         {
-            if(coll.gameObject.GetComponent<Enemy>().getDestoried())
-            //Debug.Log(coll.gameObject.GetComponent<Enemy>().Health);
-            //Debug.Log(player.GetComponent<Player>().Attack);
-            //if (coll.gameObject.GetComponent<Enemy>().Health <= 0f)
+            if (coll.gameObject.GetComponent<Enemy>().getDestoried())
+            { 
                 Destroy(coll.gameObject);
+                player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
+                //Debug.Log(player.GetComponent<Player>().Exp);
+                player.GetComponent<Player>().addUltCharge(coll.gameObject.GetComponent<Enemy>().getUltCharge());
+                //Debug.Log(player.GetComponent<Player>().UltCharge);
+            }
+                
         }
     }
 }
