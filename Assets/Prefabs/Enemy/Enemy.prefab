@@ -124,6 +124,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   target: {fileID: 0}
+  player: {fileID: 0}
   playerAttack: 0
+  UltCharge: 1
+  Exp: 1
   Attack: 1
   Health: 2
