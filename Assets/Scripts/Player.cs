@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     }
     Rigidbody rigidBody;
-    BoxCollider playerCollider, dashCollider;
+    BoxCollider playerCollider, dashCollider,ultCollider;
     GameObject exploseColliderObject;
     public float Health = 3f;
     public float Attack = 1f;
@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     bool isExplosed;
     bool explosionFinished;
     bool isUltra;
+    bool ultReady;
 
     float dashTimer;
     float dashBaseCDcount;
@@ -48,10 +49,12 @@ public class Player : MonoBehaviour
         rigidBody.freezeRotation = true;
         playerCollider = GetComponent<BoxCollider>();
         dashCollider = transform.Find("Colliders").gameObject.transform.Find("DashCollider").gameObject.GetComponent<BoxCollider>();
+        ultCollider = transform.Find("Colliders").gameObject.transform.Find("UltCollider").gameObject.GetComponent<BoxCollider>();
         exploseColliderObject = transform.Find("Colliders").gameObject.transform.Find("ExploseCollider").gameObject;
         dashTimer = 0.0f;
         playerStates state = playerStates.MOVING;
         isDashed = false;
+        ultReady = false;
         isExplosed = false;
         isUltra = false;
         explosionFinished = true;
@@ -63,6 +66,11 @@ public class Player : MonoBehaviour
         inputHandler();    
     }
 
+    void checkUlt()
+    {
+        if (UltCharge >= UltCost)
+            ultReady = true;
+    }
 
     float get_angle(float x, float y)
     {
@@ -87,7 +95,10 @@ public class Player : MonoBehaviour
         {
             ultCount -= Time.deltaTime;
             if (ultCount <= 0)
+            {
+                ultCollider.enabled = false;
                 isUltra = false;
+            }
         }
         if (isUltra)
         {
@@ -100,7 +111,7 @@ public class Player : MonoBehaviour
                         dashTimer = dashTime;
                         state = playerStates.DASHING;                 
                     }
-                    dashCollider.enabled = true;
+                    ultCollider.enabled = true;
                 }
             }
         }
@@ -124,6 +135,7 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11)&&UltCharge>=UltCost)
         {
             isUltra = true;
+            ultReady = false;
             UltCharge -= UltCost;
             ultCount = UltTime;
         }
