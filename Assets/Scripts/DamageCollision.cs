@@ -5,8 +5,12 @@ using static Player;
 
 public class DamageCollision : MonoBehaviour
 {
-    public GameObject player;
-    
+    GameObject player;
+
+    private void Start()
+    {
+        player = transform.parent.parent.gameObject;
+    }
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Enemy")
