@@ -34,7 +34,6 @@ public class Player : MonoBehaviour
     bool isExplosed;
     bool explosionFinished;
     bool isUltra;
-    bool ultReady;
 
     float dashTimer;
     float dashBaseCDcount;
@@ -54,7 +53,6 @@ public class Player : MonoBehaviour
         dashTimer = 0.0f;
         playerStates state = playerStates.MOVING;
         isDashed = false;
-        ultReady = false;
         isExplosed = false;
         isUltra = false;
         explosionFinished = true;
@@ -66,10 +64,11 @@ public class Player : MonoBehaviour
         inputHandler();    
     }
 
-    void checkUlt()
+    public bool checkUlt()
     {
         if (UltCharge >= UltCost)
-            ultReady = true;
+            return true;
+        return false;
     }
 
     float get_angle(float x, float y)
@@ -135,7 +134,6 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11)&&UltCharge>=UltCost)
         {
             isUltra = true;
-            ultReady = false;
             UltCharge -= UltCost;
             ultCount = UltTime;
         }
