@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     public Transform target;
     public GameObject player;
     public float playerAttack;
+    public float UltCharge = 1f;
+    public float Exp = 1f;
     public float Attack = 1f;
     public float Health = 2f;
     public Enemy()
@@ -32,7 +34,9 @@ public class Enemy : MonoBehaviour
     void findPlayer()
     {
         if(!player.GetComponent<Player>().isCollision())
-            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(),true);
+        else
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), false);
         Vector3 relativePos = target.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         transform.rotation = rotation;
@@ -45,6 +49,16 @@ public class Enemy : MonoBehaviour
         if (Health <= 0)
             return true;
         return false;
+    }
+
+    public float getUltCharge()
+    {
+        return UltCharge;
+    }
+
+    public float getExp()
+    {
+        return Exp;
     }
 
 }

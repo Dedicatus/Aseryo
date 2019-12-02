@@ -14,8 +14,8 @@ public class Player : MonoBehaviour
     GameObject exploseColliderObject;
     public float Health = 3f;
     public float Attack = 1f;
-    public float ultCharge = 0f;
-    public float exp = 0f;
+    public float UltCharge = 0f;
+    public float Exp = 0f;
 
     public enum playerStates { MOVING, DASHING };
     public float moveSpeed = 10f;
@@ -23,16 +23,22 @@ public class Player : MonoBehaviour
     
     public float turnSpeed = 500000f;
     public float dashTime = 0.5f;
-    public float dashCD = 0.1f;
+    public float dashBaseCD = 0.2f;
+    public float dashCD = 3f;
+    public float UltTime = 5f;
+    public float UltCost = 5f;
     public float exploseTime = 0.3f;
     public playerStates state;
 
     bool isDashed;
     bool isExplosed;
     bool explosionFinished;
+    bool isUltra;
 
     float dashTimer;
+    float dashBaseCDcount;
     float dashCDcount;
+    float ultCount;
     float exploseTimer;
 
     // Start is called before the first frame update
@@ -47,6 +53,7 @@ public class Player : MonoBehaviour
         playerStates state = playerStates.MOVING;
         isDashed = false;
         isExplosed = false;
+        isUltra = false;
         explosionFinished = true;
     }
 
@@ -72,21 +79,54 @@ public class Player : MonoBehaviour
 
     private void inputHandler()
     {
+        if (dashBaseCDcount >= 0.0f)
+            dashBaseCDcount -= Time.deltaTime;
         if (dashCDcount >= 0.0f)
             dashCDcount -= Time.deltaTime;
-
-        if (dashCDcount <= 0.0f)
+        if (ultCount >= 0.0f)
         {
-            if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
+            ultCount -= Time.deltaTime;
+            if (ultCount <= 0)
+                isUltra = false;
+        }
+        if (isUltra)
+        {
+            if (dashBaseCDcount <= 0.0f)
             {
-                if ((state == playerStates.MOVING) && (isDashed == false))
+                if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
-                    dashTimer = dashTime;
-                    state = playerStates.DASHING;
-                    isDashed = true;
+                    if ((state == playerStates.MOVING) && (isDashed == false))
+                    {
+                        dashTimer = dashTime;
+                        state = playerStates.DASHING;
+                        isDashed = true;
+                    }
+                    dashCollider.enabled = true;
                 }
-                dashCollider.enabled = true;
             }
+        }
+        else
+        {
+            if (dashBaseCDcount <= 0.0f&&dashCDcount<=0)
+            {
+                if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
+                {
+                    if ((state == playerStates.MOVING) && (isDashed == false))
+                    {
+                        dashTimer = dashTime;
+                        state = playerStates.DASHING;
+                        isDashed = true;
+                    }
+                    dashCollider.enabled = true;
+                }
+            }
+        }
+
+        if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11)&&UltCharge>=UltCost)
+        {
+            isUltra = true;
+            UltCharge -= UltCost;
+            ultCount = UltTime;
         }
 
         if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.Space))
@@ -175,6 +215,7 @@ public class Player : MonoBehaviour
         if (dashTimer <= 0.0f)
         {
             state = playerStates.MOVING;
+            dashBaseCDcount = dashBaseCD;
             dashCDcount = dashCD;
             //rigidBody.AddForce(transform.forward * -dashForce);
         }
@@ -187,5 +228,27 @@ public class Player : MonoBehaviour
         if (state == playerStates.DASHING)
             return false;
         return true;
+    }
+
+    public void addUltCharge(float number)
+    {
+        UltCharge += number;
+        Debug.Log(UltCharge);
+    }
+
+    public void addExp(float number)
+    {
+        Exp += number;
+        Debug.Log(Exp);
+    }
+
+    public float getUltCharge()
+    {
+        return UltCharge;
+    }
+
+    public float getExp()
+    {
+        return Exp;
     }
 }
