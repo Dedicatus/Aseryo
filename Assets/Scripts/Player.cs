@@ -12,23 +12,28 @@ public class Player : MonoBehaviour
     Rigidbody rigidBody;
     BoxCollider playerCollider, dashCollider,ultCollider;
     GameObject exploseColliderObject;
-    public float Health = 3f;
-    public float Attack = 1f;
-    public float UltCharge = 0f;
-    public float Exp = 0f;
 
     public enum playerStates { MOVING, DASHING };
+    public playerStates state;
+
+    [Header("Status")]
+    public float Health = 3f;
+    public float Attack = 1f;
+    public float Exp = 0f;
+   
+    [Header("Movement")]
     public float moveSpeed = 10f;
     public float dashForce = 500f;
-    
-    public float turnSpeed = 500000f;
+    public float turnSpeed = 250f;
     public float dashTime = 0.5f;
     public float dashBaseCD = 0.2f;
     public float dashCD = 3f;
+
+    [Header("Skill")]
     public float UltTime = 5f;
     public float UltCost = 5f;
     public float exploseTime = 0.3f;
-    public playerStates state;
+    public float UltCharge = 0f;
 
     bool isDashed;
     bool isExplosed;
@@ -247,13 +252,13 @@ public class Player : MonoBehaviour
     public void addUltCharge(float number)
     {
         UltCharge += number;
-        Debug.Log(UltCharge);
+        //Debug.Log(UltCharge);
     }
 
     public void addExp(float number)
     {
         Exp += number;
-        Debug.Log(Exp);
+        //Debug.Log(Exp);
     }
 
     public float getUltCharge()

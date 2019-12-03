@@ -28,19 +28,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        findPlayer();
+        followPlayer();
     }
 
-    void findPlayer()
+    void followPlayer()
     {
         if (!player.GetComponent<Player>().isCollision())
         {
-            Debug.Log(111);
             Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), true);
         }
         else
         {
-            Debug.Log(222);
             Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), false);
         }
         Vector3 relativePos = target.position - transform.position;

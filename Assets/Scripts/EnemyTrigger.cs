@@ -4,32 +4,27 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
 {
-    public Transform player;
     bool triggered = false;
     bool allDead = false;
     public GameObject[] enemies;
     public GameObject[] spawnPoints;
     int enemyCount = 0;
-
-    void Start()
-    {
-
-    }
-
+    
 
     void OnTriggerEnter(Collider coll)
     {
         if (triggered == true || coll.tag != "Player") return;
-        triggered = true;
+
         for (int i = 0; i < enemies.Length; ++i)
         {
             Instantiate(enemies[i], spawnPoints[i].gameObject.transform);
             enemyCount++;
         }
+        triggered = true;
 
     }
 
-        void Update()
+    void Update()
     {
         if (!triggered || allDead) return;
         int deadCount = enemyCount;
