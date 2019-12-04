@@ -26,6 +26,8 @@ public class SkillSelect : MonoBehaviour
 
     public void chooseTrait(int traitNum)
     {
+        transform.parent.parent.Find("SkillManager").GetComponent<SkillManager>().updateTrait(traitNum);
+
         gameObject.SetActive(false);
         Time.timeScale = 1;
     }
