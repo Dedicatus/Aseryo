@@ -156,7 +156,7 @@ MonoBehaviour:
   moveSpeed: 5
   target: {fileID: 0}
   player: {fileID: 0}
-  UltCharge: 1
+  UltCharge: 10
   Exp: 20
   Attack: 1
   Health: 2
