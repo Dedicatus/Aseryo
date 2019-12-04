@@ -55,6 +55,7 @@ public class SkillManager : MonoBehaviour
         if (lv2Trait == Trait.NONE)
         {
             lv2Trait = setTrait(traitNum);
+            lv2TraitHandler();
             return;
         }
 
@@ -114,7 +115,7 @@ public class SkillManager : MonoBehaviour
 
     private void lv2TraitHandler()
     {
-        switch (lv1Trait)
+        switch (lv2Trait)
         {
             case Trait.FIRST:
                 player.dashCD *= DashCDMultipler;
