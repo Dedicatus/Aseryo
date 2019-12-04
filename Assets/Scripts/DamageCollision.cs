@@ -19,9 +19,9 @@ public class DamageCollision : MonoBehaviour
             { 
                 Destroy(coll.gameObject);
                 player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
-                //Debug.Log(player.GetComponent<Player>().Exp);
+                Debug.Log(player.GetComponent<Player>().Exp);
                 player.GetComponent<Player>().addUltCharge(coll.gameObject.GetComponent<Enemy>().getUltCharge());
-                //Debug.Log(player.GetComponent<Player>().UltCharge);
+                Debug.Log(player.GetComponent<Player>().UltCharge);
             }
                 
         }

@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 5f;
     public Transform target;
     public GameObject player;
-    public float playerAttack;
+    float playerAttack;
     public float UltCharge = 1f;
     public float Exp = 1f;
     public float Attack = 1f;

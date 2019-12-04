@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public PlayerStates state;
 
     [Header("Status")]
-    public float Health = 3f;
+    public float Health = 100f;
     public float Attack = 1f;
 
     [Header("Movement")]
@@ -30,12 +30,12 @@ public class Player : MonoBehaviour
 
     [Header("Skill")]
     public float UltTime = 5f;
-    public float UltCost = 5f;
+    public float UltCost = 100f;
     public float exploseTime = 0.3f;
 
     [Header("Debug")]
     public float Exp = 0f;
-    public float UltCharge = 0f;
+    public float UltCharge = 100f;
 
     bool isDashed;
     bool isExplosed;
@@ -254,6 +254,8 @@ public class Player : MonoBehaviour
     public void addUltCharge(float number)
     {
         UltCharge += number;
+        if (UltCharge >= UltCost)
+            UltCharge = UltCost;
         //Debug.Log(UltCharge);
     }
 
@@ -261,6 +263,11 @@ public class Player : MonoBehaviour
     {
         Exp += number;
         //Debug.Log(Exp);
+    }
+
+    public float getHealth()
+    {
+        return Health;
     }
 
     public float getUltCharge()
