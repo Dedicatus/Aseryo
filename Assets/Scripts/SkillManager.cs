@@ -15,41 +15,46 @@ public class SkillManager : MonoBehaviour
         lv4Trait = Trait.NONE;
     }
 
+    void Update()
+    {
+        
+    }
+
     public void updateTrait(int traitNum)
     {
         if (lv1Trait == Trait.NONE)
         {
-            Debug.Log("die");
-            setTrait(lv1Trait, traitNum);
+            //Debug.Log("die");
+            lv1Trait = setTrait(traitNum);
             return;
         }
 
         if (lv2Trait == Trait.NONE)
         {
-            setTrait(lv2Trait, traitNum);
+            lv2Trait = setTrait(traitNum);
             return;
         }
 
         if (lv3Trait == Trait.NONE)
         {
-            setTrait(lv3Trait, traitNum);
+            lv3Trait = setTrait(traitNum);
             return;
         }
 
         if (lv4Trait == Trait.NONE)
         {
-            setTrait(lv4Trait, traitNum);
+            lv4Trait = setTrait(traitNum);
             return;
         }
     }
 
-    private void setTrait(Trait trait, int traitNum)
-    {   
+    private Trait setTrait(int traitNum)
+    {
+        Trait trait = Trait.NONE;
         switch (traitNum)
         {
             case 0:
                 trait = Trait.FIRST;
-                Debug.Log("no die");
                 break;
             case 1:
                 trait = Trait.SECOND;
@@ -58,6 +63,6 @@ public class SkillManager : MonoBehaviour
                 trait = Trait.THIRD;
                 break;
         }
-        trait = Trait.FIRST;
+        return trait;
     }
 }

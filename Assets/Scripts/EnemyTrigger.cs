@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
 {
+    [SerializeField]
+    private bool repeat = false;
+    
     bool triggered = false;
     bool allDead = false;
     public GameObject[] enemies;
@@ -17,11 +20,11 @@ public class EnemyTrigger : MonoBehaviour
 
         for (int i = 0; i < enemies.Length; ++i)
         {
-            Instantiate(enemies[i], spawnPoints[i].gameObject.transform);
+            Instantiate(enemies[i], spawnPoints[i].gameObject.transform.position, spawnPoints[i].gameObject.transform.rotation);
             enemyCount++;
         }
-        triggered = true;
 
+        if (!repeat) triggered = true;
     }
 
     void Update()
