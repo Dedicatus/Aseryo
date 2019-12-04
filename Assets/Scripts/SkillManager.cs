@@ -10,8 +10,15 @@ public class SkillManager : MonoBehaviour
 
     [Header("Lv1Trait")]
     [SerializeField]
-    private float DashArea = 2.0f;
-    private float HPmultipler = 1.5f;
+    private float DashAreaMultipler = 2.0f;
+    [SerializeField]
+    private float MaxHealthMultipler = 1.5f;
+    [SerializeField]
+    private float UltTimeMultipler = 1.5f;
+
+    [Header("Lv2Trait")]
+    [SerializeField]
+    private float DashCDMultipler = 0.5f;
 
     [Header("Debug")]
     public Trait lv1Trait;
@@ -91,11 +98,28 @@ public class SkillManager : MonoBehaviour
         switch (lv1Trait)
         {
             case Trait.FIRST:
-                playerObject.transform.Find("Colliders").Find("DashCollider").GetComponent<BoxCollider>().size = new Vector3(DashArea, 1, 1);
-                playerObject.transform.Find("Colliders").Find("UltCollider").GetComponent<BoxCollider>().size = new Vector3(DashArea, 1, 1);
+                playerObject.transform.Find("Colliders").Find("DashCollider").GetComponent<BoxCollider>().size = new Vector3(playerObject.transform.Find("Colliders").Find("DashCollider").GetComponent<BoxCollider>().size.x * DashAreaMultipler, 1, 1);
+                playerObject.transform.Find("Colliders").Find("UltCollider").GetComponent<BoxCollider>().size = new Vector3(playerObject.transform.Find("Colliders").Find("UltCollider").GetComponent<BoxCollider>().size.x * DashAreaMultipler, 1, 1);
                 break;
             case Trait.SECOND:
-                player.MaxHealth *= HPmultipler;
+                player.maxHealth *= MaxHealthMultipler;
+                break;
+            case Trait.THIRD:
+                player.ultTime *= UltTimeMultipler;
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void lv2TraitHandler()
+    {
+        switch (lv1Trait)
+        {
+            case Trait.FIRST:
+                player.dashCD *= DashCDMultipler;
+                break;
+            case Trait.SECOND:
                 break;
             case Trait.THIRD:
                 break;

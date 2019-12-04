@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         target = player.transform;
-        playerAttack = player.GetComponent<Player>().Attack;
+        playerAttack = player.GetComponent<Player>().attack;
     }
 
     // Update is called once per frame
