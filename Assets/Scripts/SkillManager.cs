@@ -43,7 +43,7 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    private void setTrait(Trait* trait, int traitNum)
+    private void setTrait(Trait trait, int traitNum)
     {   
         switch (traitNum)
         {
