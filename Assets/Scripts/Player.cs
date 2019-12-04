@@ -19,8 +19,7 @@ public class Player : MonoBehaviour
     [Header("Status")]
     public float Health = 3f;
     public float Attack = 1f;
-    public float Exp = 0f;
-   
+
     [Header("Movement")]
     public float moveSpeed = 10f;
     public float dashForce = 500f;
@@ -33,6 +32,9 @@ public class Player : MonoBehaviour
     public float UltTime = 5f;
     public float UltCost = 5f;
     public float exploseTime = 0.3f;
+
+    [Header("Debug")]
+    public float Exp = 0f;
     public float UltCharge = 0f;
 
     bool isDashed;
