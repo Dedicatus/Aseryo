@@ -17,7 +17,8 @@ public class Player : MonoBehaviour
     public PlayerStates state;
 
     [Header("Status")]
-    public float Health = 100f;
+    public float MaxHealth = 3f;
+    private float curHealth;
     public float Attack = 1f;
 
     [Header("Movement")]
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour
         isExplosed = false;
         isUltra = false;
         explosionFinished = true;
+        curHealth = MaxHealth;
     }
 
     // Update is called once per frame
@@ -267,7 +269,7 @@ public class Player : MonoBehaviour
 
     public float getHealth()
     {
-        return Health;
+        return curHealth;
     }
 
     public float getUltCharge()

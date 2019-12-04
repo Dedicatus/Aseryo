@@ -4,8 +4,21 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
+    GameObject playerObject;
+    Player player;
     public enum Trait { NONE, FIRST, SECOND, THIRD };
-    public Trait lv1Trait, lv2Trait, lv3Trait, lv4Trait;
+
+    [Header("Lv1Trait")]
+    [SerializeField]
+    private float DashArea = 2.0f;
+    private float HPmultipler = 1.5f;
+
+    [Header("Debug")]
+    public Trait lv1Trait;
+    public Trait lv2Trait;
+    public Trait lv3Trait;
+    public Trait lv4Trait;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +26,8 @@ public class SkillManager : MonoBehaviour
         lv2Trait = Trait.NONE;
         lv3Trait = Trait.NONE;
         lv4Trait = Trait.NONE;
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        player = playerObject.GetComponent<Player>();
     }
 
     void Update()
@@ -26,6 +41,7 @@ public class SkillManager : MonoBehaviour
         {
             //Debug.Log("die");
             lv1Trait = setTrait(traitNum);
+            lv1TraitHandler();
             return;
         }
 
@@ -46,6 +62,7 @@ public class SkillManager : MonoBehaviour
             lv4Trait = setTrait(traitNum);
             return;
         }
+
     }
 
     private Trait setTrait(int traitNum)
@@ -62,7 +79,28 @@ public class SkillManager : MonoBehaviour
             case 2:
                 trait = Trait.THIRD;
                 break;
+            default:
+                trait = Trait.NONE;
+                break;
         }
         return trait;
+    }
+
+    private void lv1TraitHandler()
+    {
+        switch (lv1Trait)
+        {
+            case Trait.FIRST:
+                playerObject.transform.Find("Colliders").Find("DashCollider").GetComponent<BoxCollider>().size = new Vector3(DashArea, 1, 1);
+                playerObject.transform.Find("Colliders").Find("UltCollider").GetComponent<BoxCollider>().size = new Vector3(DashArea, 1, 1);
+                break;
+            case Trait.SECOND:
+                player.MaxHealth *= HPmultipler;
+                break;
+            case Trait.THIRD:
+                break;
+            default:
+                break;
+        }
     }
 }
