@@ -210,15 +210,15 @@ public class Player : MonoBehaviour
             float angle = get_angle(x, y), currentAngle = (transform.localEulerAngles.y % 360 + 360) % 360; ;
             transform.Rotate(Vector3.up, angle - currentAngle);
             //rigidBody.AddForce(transform.forward * moveSpeed);
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            rigidBody.MovePosition(transform.position+transform.forward * moveSpeed * Time.fixedDeltaTime);
         }
 
 
         if (Input.GetKey(KeyCode.W))
-            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+            rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
 
         if (Input.GetKey(KeyCode.S))
-            transform.Translate(-Vector3.forward * moveSpeed * Time.deltaTime);
+            rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
 
         if (Input.GetKey(KeyCode.A))
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
