@@ -282,9 +282,9 @@ MonoBehaviour:
   ultTime: 5
   ultCost: 100
   exploseTime: 0.3
-  chargePerHit: 100
+  chargePerHit: 10
   exp: 0
-  ultCharge: 100
+  ultCharge: 0
 --- !u!54 &4082285806324716154
 Rigidbody:
   m_ObjectHideFlags: 0
