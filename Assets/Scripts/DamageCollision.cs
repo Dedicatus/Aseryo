@@ -16,12 +16,12 @@ public class DamageCollision : MonoBehaviour
         if (coll.gameObject.tag == "Enemy")
         {
             player.GetComponent<Player>().addUltCharge();
-            Debug.Log(player.GetComponent<Player>().UltCharge);
+            Debug.Log(player.GetComponent<Player>().ultCharge);
             if (coll.gameObject.GetComponent<Enemy>().getDestoried())
             { 
                 Destroy(coll.gameObject);
                 player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
-                Debug.Log(player.GetComponent<Player>().Exp);
+                Debug.Log(player.GetComponent<Player>().exp);
                 
                 
             }

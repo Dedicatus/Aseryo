@@ -271,19 +271,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  Health: 3
-  Attack: 1
+  maxHealth: 100
+  attack: 1
   moveSpeed: 10
   dashForce: 750
   turnSpeed: 250
   dashTime: 0.5
-  dashBaseCD: 0.2
+  dashGap: 0.2
   dashCD: 1
-  UltTime: 10
-  UltCost: 1
+  ultTime: 5
+  ultCost: 100
   exploseTime: 0.3
-  Exp: 0
-  UltCharge: 0
+  chargePerHit: 100
+  exp: 0
+  ultCharge: 100
 --- !u!54 &4082285806324716154
 Rigidbody:
   m_ObjectHideFlags: 0

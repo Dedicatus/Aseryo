@@ -17,27 +17,27 @@ public class Player : MonoBehaviour
     public PlayerStates state;
 
     [Header("Status")]
-    public float MaxHealth = 3f;
+    public float maxHealth = 3f;
     private float curHealth;
-    public float Attack = 1f;
+    public float attack = 1f;
 
     [Header("Movement")]
     public float moveSpeed = 10f;
     public float dashForce = 500f;
     public float turnSpeed = 250f;
     public float dashTime = 0.5f;
-    public float dashBaseCD = 0.2f;
+    public float dashGap = 0.2f;
     public float dashCD = 3f;
 
     [Header("Skill")]
-    public float UltTime = 5f;
-    public float UltCost = 100f;
+    public float ultTime = 5f;
+    public float ultCost = 100f;
     public float exploseTime = 0.3f;
-    public float BaseUlt = 10f;
+    public float chargePerHit = 10f;
 
     [Header("Debug")]
-    public float Exp = 0f;
-    public float UltCharge = 100f;
+    public float exp = 0f;
+    public float ultCharge = 100f;
 
     bool isDashed;
     bool isExplosed;
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     bool isUltra;
 
     float dashTimer;
-    float dashBaseCDcount;
+    float dashGapCount;
     float dashCDcount;
     float ultCount;
     float exploseTimer;
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         isExplosed = false;
         isUltra = false;
         explosionFinished = true;
-        curHealth = MaxHealth;
+        curHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -76,14 +76,14 @@ public class Player : MonoBehaviour
 
     public bool checkUlt()
     {
-        if (UltCharge >= UltCost)
+        if (ultCharge >= ultCost)
             return true;
         return false;
     }
 
     public void resetUltCharge()
     {
-        UltCharge = 0;
+        ultCharge = 0;
     }
 
     float get_angle(float x, float y)
@@ -101,8 +101,8 @@ public class Player : MonoBehaviour
 
     private void inputHandler()
     {
-        if (dashBaseCDcount >= 0.0f)
-            dashBaseCDcount -= Time.deltaTime;
+        if (dashGapCount >= 0.0f)
+            dashGapCount -= Time.deltaTime;
         if (dashCDcount >= 0.0f)
             dashCDcount -= Time.deltaTime;
         if (ultCount >= 0.0f)
@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
         }
         if (isUltra)
         {
-            if (dashBaseCDcount <= 0.0f)
+            if (dashGapCount <= 0.0f)
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (dashBaseCDcount <= 0.0f&&dashCDcount<=0)
+            if (dashGapCount <= 0.0f&&dashCDcount<=0)
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
@@ -146,11 +146,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11) && UltCharge >= UltCost)
+        if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11) && ultCharge >= ultCost)
         {
             isUltra = true;
-            UltCharge -= UltCost;
-            ultCount = UltTime;
+            ultCharge -= ultCost;
+            ultCount = ultTime;
         }
 
         if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.Space))
@@ -239,7 +239,7 @@ public class Player : MonoBehaviour
         if (dashTimer <= 0.0f)
         {
             state = PlayerStates.MOVING;
-            dashBaseCDcount = dashBaseCD;
+            dashGapCount = dashGap;
             dashCDcount = dashCD;
             //rigidBody.AddForce(transform.forward * -dashForce);
         }
@@ -256,15 +256,15 @@ public class Player : MonoBehaviour
 
     public void addUltCharge()
     {
-        UltCharge += BaseUlt;
-        if (UltCharge >= UltCost)
-            UltCharge = UltCost;
+        ultCharge += chargePerHit;
+        if (ultCharge >= ultCost)
+            ultCharge = ultCost;
         //Debug.Log(UltCharge);
     }
 
-    public void addExp(float number)
+    public void addExp(float expNum)
     {
-        Exp += number;
+        exp += expNum;
         //Debug.Log(Exp);
     }
 
@@ -275,11 +275,11 @@ public class Player : MonoBehaviour
 
     public float getUltCharge()
     {
-        return UltCharge;
+        return ultCharge;
     }
 
     public float getExp()
     {
-        return Exp;
+        return exp;
     }
 }
