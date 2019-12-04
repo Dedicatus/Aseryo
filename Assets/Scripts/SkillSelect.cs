@@ -24,7 +24,7 @@ public class SkillSelect : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void chooseTrait()
+    public void chooseTrait(int traitNum)
     {
         gameObject.SetActive(false);
         Time.timeScale = 1;

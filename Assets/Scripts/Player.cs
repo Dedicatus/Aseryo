@@ -6,15 +6,15 @@ public class Player : MonoBehaviour
 {
     public Player()
     {
-        state = playerStates.MOVING;
+        state = PlayerStates.MOVING;
 
     }
     Rigidbody rigidBody;
     BoxCollider playerCollider, dashCollider,ultCollider;
     GameObject exploseColliderObject;
 
-    public enum playerStates { MOVING, DASHING };
-    public playerStates state;
+    public enum PlayerStates { MOVING, DASHING };
+    public PlayerStates state;
 
     [Header("Status")]
     public float Health = 3f;
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
         ultCollider = transform.Find("Colliders").gameObject.transform.Find("UltCollider").gameObject.GetComponent<BoxCollider>();
         exploseColliderObject = transform.Find("Colliders").gameObject.transform.Find("ExploseCollider").gameObject;
         dashTimer = 0.0f;
-        playerStates state = playerStates.MOVING;
+        PlayerStates state = PlayerStates.MOVING;
         isDashed = false;
         isExplosed = false;
         isUltra = false;
@@ -117,10 +117,10 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
-                    if ((state == playerStates.MOVING) && (isDashed == false))
+                    if ((state == PlayerStates.MOVING) && (isDashed == false))
                     {
                         dashTimer = dashTime;
-                        state = playerStates.DASHING;                 
+                        state = PlayerStates.DASHING;                 
                     }
                     ultCollider.enabled = true;
                 }
@@ -132,10 +132,10 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
-                    if ((state == playerStates.MOVING) && (isDashed == false))
+                    if ((state == PlayerStates.MOVING) && (isDashed == false))
                     {
                         dashTimer = dashTime;
-                        state = playerStates.DASHING;
+                        state = PlayerStates.DASHING;
                         isDashed = true;
                     }
                     dashCollider.enabled = true;
@@ -169,12 +169,12 @@ public class Player : MonoBehaviour
 
         switch (state)
         {
-            case playerStates.MOVING:
+            case PlayerStates.MOVING:
                 dashCollider.enabled = false;
                 movePlayer();
                 break;
 
-            case playerStates.DASHING:
+            case PlayerStates.DASHING:
                 //playerCollider.enabled = false;
                 dashForward();
                 break;
@@ -235,7 +235,7 @@ public class Player : MonoBehaviour
         else rigidBody.AddForce(transform.forward * 50.0f);
         if (dashTimer <= 0.0f)
         {
-            state = playerStates.MOVING;
+            state = PlayerStates.MOVING;
             dashBaseCDcount = dashBaseCD;
             dashCDcount = dashCD;
             //rigidBody.AddForce(transform.forward * -dashForce);
@@ -246,7 +246,7 @@ public class Player : MonoBehaviour
 
     public bool isCollision()
     {
-        if (state == playerStates.DASHING)
+        if (state == PlayerStates.DASHING)
             return false;
         return true;
     }

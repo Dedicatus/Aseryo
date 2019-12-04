@@ -409,7 +409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400c0ee02a9c91c4e9e67f745b3b789b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traitLevel: 0
+  lv1Trait: 0
+  lv2Trait: 0
+  lv3Trait: 0
+  lv4Trait: 0
 --- !u!1 &1204308878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1091,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159056780041001236, guid: b004e67f57896a248bb6f10ed363daed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159056779072044631, guid: b004e67f57896a248bb6f10ed363daed,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159056779072044631, guid: b004e67f57896a248bb6f10ed363daed,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159056779758530036, guid: b004e67f57896a248bb6f10ed363daed,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159056779758530036, guid: b004e67f57896a248bb6f10ed363daed,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2159056779823055554, guid: b004e67f57896a248bb6f10ed363daed,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b004e67f57896a248bb6f10ed363daed, type: 3}

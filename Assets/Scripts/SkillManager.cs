@@ -4,20 +4,57 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    public int traitLevel;
-    public enum lv1Trait { A, B, C };
-    public enum lv2Trait { A, B, C };
-    public enum lv3Trait { A, B, C };
-    public enum lv4Trait { A, B, C };
+    public enum Trait { FIRST, SECOND, THIRD, NONE };
+    public Trait lv1Trait, lv2Trait, lv3Trait, lv4Trait;
     // Start is called before the first frame update
     void Start()
     {
-        traitLevel = 0;
+        lv1Trait = Trait.NONE;
+        lv2Trait = Trait.NONE;
+        lv3Trait = Trait.NONE;
+        lv4Trait = Trait.NONE;
     }
 
-    // Update is called once per frame
-    void Update()
+    void updateTrait(int traitNum)
     {
-        
+        if (lv1Trait == Trait.NONE)
+        {
+            setTrait(lv1Trait, traitNum);
+            return;
+        }
+
+        if (lv2Trait == Trait.NONE)
+        {
+            setTrait(lv2Trait, traitNum);
+            return;
+        }
+
+        if (lv3Trait == Trait.NONE)
+        {
+            setTrait(lv3Trait, traitNum);
+            return;
+        }
+
+        if (lv4Trait == Trait.NONE)
+        {
+            setTrait(lv4Trait, traitNum);
+            return;
+        }
+    }
+
+    private void setTrait(Trait trait, int traitNum)
+    {
+        switch (traitNum)
+        {
+            case 0:
+                trait = Trait.FIRST;
+                break;
+            case 1:
+                trait = Trait.SECOND;
+                break;
+            case 2:
+                trait = Trait.THIRD;
+                break;
+        }
     }
 }
