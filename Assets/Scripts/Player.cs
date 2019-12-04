@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public float UltTime = 5f;
     public float UltCost = 100f;
     public float exploseTime = 0.3f;
+    public float BaseUlt = 10f;
 
     [Header("Debug")]
     public float Exp = 0f;
@@ -253,9 +254,9 @@ public class Player : MonoBehaviour
         return true;
     }
 
-    public void addUltCharge(float number)
+    public void addUltCharge()
     {
-        UltCharge += number;
+        UltCharge += BaseUlt;
         if (UltCharge >= UltCost)
             UltCharge = UltCost;
         //Debug.Log(UltCharge);
