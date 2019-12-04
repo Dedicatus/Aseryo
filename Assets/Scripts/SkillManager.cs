@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    public enum Trait { FIRST, SECOND, THIRD, NONE };
+    public enum Trait { NONE, FIRST, SECOND, THIRD };
     public Trait lv1Trait, lv2Trait, lv3Trait, lv4Trait;
     // Start is called before the first frame update
     void Start()
@@ -15,10 +15,11 @@ public class SkillManager : MonoBehaviour
         lv4Trait = Trait.NONE;
     }
 
-    void updateTrait(int traitNum)
+    public void updateTrait(int traitNum)
     {
         if (lv1Trait == Trait.NONE)
         {
+            Debug.Log("die");
             setTrait(lv1Trait, traitNum);
             return;
         }
@@ -42,12 +43,13 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    private void setTrait(Trait trait, int traitNum)
-    {
+    private void setTrait(Trait* trait, int traitNum)
+    {   
         switch (traitNum)
         {
             case 0:
                 trait = Trait.FIRST;
+                Debug.Log("no die");
                 break;
             case 1:
                 trait = Trait.SECOND;
@@ -56,5 +58,6 @@ public class SkillManager : MonoBehaviour
                 trait = Trait.THIRD;
                 break;
         }
+        trait = Trait.FIRST;
     }
 }
