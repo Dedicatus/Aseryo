@@ -247,7 +247,9 @@ public class Player : MonoBehaviour
         else rigidBody.AddForce(transform.forward * 50.0f);
         if (dashTimer <= 0.0f)
         {
-            state = PlayerStates.IDLING;
+            if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f || Mathf.Abs(Input.GetAxis("Vertical_L")) > 0.19f)
+                state = PlayerStates.MOVING;
+            else state = PlayerStates.IDLING;
             dashGapCount = dashGap;
             dashCDcount = dashCD;
             //rigidBody.AddForce(transform.forward * -dashForce);

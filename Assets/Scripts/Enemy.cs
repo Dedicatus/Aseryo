@@ -8,10 +8,13 @@ public class Enemy : MonoBehaviour
     public Transform target;
     public GameObject player;
     float playerAttack;
+    public enum EnemyStates { IDLING, MOVING, ATTACKING };
+    EnemyStates state;
     public float UltCharge = 1f;
     public float Exp = 1f;
     public float Attack = 1f;
     public float Health = 2f;
+    
     public Enemy()
     {
         
@@ -20,6 +23,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        state = EnemyStates.IDLING;
         player = GameObject.FindGameObjectWithTag("Player");
         target = player.transform;
         playerAttack = player.GetComponent<Player>().attack;
@@ -45,6 +49,26 @@ public class Enemy : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         transform.rotation = rotation;
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+    }
+
+    public void changeState(int flag)
+    {
+        switch (flag)
+        {
+            case 1:
+                state = EnemyStates.IDLING;
+                break;
+
+            case 2:
+                state= EnemyStates.MOVING;
+                break;
+
+            case 3:
+                state = EnemyStates.ATTACKING;
+                break;
+
+        }
+        
     }
 
     public bool getDestoried()
