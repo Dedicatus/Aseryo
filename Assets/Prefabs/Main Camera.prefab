@@ -98,4 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 0.25
-  offset: {x: 0, y: 15, z: -17}
+  offset: {x: 0, y: 15, z: -16}
