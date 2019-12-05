@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8032073679275694810}
   m_Layer: 0
-  m_Name: 1x2_grass_01
+  m_Name: 1x2_Grass_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,11 +101,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8032073679275694809}
-  m_LocalRotation: {x: -0.044196956, y: -0.13039649, z: -0.0058186417, w: 0.99045926}
+  m_LocalRotation: {x: -0.04457833, y: 0, z: 0, w: 0.99900585}
   m_LocalPosition: {x: 0, y: 2.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8032073679081462085}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -5.11, y: -15, z: 0}
+  m_LocalEulerAnglesHint: {x: -5.11, y: 0, z: 0}

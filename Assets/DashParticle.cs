@@ -5,7 +5,7 @@ using UnityEngine;
 public class DashParticle : MonoBehaviour
 {
     public GameObject dashEffectObj;
-    public float effectRotationY = 90f;
+    public float effectRotationY = 0f;
     public float effectKillTime = 1.5f;
     bool effectAlive;
     
@@ -13,7 +13,7 @@ public class DashParticle : MonoBehaviour
 
     public void startDashParticle()
     {
-        GameObject temp = Instantiate(dashEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, effectRotationY, 0), transform);
+        GameObject temp = Instantiate(dashEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, effectRotationY + 110f, 0), transform);
         Destroy(temp, effectKillTime);
     }
 }
