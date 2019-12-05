@@ -13,12 +13,13 @@ public class Enemy1Animation : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         enemy = transform.GetComponentInParent<Enemy>();
-        attackCDCount = attackCD;
+        //attackCDCount = attackCD;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("AttackGap")) { attackCDCount -= Time.deltaTime; Debug.Log(attackCDCount);}
         if (attackCDCount <= 0)
         {
@@ -26,6 +27,7 @@ public class Enemy1Animation : MonoBehaviour
             animator.SetTrigger("startAttack");
             attackCDCount = attackCD;
         }
+        */
         switch (enemy.state)
         {
             case Enemy.EnemyStates.IDLING:
