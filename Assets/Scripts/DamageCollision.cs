@@ -6,6 +6,7 @@ using static Player;
 public class DamageCollision : MonoBehaviour
 {
     GameObject player;
+    GameObject Enemy;
 
     private void Start()
     {
@@ -15,6 +16,7 @@ public class DamageCollision : MonoBehaviour
     {
         if (coll.gameObject.tag == "Enemy")
         {
+            Enemy = coll.gameObject;
             player.GetComponent<Player>().addUltCharge();
             Debug.Log(player.GetComponent<Player>().ultCharge);
             if (coll.gameObject.GetComponent<Enemy>().getDestoried())
