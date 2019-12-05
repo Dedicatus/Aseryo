@@ -12,7 +12,9 @@ public class Player : MonoBehaviour
     Rigidbody rigidBody;
     BoxCollider playerCollider, dashCollider,ultCollider;
     GameObject exploseColliderObject;
+    Transform dashEffectObj;
 
+    public Transform dashEffect;
     public enum PlayerStates { IDLING, MOVING, DASHING };
     public PlayerStates state;
 
@@ -141,6 +143,7 @@ public class Player : MonoBehaviour
                         dashTimer = dashTime;
                         state = PlayerStates.DASHING;
                         isDashed = true;
+                        Instantiate(dashEffect, Vector3.zero, transform.rotation, transform);
                     }
                     dashCollider.enabled = true;
                 }
@@ -241,7 +244,6 @@ public class Player : MonoBehaviour
 
     private void dashForward()
     {
-
         if (dashTimer >= dashTime - 0.1f)
             rigidBody.AddForce(transform.forward * dashForce);
         else rigidBody.AddForce(transform.forward * 50.0f);
