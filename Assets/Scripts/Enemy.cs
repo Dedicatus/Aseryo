@@ -14,7 +14,12 @@ public class Enemy : MonoBehaviour
     public float Exp = 1f;
     public float Attack = 1f;
     public float Health = 2f;
-    
+    public float AttackTime = 1f;
+    bool isHit;
+    public bool isAttackEnd;
+    EnemyAttackCollision eac;
+    float AttackTimeCount;
+
     public Enemy()
     {
         
@@ -27,12 +32,46 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         target = player.transform;
         playerAttack = player.GetComponent<Player>().attack;
+        AttackTimeCount = AttackTime;
+        isHit = false;
+        isAttackEnd = true;
+        eac = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        followPlayer();
+        EnemyHandler();
+    }
+
+    void EnemyHandler()
+    {
+        switch (state)
+        {
+            case EnemyStates.IDLING:
+                break;
+            
+            case EnemyStates.MOVING:
+                followPlayer();
+                break;
+
+            case EnemyStates.ATTACKING:
+                attackPlayer();
+                break;
+        }
+    }
+
+    void attackPlayer()
+    {
+        AttackTimeCount -= Time.deltaTime;
+        if (AttackTimeCount <= 0)
+        {
+            isAttackEnd = true;
+            if (eac.inRange)
+                player.GetComponent<Player>().getAttacked(Attack);
+            state = EnemyStates.MOVING;
+        }
+
     }
 
     void followPlayer()
@@ -64,6 +103,8 @@ public class Enemy : MonoBehaviour
                 break;
 
             case 3:
+                isAttackEnd = false;
+                AttackTimeCount = AttackTime;
                 state = EnemyStates.ATTACKING;
                 break;
 
