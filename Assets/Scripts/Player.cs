@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     bool explosionFinished;
     bool isUltra;
 
-    float dashTimer;
+    public float dashTimer;
     float dashGapCount;
     float dashCDcount;
     float ultCount;

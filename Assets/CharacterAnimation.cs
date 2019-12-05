@@ -6,6 +6,7 @@ public class CharacterAnimation : MonoBehaviour
 {
     private Animator animator;
     Player player;
+    private float dashTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,18 +20,15 @@ public class CharacterAnimation : MonoBehaviour
         switch (player.state)
         {
             case Player.PlayerStates.IDLING:
-                animator.Play("Idle");
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) { animator.Play("Idle"); }
                 animator.SetBool("isMoving", false);
-                animator.SetBool("isDashing", false);
                 break;
             case Player.PlayerStates.MOVING:
-                animator.Play("Move");
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) { animator.Play("Move"); }
                 animator.SetBool("isMoving", true);
-                animator.SetBool("isDashing", false);
                 break;
             case Player.PlayerStates.DASHING:
                 animator.Play("Attack");
-                animator.SetBool("isDashing", true);
                 break;
         }
     }
