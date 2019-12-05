@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
 
     void EnemyHandler()
     {
+        colliderCheck();
         switch (state)
         {
             case EnemyStates.IDLING:
@@ -58,6 +59,18 @@ public class Enemy : MonoBehaviour
             case EnemyStates.ATTACKING:
                 attackPlayer();
                 break;
+        }
+    }
+
+    void colliderCheck()
+    { 
+        if (!player.GetComponent<Player>().isCollision())
+        {
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), true);
+        }
+        else
+        {
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), false);
         }
     }
 
@@ -76,14 +89,7 @@ public class Enemy : MonoBehaviour
 
     void followPlayer()
     {
-        if (!player.GetComponent<Player>().isCollision())
-        {
-            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), true);
-        }
-        else
-        {
-            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), false);
-        }
+        
         Vector3 relativePos = target.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         transform.rotation = rotation;
