@@ -1094,6 +1094,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Samurai_animated_01
       objectReference: {fileID: 0}
+    - target: {fileID: -8905941076210734246, guid: ddddfd6137a56984bac3212e5fc13419,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ba3fdd90aef64283b282970b0b6ff86, type: 2}
     - target: {fileID: -6057140222963153312, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
       propertyPath: m_Controller
@@ -1159,6 +1164,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3791376661586708882, guid: ddddfd6137a56984bac3212e5fc13419,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b60e25cc00d09445a1218b5ed0c6237, type: 2}
+    - target: {fileID: 9064817418337131487, guid: ddddfd6137a56984bac3212e5fc13419,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b60e25cc00d09445a1218b5ed0c6237, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddddfd6137a56984bac3212e5fc13419, type: 3}
 --- !u!1 &1930922506 stripped
