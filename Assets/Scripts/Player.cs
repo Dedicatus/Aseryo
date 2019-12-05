@@ -215,6 +215,7 @@ public class Player : MonoBehaviour
 
     private void movePlayer()
     {
+        //Play Station Controller
         if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f || Mathf.Abs(Input.GetAxis("Vertical_L")) > 0.19f)
         {
             float x = Input.GetAxis("Horizontal_L"), y = Input.GetAxis("Vertical_L");
@@ -229,17 +230,29 @@ public class Player : MonoBehaviour
             state = PlayerStates.IDLING;
         }
 
-        if (Input.GetKey(KeyCode.W))
+        //Keyboard
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+        {
             rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
-
-        if (Input.GetKey(KeyCode.S))
-            rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+            state = PlayerStates.MOVING;
+        }
 
         if (Input.GetKey(KeyCode.A))
+        {
             transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+            state = PlayerStates.MOVING;
+        }
 
         if (Input.GetKey(KeyCode.D))
+        {
             transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+            state = PlayerStates.MOVING;
+        }
+
+        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            state = PlayerStates.IDLING;
+        }
     }
 
     private void dashForward()
