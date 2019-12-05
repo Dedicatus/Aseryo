@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     float playerAttack;
     public enum EnemyStates { IDLING, MOVING, ATTACKING };
-    EnemyStates state;
+    public EnemyStates state;
     public float UltCharge = 1f;
     public float Exp = 1f;
     public float Attack = 1f;
