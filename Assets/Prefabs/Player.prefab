@@ -611,11 +611,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Samurai_hat
       objectReference: {fileID: 0}
-    - target: {fileID: -6594062097034367109, guid: dff431e12571f6e47b53206bd80f12ea,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5b60e25cc00d09445a1218b5ed0c6237, type: 2}
     - target: {fileID: -4216859302048453862, guid: dff431e12571f6e47b53206bd80f12ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -671,6 +666,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6594062097034367109, guid: dff431e12571f6e47b53206bd80f12ea,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b60e25cc00d09445a1218b5ed0c6237, type: 2}
     - target: {fileID: -968655569149430039, guid: dff431e12571f6e47b53206bd80f12ea,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
