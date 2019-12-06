@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (dashGapCount <= 0.0f&&dashCDcount<=0)
+            if (dashGapCount <= 0.0f && dashCDcount<=0)
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
@@ -228,31 +228,43 @@ public class Player : MonoBehaviour
         }
         else {
             state = PlayerStates.IDLING;
+
+            //Keyboard
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            {
+                rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                state = PlayerStates.MOVING;
+
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+                    state = PlayerStates.MOVING;
+                }
+
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+                    state = PlayerStates.MOVING;
+                }
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.A))
+                {
+                    transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+                    state = PlayerStates.IDLING;
+                }
+
+                if (Input.GetKey(KeyCode.D))
+                {
+                    transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+                    state = PlayerStates.IDLING;
+                }
+            }
+
         }
 
-        //Keyboard
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
-        {
-            rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
-            state = PlayerStates.MOVING;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-            state = PlayerStates.MOVING;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-            state = PlayerStates.MOVING;
-        }
-
-        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
-        {
-            state = PlayerStates.IDLING;
-        }
+        
     }
 
     private void dashForward()
