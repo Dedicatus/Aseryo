@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: a00c6c6e07d15ec4ea812518385ccea6
+guid: 157389dd66d193b45b310dfcb992c6a8
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Ninja_scarf_Idle
+    second: Samurai_Idle
   - first:
-      74: -9121621101649706817
-    second: Ninja_scarf_Running
+      74: 3469614822472548015
+    second: Samurai_Running
   - first:
-      74: 6720303635017113406
-    second: Ninja_scarf_Attack
+      74: -2212760148732438310
+    second: Samurai_Attack
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -41,7 +41,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Ninja_scarf_Idle
+      name: Samurai_Idle
       takeName: Take 001
       internalID: 0
       firstFrame: 5
@@ -70,7 +70,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ninja_scarf_Running
+      name: Samurai_Running
       takeName: Take 001
       internalID: 0
       firstFrame: 28
@@ -99,11 +99,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ninja_scarf_Attack
+      name: Samurai_Attack
       takeName: Take 001
       internalID: 0
       firstFrame: 55
-      lastFrame: 72
+      lastFrame: 75
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
