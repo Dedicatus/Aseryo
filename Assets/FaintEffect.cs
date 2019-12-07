@@ -9,7 +9,7 @@ public class FaintEffect : MonoBehaviour
     public float effectKillTime = 1.5f;
     bool effectAlive;
 
-    public void startFaintParticle()
+    public void startFaintEffect()
     {
         GameObject temp = Instantiate(faintEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, effectRotationY + 180f, 0), GameObject.Find("BloodHolder").transform);
         Destroy(temp, effectKillTime);

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     Rigidbody rigidBody;
     BoxCollider playerCollider, dashCollider,ultCollider;
     GameObject exploseColliderObject;
-    DashEffect dashEffect;
+    PlayerEffect playerEffect;
 
     public enum PlayerStates { IDLING, MOVING, DASHING };
     public PlayerStates state;
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         isUltra = false;
         explosionFinished = true;
         curHealth = maxHealth;
-        dashEffect = transform.GetComponent<DashEffect>();
+        playerEffect = transform.GetComponent<PlayerEffect>();
     }
 
     // Update is called once per frame
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
                     {
                         dashTimer = dashTime;
                         state = PlayerStates.DASHING;
-                        dashEffect.startDashParticle();
+                        playerEffect.startDashEffect();
                     }
                     ultCollider.enabled = true;
                 }
@@ -144,14 +144,14 @@ public class Player : MonoBehaviour
                         dashTimer = dashTime;
                         state = PlayerStates.DASHING;
                         isDashed = true;
-                        dashEffect.startDashParticle();
+                        playerEffect.startDashEffect();
                     }
                     dashCollider.enabled = true;
                 }
             }
         }
 
-        if (Input.GetKey(KeyCode.JoystickButton10)&& Input.GetKey(KeyCode.JoystickButton11) && ultCharge >= ultCost)
+        if (((Input.GetKey(KeyCode.JoystickButton10) && Input.GetKey(KeyCode.JoystickButton11)) || Input.GetKey(KeyCode.R)) && ultCharge >= ultCost)
         {
             isUltra = true;
             ultCharge -= ultCost;

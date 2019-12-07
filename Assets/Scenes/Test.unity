@@ -1819,6 +1819,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: swipeEffectObj
+      value: 
+      objectReference: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+        type: 3}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: dashEffectObj
+      value: 
+      objectReference: {fileID: 1934977346563538, guid: bb689f0379626471f94680f2f5d592a2,
+        type: 3}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: dashEffectKillTime
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7ad8dd3ed100184da5ff0c0428e9c74, type: 3}
 --- !u!1001 &4203241119367160000

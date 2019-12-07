@@ -28,7 +28,7 @@ public class DamageCollision : MonoBehaviour
                 Destroy(coll.gameObject);
 
                 faintEffect = enemy.transform.GetComponent<FaintEffect>();
-                faintEffect.startFaintParticle();
+                faintEffect.startFaintEffect();
 
                 player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
                 Debug.Log(player.GetComponent<Player>().exp);
