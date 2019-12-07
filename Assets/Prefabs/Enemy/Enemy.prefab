@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 5030974831800733228}
   - component: {fileID: 5030974831800733219}
   - component: {fileID: 5030974831800733218}
+  - component: {fileID: 1489936351}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -297,6 +298,22 @@ MonoBehaviour:
   Health: 2
   AttackTime: 1
   isAttackEnd: 0
+--- !u!114 &1489936351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030974831800733217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b83b6600ac442c0ad820e9976a4cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faintEffectObj: {fileID: 7064504075086683119, guid: 4dcb762a69bf2fe40921547a70e9456a,
+    type: 3}
+  effectRotationY: 0
+  effectKillTime: 1.5
 --- !u!114 &5030974830695276438
 MonoBehaviour:
   m_ObjectHideFlags: 0

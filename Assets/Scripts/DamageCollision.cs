@@ -6,26 +6,33 @@ using static Player;
 public class DamageCollision : MonoBehaviour
 {
     GameObject player;
-    GameObject Enemy;
+    GameObject enemy;
+    FaintEffect faintEffect;
 
     private void Start()
     {
         player = transform.parent.parent.gameObject;
     }
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Enemy")
         {
-            Enemy = coll.gameObject;
+            enemy = coll.gameObject;
             player.GetComponent<Player>().addUltCharge();
+
             Debug.Log(player.GetComponent<Player>().ultCharge);
+
             if (coll.gameObject.GetComponent<Enemy>().getDestoried())
             { 
                 Destroy(coll.gameObject);
+
+                faintEffect = enemy.transform.GetComponent<FaintEffect>();
+                faintEffect.startFaintParticle();
+
                 player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
                 Debug.Log(player.GetComponent<Player>().exp);
-                
-                
+
             }
                 
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashParticle : MonoBehaviour
+public class DashEffect : MonoBehaviour
 {
     public GameObject dashEffectObj;
     public float effectRotationY = 0f;
