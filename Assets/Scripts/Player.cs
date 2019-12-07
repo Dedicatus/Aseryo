@@ -126,7 +126,8 @@ public class Player : MonoBehaviour
                     if (((state == PlayerStates.MOVING)|| (state == PlayerStates.IDLING)) && (isDashed == false))
                     {
                         dashTimer = dashTime;
-                        state = PlayerStates.DASHING;                 
+                        state = PlayerStates.DASHING;
+                        dashParticle.startDashParticle();
                     }
                     ultCollider.enabled = true;
                 }
