@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
 {
-    [SerializeField]
-    private bool activated = true;
+    public bool activated = true;
     [SerializeField]
     private bool repeat = false;
     
@@ -13,33 +12,45 @@ public class EnemyTrigger : MonoBehaviour
     bool allDead = false;
     public GameObject[] enemies;
     public GameObject[] spawnPoints;
-    int enemyCount = 0;
-    
+    public GameObject[] chainedTrigger;
+
+    public int enemyCount;
+
+    private void Start()
+    {
+        if (!activated)
+        {
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
 
     void OnTriggerEnter(Collider coll)
     {
         if (triggered == true || coll.tag != "Player") return;
 
+        enemyCount = enemies.Length;
         for (int i = 0; i < enemies.Length; ++i)
         {
-            Instantiate(enemies[i], spawnPoints[i].gameObject.transform.position, spawnPoints[i].gameObject.transform.rotation);
-            enemyCount++;
+            Instantiate(enemies[i], spawnPoints[i].gameObject.transform.position, spawnPoints[i].gameObject.transform.rotation, transform.Find("EnemyHolder").transform);
         }
 
-        if (!repeat) triggered = true;
+        //Debug.Log("1: " + enemyCount);
+        if (!repeat) triggered = true;                                                                                                                                                                                                                                                                                                            
     }
 
     void Update()
     {
         if (!triggered || allDead) return;
-        int deadCount = enemyCount;
-        for (int a = 0; a < enemyCount; ++a)
-        {
-            if (enemies[a] == null) deadCount--;
-        }
-        if (deadCount == 0)
+        if (enemyCount == 0)
         {
             allDead = true;
+            if (chainedTrigger != null)
+            {
+                for (int i = 0; i < chainedTrigger.Length; ++i)
+                {
+                    chainedTrigger[i].transform.GetComponent<BoxCollider>().enabled = true;
+                }
+            }
         }
     }
         
