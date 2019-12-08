@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     public float AttackTime = 1f;
     bool isHit;
     public bool isAttackEnd;
-    EnemyAttackCollision eac;
+    EnemyAttackCollision enemyAttackCollision;
     float AttackTimeCount;
 
     public Enemy()
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         AttackTimeCount = AttackTime;
         isHit = false;
         isAttackEnd = true;
-        eac = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
+        enemyAttackCollision = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
     }
 
     // Update is called once per frame
@@ -80,7 +80,7 @@ public class Enemy : MonoBehaviour
         if (AttackTimeCount <= 0)
         {
             isAttackEnd = true;
-            if (eac.inRange)
+            if (enemyAttackCollision.inRange)
                 player.GetComponent<Player>().getAttacked(Attack);
             state = EnemyStates.MOVING;
         }

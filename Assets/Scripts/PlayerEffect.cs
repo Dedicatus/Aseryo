@@ -33,7 +33,7 @@ public class PlayerEffect : MonoBehaviour
 
     private void startDashParticle()
     {
-        GameObject temp = Instantiate(dashEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, dashEffectRotationY, 0), GameObject.Find("BloodHolder").transform);
+        GameObject temp = Instantiate(dashEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, dashEffectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
         Destroy(temp, dashEffectKillTime);
     }
 }

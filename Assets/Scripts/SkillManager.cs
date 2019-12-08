@@ -121,6 +121,41 @@ public class SkillManager : MonoBehaviour
                 player.dashCD *= DashCDMultipler;
                 break;
             case Trait.SECOND:
+                if(player.rebornTime==0)
+                    player.isCanReborn=true;
+                break;
+            case Trait.THIRD:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void lv3TraitHandler()
+    {
+        switch (lv3Trait)
+        {
+            case Trait.FIRST:
+                player.dashCD *= DashCDMultipler;
+                break;
+            case Trait.SECOND:
+
+                break;
+            case Trait.THIRD:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void lv4TraitHandler()
+    {
+        switch (lv4Trait)
+        {
+            case Trait.FIRST:
+                player.dashCD *= DashCDMultipler;
+                break;
+            case Trait.SECOND:
                 break;
             case Trait.THIRD:
                 break;

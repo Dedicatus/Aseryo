@@ -23,7 +23,7 @@ public class EnemyAttackCollision : MonoBehaviour
             if(Enemy.GetComponent<Enemy>().isAttackEnd)
                 Enemy.GetComponent<Enemy>().changeState(3);
             inRange = true;
-            Debug.Log("inRange, Yes");
+            //Debug.Log("inRange, Yes");
         }
     }
     private void OnTriggerExit(Collider coll)
@@ -31,7 +31,7 @@ public class EnemyAttackCollision : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             inRange = false;
-            Debug.Log("inRange, No! ");
+            //Debug.Log("inRange, No! ");
         }
     }
 }

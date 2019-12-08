@@ -5,31 +5,69 @@ using UnityEngine.UI;
 
 public class SkillSelect : MonoBehaviour
 {
- 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    SkillManager skillManager;
 
-    // Update is called once per frame
-    void Update()
+    public GameObject traitButton1, traitButton2, traitButton3;
+    private SkillManager.Trait lv1Trait, lv2Trait, lv3Trait, lv4Trait;
+
+    private void Start()
     {
-        
+        skillManager = transform.parent.parent.Find("SkillManager").GetComponent<SkillManager>();
     }
 
     public void startChoose()
     {
         gameObject.SetActive(true);
-        Time.timeScale = 0;
+        lv1Trait = skillManager.lv1Trait;
+        lv2Trait = skillManager.lv2Trait;
+        lv3Trait = skillManager.lv3Trait;
+        lv4Trait = skillManager.lv4Trait;
+        setUIContain();
+        Time.timeScale = 0;  
     }
 
     public void chooseTrait(int traitNum)
     {
-        transform.parent.parent.Find("SkillManager").GetComponent<SkillManager>().updateTrait(traitNum);
+        skillManager.updateTrait(traitNum);
 
         gameObject.SetActive(false);
         Time.timeScale = 1;
     }
 
+    private void setUIContain()
+    {
+        if (lv1Trait == SkillManager.Trait.NONE)
+        {
+            traitButton1.transform.GetComponentInChildren<Text>().text = "+DashArea";
+            traitButton2.transform.GetComponentInChildren<Text>().text = "+HP";
+            traitButton3.transform.GetComponentInChildren<Text>().text = "+UltTime";
+            return;
+        }
+
+        if (lv2Trait == SkillManager.Trait.NONE)
+        {
+            traitButton1.transform.GetComponentInChildren<Text>().text = "-DashCD";
+            traitButton2.transform.GetComponentInChildren<Text>().text = "Revive";
+            traitButton3.transform.GetComponentInChildren<Text>().text = "AutoUltCharge";
+            return;
+        }
+
+        if (lv3Trait == SkillManager.Trait.NONE)
+        {
+            Debug.Log("2");
+            traitButton1.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            traitButton2.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            traitButton3.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            return;
+        }
+
+        if (lv4Trait == SkillManager.Trait.NONE)
+        {
+            traitButton1.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            traitButton2.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            traitButton3.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            return;
+        }
+
+    }
 }
