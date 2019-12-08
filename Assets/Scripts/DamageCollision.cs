@@ -22,7 +22,7 @@ public class DamageCollision : MonoBehaviour
             player.GetComponent<Player>().addUltCharge();
 
             //Debug.Log(player.GetComponent<Player>().ultCharge);
-
+            player.GetComponent<Player>().addSingleKill();
             if (coll.gameObject.GetComponent<Enemy>().getDestoried())
             { 
                 Destroy(coll.gameObject);

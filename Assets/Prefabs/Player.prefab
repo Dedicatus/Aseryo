@@ -290,6 +290,7 @@ MonoBehaviour:
   state: 0
   maxHealth: 100
   attack: 1
+  vibrationBaseNumber: 3
   moveSpeed: 10
   dashForce: 750
   turnSpeed: 250
@@ -304,6 +305,7 @@ MonoBehaviour:
   ultCharge: 0
   revivable: 0
   reviveTime: 0
+  vibrationTime: 0.2
   dashTimer: 0
 --- !u!114 &4375192109798654835
 MonoBehaviour:
