@@ -19,6 +19,7 @@ public class SkillManager : MonoBehaviour
     [Header("Lv2Trait")]
     [SerializeField]
     private float DashCDMultipler = 0.5f;
+    private float ChargeRecoverMultipler = 0.01f;
 
     [Header("Debug")]
     public Trait lv1Trait;
@@ -121,10 +122,11 @@ public class SkillManager : MonoBehaviour
                 player.dashCD *= DashCDMultipler;
                 break;
             case Trait.SECOND:
-                if(player.rebornTime==0)
-                    player.isCanReborn=true;
+                if(player.reviveTime == 0)
+                    player.revivable = true;
                 break;
             case Trait.THIRD:
+                //player.ultCharge += player.Charge * ChargeRecoverMultipler;
                 break;
             default:
                 break;

@@ -44,8 +44,8 @@ public class Player : MonoBehaviour
     bool isExplosed;
     bool explosionFinished;
     bool isUltra;
-    bool isCanReborn;
-    int rebornTime;
+    public bool revivable;
+    public int reviveTime;
 
     public float dashTimer;
     float dashGapCount;
@@ -67,8 +67,8 @@ public class Player : MonoBehaviour
 
         isDashed = false;
         isExplosed = false;
-        isCanReborn = false;
-        rebornTime = 0;
+        revivable = false;
+        reviveTime = 0;
         isUltra = false;
         explosionFinished = true;
         curHealth = maxHealth;
