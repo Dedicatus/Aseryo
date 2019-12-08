@@ -10,8 +10,9 @@ public class Player : MonoBehaviour
 
     }
     Rigidbody rigidBody;
-    BoxCollider playerCollider, dashCollider,ultCollider;
-    GameObject exploseColliderObject;
+    BoxCollider playerCollider, dashCollider, ultCollider;
+    CapsuleCollider exploseCollider;
+
     PlayerEffect playerEffect;
 
     public enum PlayerStates { IDLING, MOVING, DASHING };
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour
         playerCollider = GetComponent<BoxCollider>();
         dashCollider = transform.Find("Colliders").gameObject.transform.Find("DashCollider").gameObject.GetComponent<BoxCollider>();
         ultCollider = transform.Find("Colliders").gameObject.transform.Find("UltCollider").gameObject.GetComponent<BoxCollider>();
-        exploseColliderObject = transform.Find("Colliders").gameObject.transform.Find("ExploseCollider").gameObject;
+        exploseCollider = transform.Find("Colliders").gameObject.transform.Find("ExploseCollider").gameObject.GetComponent<CapsuleCollider>();
         dashTimer = 0.0f;
         PlayerStates state = PlayerStates.IDLING;
 
@@ -205,7 +206,7 @@ public class Player : MonoBehaviour
     {
         if (exploseTimer <= 0.0f)
         {
-            exploseColliderObject.SetActive(false);
+            exploseCollider.enabled = false;
             explosionFinished = true;
         }
         exploseTimer -= Time.deltaTime;
@@ -213,7 +214,7 @@ public class Player : MonoBehaviour
 
     private void startExplosion()
     {
-        exploseColliderObject.SetActive(true);
+        exploseCollider.enabled = true;
         isExplosed = true;
         explosionFinished = false;
         exploseTimer = exploseTime;
