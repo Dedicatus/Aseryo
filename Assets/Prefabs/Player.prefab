@@ -602,6 +602,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloakEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 4617965710086329074, guid: 2724fa4f78262c04d962a61d68c328da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4617965710086329077, guid: 2724fa4f78262c04d962a61d68c328da,
         type: 3}
       propertyPath: m_LocalPosition.x
