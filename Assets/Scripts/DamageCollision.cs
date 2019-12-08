@@ -21,7 +21,7 @@ public class DamageCollision : MonoBehaviour
             enemy = coll.gameObject;
             player.GetComponent<Player>().addUltCharge();
 
-            Debug.Log(player.GetComponent<Player>().ultCharge);
+            //Debug.Log(player.GetComponent<Player>().ultCharge);
 
             if (coll.gameObject.GetComponent<Enemy>().getDestoried())
             { 
@@ -31,7 +31,7 @@ public class DamageCollision : MonoBehaviour
                 faintEffect.startFaintEffect();
 
                 player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
-                Debug.Log(player.GetComponent<Player>().exp);
+                //Debug.Log(player.GetComponent<Player>().exp);
 
             }
                 
