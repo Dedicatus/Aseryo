@@ -27,6 +27,7 @@ public class DamageCollision : MonoBehaviour
             { 
                 Destroy(coll.gameObject);
 
+                enemy.transform.parent.parent.GetComponent<EnemyTrigger>().enemyCount--;
                 faintEffect = enemy.transform.GetComponent<FaintEffect>();
                 faintEffect.startFaintEffect();
 
