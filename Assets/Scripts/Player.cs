@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public float maxHealth = 3f;
     private float curHealth;
     public float attack = 1f;
+    public int vibrationBaseNumber = 3;
 
     [Header("Movement")]
     public float moveSpeed = 10f;
@@ -55,6 +56,8 @@ public class Player : MonoBehaviour
     float ultCount;
     float exploseTimer;
     float vibrationCount;
+    int SigleDashCount;
+    bool isVibrated;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +75,9 @@ public class Player : MonoBehaviour
         isExplosed = false;
         revivable = false;
         reviveTime = 0;
+        SigleDashCount = 0;
         isUltra = false;
+        isVibrated = false;
         explosionFinished = true;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
@@ -96,6 +101,11 @@ public class Player : MonoBehaviour
         ultCharge = 0;
     }
 
+    public void addSingleKill()
+    {
+        SigleDashCount++;
+    }
+
     float get_angle(float x, float y)
     {
         float theta = Mathf.Atan2(x, y) - Mathf.Atan2(0, 1.0f);
@@ -111,6 +121,11 @@ public class Player : MonoBehaviour
 
     private void ControllerVibration()
     {
+        if (isVibrated == false && SigleDashCount >= vibrationBaseNumber)
+        {
+            vibrationCount = vibrationTime;
+            isVibrated = true;
+        }
         vibrationCount -= Time.deltaTime;
         if(vibrationCount>=0)
             XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.5f);
@@ -142,7 +157,8 @@ public class Player : MonoBehaviour
                     if (((state == PlayerStates.MOVING)|| (state == PlayerStates.IDLING)) && (isDashed == false))
                     {
                         dashTimer = dashTime;
-                        vibrationCount = vibrationTime;
+                        isVibrated = false;
+                        SigleDashCount = 0;
                         state = PlayerStates.DASHING;
                         playerEffect.startDashEffect();
                     }
@@ -160,7 +176,8 @@ public class Player : MonoBehaviour
                     if (((state == PlayerStates.MOVING) || (state == PlayerStates.IDLING)) && (isDashed == false))
                     {
                         dashTimer = dashTime;
-                        vibrationCount = vibrationTime;
+                        isVibrated = false;
+                        SigleDashCount = 0;
                         state = PlayerStates.DASHING;
                         isDashed = true;
                         playerEffect.startDashEffect();
@@ -302,6 +319,8 @@ public class Player : MonoBehaviour
             else state = PlayerStates.IDLING;
             dashGapCount = dashGap;
             dashCDcount = dashCD;
+            SigleDashCount = 0;
+            isVibrated = false;
             //rigidBody.AddForce(transform.forward * -dashForce);
         }
         dashTimer -= Time.deltaTime;
