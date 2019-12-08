@@ -31,13 +31,16 @@ public class Enemy1Animation : MonoBehaviour
         switch (enemy.state)
         {
             case Enemy.EnemyStates.IDLING:
-                animator.Play("Idle");
+                animator.SetBool("isMoving", false);
+                animator.SetBool("isAttacking", false);
                 break;
             case Enemy.EnemyStates.MOVING:
-                animator.Play("Move");
+                animator.SetBool("isMoving", true);
+                animator.SetBool("isAttacking", false);
                 break;
             case Enemy.EnemyStates.ATTACKING:
-                animator.Play("Attack");
+                animator.SetBool("isMoving", false);
+                animator.SetBool("isAttacking", true);
                 break;
         }
     }
