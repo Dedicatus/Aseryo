@@ -317,10 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f870557b259d64b9a53a25337cd98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeEffectObj: {fileID: 0}
+  swipeEffectObj: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+    type: 3}
   swipeEffectRotationY: 0
   swipeEffectKillTime: 1.5
-  dashEffectObj: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+  dashEffectObj: {fileID: 1934977346563538, guid: bb689f0379626471f94680f2f5d592a2,
     type: 3}
   dashEffectRotationY: 0
   dashEffectKillTime: 1.5
@@ -487,6 +488,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Samurai
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: ddddfd6137a56984bac3212e5fc13419,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 157389dd66d193b45b310dfcb992c6a8, type: 3}
+    - target: {fileID: -6057140222963153312, guid: ddddfd6137a56984bac3212e5fc13419,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: df051646601da7846b547dd638658997, type: 2}
     - target: {fileID: -4216859302048453862, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -547,12 +558,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: ddddfd6137a56984bac3212e5fc13419,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: df051646601da7846b547dd638658997, type: 2}
-    - target: {fileID: 3791376661586708882, guid: ddddfd6137a56984bac3212e5fc13419,
+    - target: {fileID: 9064817418337131487, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -562,7 +568,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1ba3fdd90aef64283b282970b0b6ff86, type: 2}
-    - target: {fileID: 9064817418337131487, guid: ddddfd6137a56984bac3212e5fc13419,
+    - target: {fileID: 3791376661586708882, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -592,6 +598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CloakEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617965710086329074, guid: 2724fa4f78262c04d962a61d68c328da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4617965710086329077, guid: 2724fa4f78262c04d962a61d68c328da,
         type: 3}
