@@ -20,15 +20,16 @@ public class CharacterAnimation : MonoBehaviour
         switch (player.state)
         {
             case Player.PlayerStates.IDLING:
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) { animator.Play("Idle"); }
                 animator.SetBool("isMoving", false);
+                animator.SetBool("isAttacking", false);
                 break;
-            case Player.PlayerStates.MOVING:
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack")) { animator.Play("Move"); }
+            case Player.PlayerStates.MOVING: 
                 animator.SetBool("isMoving", true);
+                animator.SetBool("isAttacking", false);
                 break;
             case Player.PlayerStates.DASHING:
-                animator.Play("Attack");
+                animator.SetBool("isMoving", false);
+                animator.SetBool("isAttacking", true);
                 break;
         }
     }

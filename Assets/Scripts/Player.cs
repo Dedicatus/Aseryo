@@ -160,6 +160,7 @@ public class Player : MonoBehaviour
             isUltra = true;
             ultCharge -= ultCost;
             ultCount = ultTime;
+            playerEffect.startUltEffect();
         }
 
         if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.Space))
@@ -216,6 +217,7 @@ public class Player : MonoBehaviour
         isExplosed = true;
         explosionFinished = false;
         exploseTimer = exploseTime;
+        playerEffect.startExplosionEffect();
     }
 
     private void movePlayer()

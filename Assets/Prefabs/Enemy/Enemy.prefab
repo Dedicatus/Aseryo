@@ -366,11 +366,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5030974831800733231}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 6340faededa3a3e4987e9607cb5e22b3,
-        type: 3}
-      propertyPath: m_Name
-      value: Ninja
-      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 6340faededa3a3e4987e9607cb5e22b3,
         type: 3}
       propertyPath: m_Controller
@@ -430,6 +425,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6340faededa3a3e4987e9607cb5e22b3,
+        type: 3}
+      propertyPath: m_Name
+      value: Ninja
       objectReference: {fileID: 0}
     - target: {fileID: 7445241302709893319, guid: 6340faededa3a3e4987e9607cb5e22b3,
         type: 3}
