@@ -314,6 +314,10 @@ MonoBehaviour:
     type: 3}
   effectRotationY: 0
   effectKillTime: 1.5
+  groundBloodObj: {fileID: 8646630590542489480, guid: eb6eed307250c1b42bb86037f8c4f877,
+    type: 3}
+  bloodRotationY: 0
+  bloodKillTime: 1.5
 --- !u!114 &1813290247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,11 +444,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ninja
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 532ed4abfc8a1b9408c443dd8008bbf5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532ed4abfc8a1b9408c443dd8008bbf5, type: 3}

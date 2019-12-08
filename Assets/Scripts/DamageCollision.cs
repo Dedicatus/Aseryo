@@ -30,6 +30,7 @@ public class DamageCollision : MonoBehaviour
                 enemy.transform.parent.parent.GetComponent<EnemyTrigger>().enemyCount--;
                 faintEffect = enemy.transform.GetComponent<FaintEffect>();
                 faintEffect.startFaintEffect();
+                faintEffect.startGroundBlood();
 
                 player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
                 //Debug.Log(player.GetComponent<Player>().exp);
