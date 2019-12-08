@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     BoxCollider playerCollider, dashCollider,ultCollider;
     GameObject exploseColliderObject;
     PlayerEffect playerEffect;
-
+    XInputDotNetPure.PlayerIndex PlayerIndex = XInputDotNetPure.PlayerIndex.One;
     public enum PlayerStates { IDLING, MOVING, DASHING };
     public PlayerStates state;
 
@@ -127,6 +127,7 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
+                    XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.5f);
                     if (((state == PlayerStates.MOVING)|| (state == PlayerStates.IDLING)) && (isDashed == false))
                     {
                         dashTimer = dashTime;
@@ -143,6 +144,7 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
+                    XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.5f);
                     if (((state == PlayerStates.MOVING) || (state == PlayerStates.IDLING)) && (isDashed == false))
                     {
                         dashTimer = dashTime;
