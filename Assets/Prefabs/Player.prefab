@@ -325,6 +325,14 @@ MonoBehaviour:
     type: 3}
   dashEffectRotationY: 0
   dashEffectKillTime: 1.5
+  explosionEffectObj: {fileID: 1648509489993130, guid: 8e2b1f6a8bc1b4106825cfad16fda75d,
+    type: 3}
+  explosionEffectRotationY: 0
+  explosionEffectKillTime: 1.5
+  ultEffectObj: {fileID: 1683321806259216, guid: 0609ebb6b881f4db581124c61ff7a647,
+    type: 3}
+  ultEffectRotationY: 0
+  ultEffectKillTime: 1.5
 --- !u!1 &4082285806505561880
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,11 +491,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4082285805179131161}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: ddddfd6137a56984bac3212e5fc13419,
+    - target: {fileID: -8905941076210734246, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
-      propertyPath: m_Name
-      value: Samurai
-      objectReference: {fileID: 0}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ba3fdd90aef64283b282970b0b6ff86, type: 2}
     - target: {fileID: -6057140222963153312, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
       propertyPath: m_Avatar
@@ -558,17 +566,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 9064817418337131487, guid: ddddfd6137a56984bac3212e5fc13419,
+    - target: {fileID: -927199367670048503, guid: ddddfd6137a56984bac3212e5fc13419,
+        type: 3}
+      propertyPath: m_Name
+      value: Samurai
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791376661586708882, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5b60e25cc00d09445a1218b5ed0c6237, type: 2}
-    - target: {fileID: -8905941076210734246, guid: ddddfd6137a56984bac3212e5fc13419,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1ba3fdd90aef64283b282970b0b6ff86, type: 2}
-    - target: {fileID: 3791376661586708882, guid: ddddfd6137a56984bac3212e5fc13419,
+    - target: {fileID: 9064817418337131487, guid: ddddfd6137a56984bac3212e5fc13419,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

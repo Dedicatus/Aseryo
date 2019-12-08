@@ -12,7 +12,14 @@ public class PlayerEffect : MonoBehaviour
     public float dashEffectRotationY = 0f;
     public float dashEffectKillTime = 1.5f;
 
-    //bool effectAlive;
+    public GameObject explosionEffectObj;
+    public float explosionEffectRotationY = 0f;
+    public float explosionEffectKillTime = 1.5f;
+
+    public GameObject ultEffectObj;
+    public float ultEffectRotationY = 0f;
+    public float ultEffectKillTime = 1.5f;
+
 
     public void startDashEffect()
     {
@@ -21,8 +28,15 @@ public class PlayerEffect : MonoBehaviour
     }
 
     public void startUltEffect()
-    { 
+    {
+        GameObject temp = Instantiate(ultEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, ultEffectRotationY, 0), transform);
+        Destroy(temp, ultEffectKillTime);
+    }
 
+    public void startExplosionEffect()
+    {
+        GameObject temp = Instantiate(explosionEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, explosionEffectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
+        Destroy(temp, explosionEffectKillTime);
     }
 
     private void startSwipeParticle()
