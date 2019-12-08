@@ -46,12 +46,14 @@ public class Player : MonoBehaviour
     bool isUltra;
     public bool revivable;
     public int reviveTime;
+    public float vibrationTime=0.5f;
 
     public float dashTimer;
     float dashGapCount;
     float dashCDcount;
     float ultCount;
     float exploseTimer;
+    float vibrationCount;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +108,14 @@ public class Player : MonoBehaviour
 
     }
 
+    private void ControllerVibration()
+    {
+        vibrationCount -= Time.deltaTime;
+        if(vibrationCount>=0)
+            XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.5f);
+        else XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0f);
+    }
+
     private void inputHandler()
     {
         if (dashGapCount >= 0.0f)
@@ -127,10 +137,11 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
-                    XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.5f);
+                    
                     if (((state == PlayerStates.MOVING)|| (state == PlayerStates.IDLING)) && (isDashed == false))
                     {
                         dashTimer = dashTime;
+                        vibrationCount = vibrationTime;
                         state = PlayerStates.DASHING;
                         playerEffect.startDashEffect();
                     }
@@ -144,10 +155,11 @@ public class Player : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
                 {
-                    XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.5f);
+                    
                     if (((state == PlayerStates.MOVING) || (state == PlayerStates.IDLING)) && (isDashed == false))
                     {
                         dashTimer = dashTime;
+                        vibrationCount = vibrationTime;
                         state = PlayerStates.DASHING;
                         isDashed = true;
                         playerEffect.startDashEffect();
@@ -196,6 +208,7 @@ public class Player : MonoBehaviour
 
             case PlayerStates.DASHING:
                 //playerCollider.enabled = false;
+                ControllerVibration();
                 dashForward();
                 break;
 
