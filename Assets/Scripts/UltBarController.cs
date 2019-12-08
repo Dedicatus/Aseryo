@@ -16,8 +16,13 @@ public class UltBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float Ult = 4 * player.GetComponent<Player>().getUltCharge();
-        rect.sizeDelta = new Vector2(Ult, 20f);
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(-200f + Ult / 2f, 0);
+        float Ult = player.GetComponent<Player>().getUltCharge();
+        float width = 0.6f*Ult;
+        if (Ult >= 200f)
+            width += 20f;
+        else if (Ult < 200f && Ult >= 100f)
+            width += 10f;
+        rect.sizeDelta = new Vector2(width, 22f);
+        GetComponent<RectTransform>().anchoredPosition = new Vector2(-86f + width / 2f, -24f);
     }
 }

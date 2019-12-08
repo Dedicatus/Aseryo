@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
     public bool revivable;
     public int reviveTime;
     public float vibrationTime=0.5f;
+    public bool isAddMaxHealth;
 
     public float dashTimer;
     float dashGapCount;
@@ -58,6 +59,8 @@ public class Player : MonoBehaviour
     float vibrationCount;
     int SigleDashCount;
     bool isVibrated;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +81,7 @@ public class Player : MonoBehaviour
         SigleDashCount = 0;
         isUltra = false;
         isVibrated = false;
+        isAddMaxHealth = false;
         explosionFinished = true;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
@@ -134,6 +138,13 @@ public class Player : MonoBehaviour
 
     private void inputHandler()
     {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            isAddMaxHealth = true;
+            maxHealth = 120f;
+            curHealth = 120f;
+        }
+
         if (dashGapCount >= 0.0f)
             dashGapCount -= Time.deltaTime;
         if (dashCDcount >= 0.0f)
@@ -187,7 +198,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (((Input.GetKey(KeyCode.JoystickButton10) && Input.GetKey(KeyCode.JoystickButton11)) || Input.GetKey(KeyCode.R)) && ultCharge >= ultCost)
+        if (((Input.GetKey(KeyCode.JoystickButton10) && Input.GetKey(KeyCode.JoystickButton11)) || Input.GetKey(KeyCode.R)) && ultCharge >= ultCost&&!isUltra)
         {
             isUltra = true;
             ultCharge -= ultCost;
@@ -337,8 +348,8 @@ public class Player : MonoBehaviour
     public void addUltCharge()
     {
         ultCharge += chargePerHit;
-        if (ultCharge >= ultCost)
-            ultCharge = ultCost;
+        if (ultCharge >= ultCost*3f)
+            ultCharge = ultCost*3f;
         //Debug.Log(UltCharge);
     }
 
