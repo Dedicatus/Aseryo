@@ -317,13 +317,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f870557b259d64b9a53a25337cd98a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swipeEffectObj: {fileID: 0}
+  swipeEffectObj: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+    type: 3}
   swipeEffectRotationY: 0
   swipeEffectKillTime: 1.5
-  dashEffectObj: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+  dashEffectObj: {fileID: 1934977346563538, guid: bb689f0379626471f94680f2f5d592a2,
     type: 3}
   dashEffectRotationY: 0
   dashEffectKillTime: 1.5
+  explosionEffectObj: {fileID: 1648509489993130, guid: 8e2b1f6a8bc1b4106825cfad16fda75d,
+    type: 3}
+  explosionEffectRotationY: 0
+  explosionEffectKillTime: 1.5
+  ultEffectObj: {fileID: 1683321806259216, guid: 0609ebb6b881f4db581124c61ff7a647,
+    type: 3}
+  ultEffectRotationY: 0
+  ultEffectKillTime: 1.5
 --- !u!1 &4082285806505561880
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4082285806505561881
 Transform:
   m_ObjectHideFlags: 0
@@ -373,7 +382,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4082285806505561880}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -592,6 +601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CloakEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4617965710086329074, guid: 2724fa4f78262c04d962a61d68c328da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4617965710086329077, guid: 2724fa4f78262c04d962a61d68c328da,
         type: 3}
