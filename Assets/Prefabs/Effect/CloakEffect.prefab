@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4617965710086329079}
   - component: {fileID: 4617965710086329076}
   m_Layer: 0
-  m_Name: OuterCloak
+  m_Name: CloakEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,8 +169,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
