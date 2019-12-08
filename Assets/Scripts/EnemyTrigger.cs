@@ -5,6 +5,8 @@ using UnityEngine;
 public class EnemyTrigger : MonoBehaviour
 {
     [SerializeField]
+    private bool activated = true;
+    [SerializeField]
     private bool repeat = false;
     
     bool triggered = false;

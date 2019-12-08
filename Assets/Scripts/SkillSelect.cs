@@ -13,6 +13,10 @@ public class SkillSelect : MonoBehaviour
     private void Start()
     {
         skillManager = transform.parent.parent.Find("SkillManager").GetComponent<SkillManager>();
+        lv1Trait = skillManager.lv1Trait;
+        lv2Trait = skillManager.lv2Trait;
+        lv3Trait = skillManager.lv3Trait;
+        lv4Trait = skillManager.lv4Trait;
     }
 
     public void startChoose()
