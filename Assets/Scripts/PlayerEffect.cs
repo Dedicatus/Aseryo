@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlayerEffect : MonoBehaviour
 {
+    Player player;
     public GameObject swipeEffectObj;
+    public GameObject fireSwipeObj;
+    public GameObject iceSwipeObj;
+    public GameObject windSwipeObj;
+    public GameObject windBigSwipeObj;
+
     public float swipeEffectRotationY = 0f;
     public float swipeEffectKillTime = 1.5f;
+    public float windBigSwipeKillTime = 1.5f;
 
     public GameObject dashEffectObj;
     public float dashEffectRotationY = 0f;
@@ -20,6 +27,10 @@ public class PlayerEffect : MonoBehaviour
     public float ultEffectRotationY = 0f;
     public float ultEffectKillTime = 1.5f;
 
+    private void Start()
+    {
+        player = transform.GetComponent<Player>();
+    }
 
     public void startDashEffect()
     {
@@ -41,8 +52,31 @@ public class PlayerEffect : MonoBehaviour
 
     private void startSwipeParticle()
     {
-        GameObject temp = Instantiate(swipeEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
-        Destroy(temp, swipeEffectKillTime);
+        GameObject temp;
+        switch (player.Utype)
+        {
+            case Player.UltType.NONE:
+                temp = Instantiate(fireSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
+                Destroy(temp, swipeEffectKillTime);
+                break;
+
+            case Player.UltType.FIRE:
+                temp = Instantiate(iceSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
+                Destroy(temp, swipeEffectKillTime);
+                break;
+
+            case Player.UltType.ICE:
+                temp = Instantiate(windSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
+                Destroy(temp, swipeEffectKillTime);
+                break;
+
+            case Player.UltType.ELECTRIC:
+                temp = Instantiate(swipeEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
+                Destroy(temp, swipeEffectKillTime);
+                GameObject windSwipe = Instantiate(windBigSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), transform);
+                Destroy(temp, windBigSwipeKillTime);
+                break;
+        }  
     }
 
     private void startDashParticle()
