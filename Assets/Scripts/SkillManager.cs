@@ -147,7 +147,6 @@ public class SkillManager : MonoBehaviour
                 //player.expoFlag = true;
                 break;
             case Trait.SECOND:
-                player.curHealth += HealthRecover;
                 break;
             case Trait.THIRD:
                 /*if(player.state == DASHING)
