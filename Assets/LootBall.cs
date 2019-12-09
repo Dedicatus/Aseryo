@@ -18,15 +18,15 @@ public class LootBall : MonoBehaviour
             {
                 case LootBallType.Fire:
                     player.fireAmount += lootAmount;
-                    player.GetComponent<Player>().addUltCharge();
+                    player.GetComponent<Player>().addUltCharge(lootAmount);
                     break;
                 case LootBallType.Ice:
                     player.iceAmount += lootAmount;
-                    player.GetComponent<Player>().addUltCharge();
+                    player.GetComponent<Player>().addUltCharge(lootAmount);
                     break;
                 case LootBallType.Electric:
-                    player.elecAmount += lootAmount;
-                    player.GetComponent<Player>().addUltCharge();
+                    player.windAmount += lootAmount;
+                    player.GetComponent<Player>().addUltCharge(lootAmount);
                     break;
             }
             

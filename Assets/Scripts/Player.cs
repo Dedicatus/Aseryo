@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     PlayerEffect playerEffect;
     XInputDotNetPure.PlayerIndex PlayerIndex = XInputDotNetPure.PlayerIndex.One;
     public enum PlayerStates { IDLING, MOVING, DASHING };
-    public enum UltType {NONE, FIRE, ICE, ELECTRIC };
+    public enum UltType {NONE, FIRE, ICE, WIND };
     public PlayerStates state;
     public UltType Utype;
 
@@ -38,14 +38,13 @@ public class Player : MonoBehaviour
     public float ultTime = 5f;
     public float ultCost = 100f;
     public float exploseTime = 0.3f;
-    public float chargePerHit = 10f;
 
     [Header("Debug")]
     public float exp = 0f;
     public float ultCharge = 100f;
     public int fireAmount = 0;
     public int iceAmount = 0;
-    public int elecAmount = 0;
+    public int windAmount = 0;
 
     bool isDashed;
     bool isExplosed;
@@ -143,12 +142,12 @@ public class Player : MonoBehaviour
 
     void checkUltType()
     {
-        if (fireAmount >= iceAmount && fireAmount >= elecAmount)
+        if (fireAmount >= iceAmount && fireAmount >= windAmount)
             Utype = UltType.FIRE;
-        if (iceAmount >= fireAmount && iceAmount >= elecAmount)
+        if (iceAmount >= fireAmount && iceAmount >= windAmount)
             Utype = UltType.ICE;
-        if (elecAmount >= iceAmount && elecAmount >= fireAmount)
-            Utype = UltType.ELECTRIC;
+        if (windAmount >= iceAmount && windAmount >= fireAmount)
+            Utype = UltType.WIND;
     }
 
     void changeUltType(UltType UT)
@@ -157,8 +156,8 @@ public class Player : MonoBehaviour
             fireAmount = 0;
         if (UT == UltType.ICE)
             iceAmount = 0;
-        if (UT == UltType.ELECTRIC)
-            elecAmount = 0;
+        if (UT == UltType.WIND)
+            windAmount = 0;
     }
 
     private void inputHandler()
@@ -372,9 +371,9 @@ public class Player : MonoBehaviour
         return true;
     }
 
-    public void addUltCharge()
+    public void addUltCharge(int amount)
     {
-        ultCharge += chargePerHit;
+        ultCharge += amount;
         if (ultCharge >= ultCost*3f)
             ultCharge = ultCost*3f;
         //Debug.Log(UltCharge);

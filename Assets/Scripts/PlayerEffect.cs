@@ -70,7 +70,7 @@ public class PlayerEffect : MonoBehaviour
                 Destroy(temp, swipeEffectKillTime);
                 break;
 
-            case Player.UltType.ELECTRIC:
+            case Player.UltType.WIND:
                 temp = Instantiate(swipeEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
                 Destroy(temp, swipeEffectKillTime);
                 GameObject windSwipe = Instantiate(windBigSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), transform);
