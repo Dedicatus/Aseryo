@@ -1396,6 +1396,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: windSwipeObj
+      value: 
+      objectReference: {fileID: 1217668729914568, guid: 16ffd1911184d684b955b8f7fd387380,
+        type: 3}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: windSwipeDelay
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7ad8dd3ed100184da5ff0c0428e9c74, type: 3}
 --- !u!4 &1823850659 stripped
