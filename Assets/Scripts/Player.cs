@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         ultCollider = transform.Find("Colliders").gameObject.transform.Find("UltCollider").gameObject.GetComponent<BoxCollider>();
         exploseCollider = transform.Find("Colliders").gameObject.transform.Find("ExploseCollider").gameObject.GetComponent<CapsuleCollider>();
         dashTimer = 0.0f;
-        PlayerStates state = PlayerStates.IDLING;
+        state = PlayerStates.IDLING;
 
         isDashed = false;
         isExplosed = false;

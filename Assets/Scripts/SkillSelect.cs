@@ -22,10 +22,6 @@ public class SkillSelect : MonoBehaviour
     public void startChoose()
     {
         gameObject.SetActive(true);
-        lv1Trait = skillManager.lv1Trait;
-        lv2Trait = skillManager.lv2Trait;
-        lv3Trait = skillManager.lv3Trait;
-        lv4Trait = skillManager.lv4Trait;
         setUIContain();
         Time.timeScale = 0;  
     }
@@ -33,6 +29,10 @@ public class SkillSelect : MonoBehaviour
     public void chooseTrait(int traitNum)
     {
         skillManager.updateTrait(traitNum);
+        lv1Trait = skillManager.lv1Trait;
+        lv2Trait = skillManager.lv2Trait;
+        lv3Trait = skillManager.lv3Trait;
+        lv4Trait = skillManager.lv4Trait;
 
         gameObject.SetActive(false);
         Time.timeScale = 1;

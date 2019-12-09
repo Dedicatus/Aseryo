@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public int level;
+    public Transform[] levelStartPoints;
+    GameObject player;
+    Rigidbody playerRB;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerRB = player.GetComponent<Rigidbody>();
+        level = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void nextLevel()
     {
-        
+        playerRB.MovePosition(levelStartPoints[level].position);
+        ++level;
     }
 }
