@@ -407,6 +407,8 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().gameOver();
+            //transform.GetComponent<FaintEffect>().startFaintEffect();
+            transform.GetComponent<FaintEffect>().startGroundBlood();
         }
     }
 }
