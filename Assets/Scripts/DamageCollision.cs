@@ -36,5 +36,12 @@ public class DamageCollision : MonoBehaviour
                 ee.GetComponent<Enemy>().catchOnFire();
             }
         }
+        if (player.GetComponent<Player>().Utype == UltType.ICE)
+        {
+            if (!ee.GetComponent<Enemy>().isIced)
+            {
+                ee.GetComponent<Enemy>().getIced();
+            }
+        }
     }
 }
