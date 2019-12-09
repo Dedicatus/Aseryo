@@ -16,7 +16,9 @@ public class Player : MonoBehaviour
     PlayerEffect playerEffect;
     XInputDotNetPure.PlayerIndex PlayerIndex = XInputDotNetPure.PlayerIndex.One;
     public enum PlayerStates { IDLING, MOVING, DASHING };
+    public enum UltType { FIRE, ICE, ELECTRIC };
     public PlayerStates state;
+    public UltType Utype;
 
     [Header("Status")]
     public float maxHealth = 3f;
@@ -63,8 +65,8 @@ public class Player : MonoBehaviour
     int SigleDashCount;
     bool isVibrated;
 
-    
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -139,6 +141,27 @@ public class Player : MonoBehaviour
         else XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0f);
     }
 
+    void checkUltType()
+    {
+        if (fireAmount >= iceAmount && fireAmount >= elecAmount)
+            Utype = UltType.FIRE;
+        if (iceAmount >= fireAmount && iceAmount >= elecAmount)
+            Utype = UltType.ICE;
+        if (elecAmount >= iceAmount && elecAmount >= fireAmount)
+            Utype = UltType.ELECTRIC;
+    }
+
+    void changeUltType(UltType UT)
+    {
+        if (UT == UltType.FIRE)
+            fireAmount = 0;
+        if (UT == UltType.ICE)
+            iceAmount = 0;
+        if (UT == UltType.ELECTRIC)
+            elecAmount = 0;
+        checkUltType();
+    }
+
     private void inputHandler()
     {
         if (Input.GetKey(KeyCode.Q))
@@ -157,6 +180,7 @@ public class Player : MonoBehaviour
             ultCount -= Time.deltaTime;
             if (ultCount <= 0)
             {
+                changeUltType(Utype);
                 ultCollider.enabled = false;
                 isUltra = false;
             }
@@ -350,6 +374,7 @@ public class Player : MonoBehaviour
 
     public void addUltCharge()
     {
+        checkUltType();
         ultCharge += chargePerHit;
         if (ultCharge >= ultCost*3f)
             ultCharge = ultCost*3f;

@@ -20,7 +20,7 @@ public class DamageCollision : MonoBehaviour
         if (coll.gameObject.tag == "Enemy")
         {
             enemy = coll.gameObject;
-            player.GetComponent<Player>().addUltCharge();
+            //player.GetComponent<Player>().addUltCharge();
 
             //Debug.Log(player.GetComponent<Player>().ultCharge);
             player.GetComponent<Player>().addSingleKill();
