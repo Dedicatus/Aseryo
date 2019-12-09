@@ -15,17 +15,20 @@ public class Enemy : MonoBehaviour
     public float onFireTime = 2.5f;
     public float FireCD = 0.2f;
     public float FireDamage = 1f;
-
+    public float iceTime = 2f;
     public float Exp = 1f;
     public float Attack = 1f;
     public float Health = 2f;
     public float AttackTime = 1f;
     bool isHit;
-    public bool isFired=false;
+    public bool isFired = false;
+    public bool isIced = false;
     float FireCDCount;
     float onFireCount;
+    float iceCount;
     public bool isAttackEnd;
     EnemyAttackCollision enemyAttackCollision;
+    EnemyAlarmCollision enemyAlarmCollision;
     float AttackTimeCount;
 
     FaintEffect faintEffect;
@@ -48,7 +51,8 @@ public class Enemy : MonoBehaviour
         isFired = false;
         isAttackEnd = true;
         FireCDCount = 0f;
-         enemyAttackCollision = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
+        enemyAttackCollision = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
+        enemyAlarmCollision = transform.Find("Colliders").Find("AlarmCollider").GetComponent<EnemyAlarmCollision>();
     }
 
     // Update is called once per frame
@@ -65,6 +69,8 @@ public class Enemy : MonoBehaviour
         colliderCheck();
         if (onFireCount > 0)
             burn();
+        if (iceCount > 0)
+            iced();
         switch (state)
         {
             case EnemyStates.IDLING:
@@ -127,6 +133,27 @@ public class Enemy : MonoBehaviour
             }
         }
         
+    }
+    
+    public void getIced()
+    {
+        isIced = true;
+        iceCount = iceTime;
+    }
+
+    void iced()
+    {
+        iceCount -= Time.deltaTime;
+        if (iceCount > 0)
+        {
+            state = EnemyStates.IDLING;
+            enemyAlarmCollision.enabled = false;
+        }
+        else
+        { 
+            enemyAlarmCollision.enabled = true;
+            state = EnemyStates.MOVING;
+        } 
     }
 
     void attackPlayer()
