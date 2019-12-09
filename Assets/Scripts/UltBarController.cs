@@ -16,6 +16,7 @@ public class UltBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null) return;
         float Ult = player.GetComponent<Player>().getUltCharge();
         float width = 0.6f*Ult;
         if (Ult >= 200f)
