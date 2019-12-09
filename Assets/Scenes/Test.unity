@@ -191,13 +191,13 @@ PrefabInstance:
     - target: {fileID: 6882418513323203267, guid: b38a828c8746e2643b6f3b80ea7b8139,
         type: 3}
       propertyPath: repeat
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6882418513323203267, guid: b38a828c8746e2643b6f3b80ea7b8139,
         type: 3}
       propertyPath: chainedTrigger.Array.data[0]
       value: 
-      objectReference: {fileID: 1704357599}
+      objectReference: {fileID: 0}
     - target: {fileID: 6882418513323203278, guid: b38a828c8746e2643b6f3b80ea7b8139,
         type: 3}
       propertyPath: m_Name
@@ -1317,12 +1317,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1704357599 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8871855216492641976, guid: 06f47564dfa3a784eab23f8d36b24d79,
-    type: 3}
-  m_PrefabInstance: {fileID: 8871855214631293294}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1775639448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4203241119672773525, guid: 007e2c10acf85d346900e0f5417d5698,
@@ -2097,11 +2091,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4832731181012818300, guid: 89a79501bbbc244b7bb4bfb392db4600,
-        type: 3}
-      propertyPath: orthographic size
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4832731181012818302, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
