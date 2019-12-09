@@ -303,6 +303,7 @@ MonoBehaviour:
   chargePerHit: 10
   exp: 0
   ultCharge: 0
+  lootAmount: 000000000000000000000000
   revivable: 0
   reviveTime: 0
   vibrationTime: 0.2

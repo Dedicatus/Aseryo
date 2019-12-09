@@ -41,6 +41,9 @@ public class Player : MonoBehaviour
     [Header("Debug")]
     public float exp = 0f;
     public float ultCharge = 100f;
+    public int fireAmount = 0;
+    public int iceAmount = 0;
+    public int elecAmount = 0;
 
     bool isDashed;
     bool isExplosed;
@@ -90,7 +93,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        inputHandler();    
+        inputHandler();
     }
 
     public bool checkUlt()

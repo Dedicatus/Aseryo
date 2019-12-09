@@ -8,6 +8,7 @@ public class DamageCollision : MonoBehaviour
     GameObject player;
     GameObject enemy;
     FaintEffect faintEffect;
+    EnemyDrop enemyDrop;
 
     private void Start()
     {
@@ -27,10 +28,13 @@ public class DamageCollision : MonoBehaviour
             { 
                 Destroy(coll.gameObject);
 
-                enemy.transform.parent.parent.GetComponent<EnemyTrigger>().enemyCount--;
+                if (enemy.transform.parent != null)  enemy.transform.parent.parent.GetComponent<EnemyTrigger>().enemyCount--;
                 faintEffect = enemy.transform.GetComponent<FaintEffect>();
                 faintEffect.startFaintEffect();
                 faintEffect.startGroundBlood();
+
+                enemyDrop = enemy.transform.GetComponent<EnemyDrop>();
+                enemyDrop.dropLoot();
 
                 player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
                 //Debug.Log(player.GetComponent<Player>().exp);

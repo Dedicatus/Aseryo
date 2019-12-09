@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 5030974831800733219}
   - component: {fileID: 5030974831800733218}
   - component: {fileID: 1489936351}
+  - component: {fileID: 231057902}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -318,6 +319,22 @@ MonoBehaviour:
     type: 3}
   bloodRotationY: 0
   bloodKillTime: 1.5
+--- !u!114 &231057902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030974831800733217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07a1d02e099a674aba38cfce0e82287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropObjects:
+  - {fileID: 3305717720119683631, guid: b7cdc85ab1ca14e4588d45b1117c6e7b, type: 3}
+  - {fileID: 2064756858790296030, guid: c12390f9a5a311a4f89bb5465b732bbc, type: 3}
+  - {fileID: 5736763943758891807, guid: e81a6cdf4268dce4ca0d66ab859f9ff9, type: 3}
 --- !u!114 &1813290247
 MonoBehaviour:
   m_ObjectHideFlags: 0
