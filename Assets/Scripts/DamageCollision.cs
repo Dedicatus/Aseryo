@@ -20,28 +20,21 @@ public class DamageCollision : MonoBehaviour
         if (coll.gameObject.tag == "Enemy")
         {
             enemy = coll.gameObject;
-            //player.GetComponent<Player>().addUltCharge();
-
-            //Debug.Log(player.GetComponent<Player>().ultCharge);
             player.GetComponent<Player>().addSingleKill();
-            if (coll.gameObject.GetComponent<Enemy>().getDestoried())
-            { 
-                Destroy(coll.gameObject);
-
-                if (enemy.transform.parent != null)  enemy.transform.parent.parent.GetComponent<EnemyTrigger>().enemyCount--;
-                faintEffect = enemy.transform.GetComponent<FaintEffect>();
-                faintEffect.startFaintEffect();
-                faintEffect.startGroundBlood();
-
-                enemyDrop = enemy.transform.GetComponent<EnemyDrop>();
-                enemyDrop.dropLoot();
-
-                player.GetComponent<Player>().addExp(coll.gameObject.GetComponent<Enemy>().getExp());
-                //Debug.Log(player.GetComponent<Player>().exp);
-
-            }
-                
+            checkUltBuff(enemy);
+            coll.gameObject.GetComponent<Enemy>().getHurt();
         }
 
+    }
+
+    void checkUltBuff(GameObject ee)
+    {
+        if (player.GetComponent<Player>().Utype == UltType.FIRE)
+        {
+            if (!ee.GetComponent<Enemy>().isFired)
+            {
+                ee.GetComponent<Enemy>().catchOnFire();
+            }
+        }
     }
 }

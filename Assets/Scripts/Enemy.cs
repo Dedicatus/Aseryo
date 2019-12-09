@@ -9,16 +9,27 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     float playerAttack;
     public enum EnemyStates { IDLING, MOVING, ATTACKING };
+    
     public EnemyStates state;
     public float UltCharge = 1f;
+    public float onFireTime = 2.5f;
+    public float FireCD = 0.2f;
+    public float FireDamage = 1f;
+
     public float Exp = 1f;
     public float Attack = 1f;
     public float Health = 2f;
     public float AttackTime = 1f;
     bool isHit;
+    public bool isFired=false;
+    float FireCDCount;
+    float onFireCount;
     public bool isAttackEnd;
     EnemyAttackCollision enemyAttackCollision;
     float AttackTimeCount;
+
+    FaintEffect faintEffect;
+    EnemyDrop enemyDrop;
 
     public Enemy()
     {
@@ -34,8 +45,10 @@ public class Enemy : MonoBehaviour
         playerAttack = player.GetComponent<Player>().attack;
         AttackTimeCount = AttackTime;
         isHit = false;
+        isFired = false;
         isAttackEnd = true;
-        enemyAttackCollision = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
+        FireCDCount = 0f;
+         enemyAttackCollision = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
     }
 
     // Update is called once per frame
@@ -44,9 +57,14 @@ public class Enemy : MonoBehaviour
         EnemyHandler();
     }
 
+   
+
     void EnemyHandler()
     {
+        checkDeath();
         colliderCheck();
+        if (onFireCount > 0)
+            burn();
         switch (state)
         {
             case EnemyStates.IDLING:
@@ -62,6 +80,21 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void checkDeath()
+    {
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+            if (transform.parent != null) transform.parent.parent.GetComponent<EnemyTrigger>().enemyCount--;
+            faintEffect = transform.GetComponent<FaintEffect>();
+            faintEffect.startFaintEffect();
+            faintEffect.startGroundBlood();
+
+            enemyDrop = transform.GetComponent<EnemyDrop>();
+            enemyDrop.dropLoot();
+        }
+    }
+
     void colliderCheck()
     { 
         if (!player.GetComponent<Player>().isCollision())
@@ -72,6 +105,28 @@ public class Enemy : MonoBehaviour
         {
             Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), false);
         }
+    }
+
+    public void catchOnFire()
+    {
+        isFired = true;
+        onFireCount = onFireTime;
+        FireCDCount = FireCD;
+    }
+
+    void burn()
+    {
+        onFireCount -= Time.deltaTime;
+        FireCDCount -= Time.deltaTime;
+        if (onFireCount >= 0)
+        {
+            if (FireCDCount <= 0)
+            {
+                Health -= FireDamage;
+                FireCDCount = FireCD;
+            }
+        }
+        
     }
 
     void attackPlayer()
@@ -119,12 +174,9 @@ public class Enemy : MonoBehaviour
         
     }
 
-    public bool getDestoried()
+    public void getHurt()
     {
         Health -= playerAttack;
-        if (Health <= 0)
-            return true;
-        return false;
     }
 
     public float getUltCharge()

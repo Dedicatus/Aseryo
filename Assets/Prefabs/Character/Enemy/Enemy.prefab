@@ -294,10 +294,14 @@ MonoBehaviour:
   player: {fileID: 0}
   state: 0
   UltCharge: 100
+  onFireTime: 2.5
+  FireCD: 0.2
+  FireDamage: 1
   Exp: 20
   Attack: 10
-  Health: 2
+  Health: 20
   AttackTime: 1
+  isFired: 0
   isAttackEnd: 0
 --- !u!114 &1489936351
 MonoBehaviour:

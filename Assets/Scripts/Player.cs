@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     PlayerEffect playerEffect;
     XInputDotNetPure.PlayerIndex PlayerIndex = XInputDotNetPure.PlayerIndex.One;
     public enum PlayerStates { IDLING, MOVING, DASHING };
-    public enum UltType { FIRE, ICE, ELECTRIC };
+    public enum UltType {NONE, FIRE, ICE, ELECTRIC };
     public PlayerStates state;
     public UltType Utype;
 
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     bool isDashed;
     bool isExplosed;
     bool explosionFinished;
-    bool isUltra;
+    public bool isUltra;
     public bool revivable;
     public int reviveTime;
     public float vibrationTime=0.5f;
@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         exploseCollider = transform.Find("Colliders").gameObject.transform.Find("ExploseCollider").gameObject.GetComponent<CapsuleCollider>();
         dashTimer = 0.0f;
         state = PlayerStates.IDLING;
-
+        Utype = UltType.NONE;
         isDashed = false;
         isExplosed = false;
         revivable = false;
@@ -159,7 +159,6 @@ public class Player : MonoBehaviour
             iceAmount = 0;
         if (UT == UltType.ELECTRIC)
             elecAmount = 0;
-        checkUltType();
     }
 
     private void inputHandler()
@@ -227,6 +226,7 @@ public class Player : MonoBehaviour
 
         if (((Input.GetKey(KeyCode.JoystickButton8) && Input.GetKey(KeyCode.JoystickButton9)) || Input.GetKey(KeyCode.R)) && ultCharge >= ultCost&&!isUltra)
         {
+            checkUltType();
             isUltra = true;
             ultCharge -= ultCost;
             ultCount = ultTime;
@@ -374,7 +374,6 @@ public class Player : MonoBehaviour
 
     public void addUltCharge()
     {
-        checkUltType();
         ultCharge += chargePerHit;
         if (ultCharge >= ultCost*3f)
             ultCharge = ultCost*3f;

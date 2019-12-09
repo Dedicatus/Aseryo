@@ -290,7 +290,7 @@ MonoBehaviour:
   state: 0
   Utype: 0
   maxHealth: 100
-  attack: 1
+  attack: 10
   vibrationBaseNumber: 3
   moveSpeed: 10
   dashForce: 450
