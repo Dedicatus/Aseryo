@@ -221,7 +221,7 @@ public class Player : MonoBehaviour
 
         checkExplosionFinished();
 
-        if (Input.GetAxis("LRT") <= 0.19f)
+        if (Input.GetAxis("LRT") <= 0.19f&& Input.GetAxis("LRT") >=0f)
         {
             isExplosed = false;
         }
