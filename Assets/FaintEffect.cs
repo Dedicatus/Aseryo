@@ -21,6 +21,6 @@ public class FaintEffect : MonoBehaviour
     public void startGroundBlood()
     {
         GameObject temp = Instantiate(groundBloodObj, transform.position, transform.rotation * Quaternion.Euler(0, effectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
-        Destroy(temp, effectKillTime);
+        Destroy(temp, bloodKillTime);
     }
 }
