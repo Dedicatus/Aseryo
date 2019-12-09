@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8876360185890229629}
   m_Layer: 0
   m_Name: UltCollider
-  m_TagString: Untagged
+  m_TagString: Dash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 4082285804780080706}
   m_Layer: 0
   m_Name: DashCollider
-  m_TagString: Untagged
+  m_TagString: Dash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

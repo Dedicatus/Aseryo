@@ -89,12 +89,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8871855214752840613}
   m_Layer: 10
-  m_Name: pf_torch_stick_01
+  m_Name: Torch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8871855214752840613
 Transform:
   m_ObjectHideFlags: 0
@@ -14126,6 +14126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8871855216492641977}
   - component: {fileID: 1937174488}
+  - component: {fileID: 1704357602}
   m_Layer: 0
   m_Name: LevelTrigger
   m_TagString: Untagged
@@ -14162,6 +14163,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3, z: 1}
   m_Center: {x: 0, y: 1.5, z: 0}
+--- !u!114 &1704357602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8871855216492641976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7a1f4fa3ac9df4d890459f2ec94d6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activated: 0
 --- !u!1 &8871855216516150894
 GameObject:
   m_ObjectHideFlags: 0
@@ -14325,7 +14339,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 684fd56a8738bfb4a9a83331d7d3bf46,
         type: 3}
       propertyPath: m_Name
-      value: Shrine_02
+      value: Model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 684fd56a8738bfb4a9a83331d7d3bf46, type: 3}

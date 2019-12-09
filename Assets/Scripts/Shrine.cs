@@ -14,6 +14,7 @@ public class Shrine : MonoBehaviour
     void Update()
     {
         inputHandler();
+        Debug.Log(activated);
     }
 
     public void ShrineEntered()
@@ -28,7 +29,7 @@ public class Shrine : MonoBehaviour
 
     private void inputHandler()
     {
-        if (Input.GetKey(KeyCode.JoystickButton6) && activated && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().checkUlt())
+        if ((Input.GetAxis("LRT") < -0.19f) && activated && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().checkUlt())
         {
             GameObject.Find("UIManager").transform.Find("SkillSelect").GetComponent<SkillSelect>().startChoose();
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().resetUltCharge();

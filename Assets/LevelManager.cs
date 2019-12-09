@@ -18,7 +18,10 @@ public class LevelManager : MonoBehaviour
 
     public void nextLevel()
     {
-        playerRB.MovePosition(levelStartPoints[level].position);
-        ++level;
+        if (level < levelStartPoints.Length)
+        {
+            playerRB.MovePosition(levelStartPoints[level].position);
+            ++level;
+        }
     }
 }

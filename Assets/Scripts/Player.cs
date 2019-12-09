@@ -165,7 +165,7 @@ public class Player : MonoBehaviour
         {
             if (dashGapCount <= 0.0f)
             {
-                if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
+                if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
                 {
                     
                     if (((state == PlayerStates.MOVING)|| (state == PlayerStates.IDLING)) && (isDashed == false))
@@ -184,7 +184,7 @@ public class Player : MonoBehaviour
         {
             if (dashGapCount <= 0.0f && dashCDcount <= 0)
             {
-                if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.Space))
+                if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
                 {
                     
                     if (((state == PlayerStates.MOVING) || (state == PlayerStates.IDLING)) && (isDashed == false))
@@ -201,7 +201,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (((Input.GetKey(KeyCode.JoystickButton10) && Input.GetKey(KeyCode.JoystickButton11)) || Input.GetKey(KeyCode.R)) && ultCharge >= ultCost&&!isUltra)
+        if (((Input.GetKey(KeyCode.JoystickButton8) && Input.GetKey(KeyCode.JoystickButton9)) || Input.GetKey(KeyCode.R)) && ultCharge >= ultCost&&!isUltra)
         {
             isUltra = true;
             ultCharge -= ultCost;
@@ -209,19 +209,19 @@ public class Player : MonoBehaviour
             playerEffect.startUltEffect();
         }
 
-        if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.JoystickButton0) || Input.GetKeyUp(KeyCode.Space))
         {
             isDashed = false;
         }
 
-        if (Input.GetKey(KeyCode.JoystickButton7) && (isExplosed == false) && (explosionFinished == true))
+        if (Input.GetAxis("LRT") > 0.19f && (isExplosed == false) && (explosionFinished == true))
         {
             startExplosion();
         }
 
         checkExplosionFinished();
 
-        if (Input.GetKeyUp(KeyCode.JoystickButton7))
+        if (Input.GetAxis("LRT") <= 0.19f&& Input.GetAxis("LRT") >=0f)
         {
             isExplosed = false;
         }
