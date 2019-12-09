@@ -14,7 +14,6 @@ public class Shrine : MonoBehaviour
     void Update()
     {
         inputHandler();
-        Debug.Log(activated);
     }
 
     public void ShrineEntered()

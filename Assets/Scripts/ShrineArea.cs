@@ -12,11 +12,13 @@ public class ShrineArea : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter(Collider coll)
     {
-        transform.parent.GetComponent<Shrine>().ShrineEntered();
+        if (coll.gameObject.tag == "Player")
+            transform.parent.GetComponent<Shrine>().ShrineEntered();
     }
 
     private void OnTriggerExit(Collider coll)
     {
-        transform.parent.GetComponent<Shrine>().ShrineExited();
+        if (coll.gameObject.tag == "Player")
+            transform.parent.GetComponent<Shrine>().ShrineExited();
     }
 }
