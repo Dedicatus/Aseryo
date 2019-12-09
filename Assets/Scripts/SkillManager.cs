@@ -19,7 +19,14 @@ public class SkillManager : MonoBehaviour
     [Header("Lv2Trait")]
     [SerializeField]
     private float DashCDMultipler = 0.5f;
-    private float ChargeRecoverMultipler = 0.01f;
+    private float ChargeRecover = 0.01f;
+
+    [Header("Lv3Trait")]
+    [SerializeField]
+    private float HealthRecover = 0.01f;
+    [SerializeField]
+    private float UltTimeMultiplerLV3 = 1.5f;
+
 
     [Header("Debug")]
     public Trait lv1Trait;
@@ -30,8 +37,7 @@ public class SkillManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lv1Trait = Trait.NONE;
-        lv2Trait = Trait.NONE;
+        lv1Trait = Trait.NONE; 
         lv3Trait = Trait.NONE;
         lv4Trait = Trait.NONE;
         playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -126,7 +132,7 @@ public class SkillManager : MonoBehaviour
                     player.revivable = true;
                 break;
             case Trait.THIRD:
-                //player.ultCharge += player.Charge * ChargeRecoverMultipler;
+                player.ultCharge += ChargeRecover;
                 break;
             default:
                 break;
@@ -138,12 +144,24 @@ public class SkillManager : MonoBehaviour
         switch (lv3Trait)
         {
             case Trait.FIRST:
-                player.dashCD *= DashCDMultipler;
+                //player.expoFlag = true;
                 break;
             case Trait.SECOND:
-
+                player.curHealth += HealthRecover;
                 break;
             case Trait.THIRD:
+                /*if(player.state == DASHING)
+                {
+                    if (player.CanDashTwice == true)
+                    {
+                        player.state = Moving;
+                        player.CanDashTwice == false;
+                    }
+                }
+                else
+                {
+                    player.CanDashTwice == ture;
+                }*/
                 break;
             default:
                 break;
@@ -155,9 +173,10 @@ public class SkillManager : MonoBehaviour
         switch (lv4Trait)
         {
             case Trait.FIRST:
-                player.dashCD *= DashCDMultipler;
+                //player.DashHpRecover = true;
                 break;
             case Trait.SECOND:
+
                 break;
             case Trait.THIRD:
                 break;
