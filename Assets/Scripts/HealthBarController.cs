@@ -18,7 +18,7 @@ public class HealthBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player == null) return;
         if (player.GetComponent<Player>().isAddMaxHealth&&!isAddHealth)
         {
             isAddHealth = true;

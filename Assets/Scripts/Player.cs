@@ -403,5 +403,10 @@ public class Player : MonoBehaviour
     public void getAttacked(float number)
     {
         curHealth -= number;
+        if (curHealth <= 0)
+        {
+            Destroy(gameObject);
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().gameOver();
+        }
     }
 }
