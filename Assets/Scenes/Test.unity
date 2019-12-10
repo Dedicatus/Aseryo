@@ -1003,6 +1003,28 @@ PrefabInstance:
       propertyPath: WindDurnTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4082285806324716155, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: Utype
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: fireSwipeObj
+      value: 
+      objectReference: {fileID: 9057582152244706333, guid: 67db125a7511c7f4e8a245a4a3693ad4,
+        type: 3}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: iceSwipeObj
+      value: 
+      objectReference: {fileID: 4160562103353800719, guid: 79215936b95edce4c8c236e54634b10c,
+        type: 3}
+    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: iceSwipeRotationY
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7ad8dd3ed100184da5ff0c0428e9c74, type: 3}
 --- !u!4 &1823850659 stripped
