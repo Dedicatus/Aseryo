@@ -128,8 +128,7 @@ public class SkillManager : MonoBehaviour
                 player.dashCD *= DashCDMultipler;
                 break;
             case Trait.SECOND:
-                if(player.reviveTime == 0)
-                    player.revivable = true;
+                player.reviveTimes = 1;
                 break;
             case Trait.THIRD:
                 player.ultCharge += ChargeRecover;
