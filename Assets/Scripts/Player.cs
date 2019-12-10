@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     [Header("Debug")]
     public float exp = 0f;
-    private float ultCharge = 100f;
+    public float ultCharge = 100f;
     public float fireAmount = 0;
     public float iceAmount = 0;
     public float windAmount = 0;
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     bool isDashed;
     bool isExplosed;
     bool explosionFinished;
-    bool canExploseThisDash;
+    public bool canExploseThisDash;
     public bool isUltra;
     public int reviveTimes;
     public bool chargeRecover;
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
     public int singleDashCount;
     bool isVibrated;
     bool isWindOn;
-    bool isRefrashDash;
+    bool isRefreshDash;
 
     
     // Start is called before the first frame update
@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
         isAddMaxHealth = false;
         isWindOn = false;
         explosionFinished = true;
-        isRefrashDash = false;
+        isRefreshDash = false;
         canExploseThisDash = false;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
     {
         if (isVibrated == false && singleDashCount >= vibrationBaseNumber)
         {
-            isRefrashDash = true;
+            isRefreshDash = true;
             canExploseThisDash = true;
             vibrationCount = vibrationTime;
             isVibrated = true;
@@ -369,10 +369,10 @@ public class Player : MonoBehaviour
                 state = PlayerStates.MOVING;
             else state = PlayerStates.IDLING;
             dashGapCount = dashGap;
-            if (!isRefrashDash)
+            if (!isRefreshDash)
                 dashCDcount = dashCD;
             else dashCDcount = 0;
-            isRefrashDash = false;
+            isRefreshDash = false;
             singleDashCount = 0;
             isVibrated = false;
             if (Utype == UltType.WIND)
@@ -420,6 +420,11 @@ public class Player : MonoBehaviour
     public float getExp()
     {
         return exp;
+    }
+
+    public void addHealth(float number)
+    { 
+        
     }
 
     public void getAttacked(float number)

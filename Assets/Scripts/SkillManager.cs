@@ -20,7 +20,8 @@ public class SkillManager : MonoBehaviour
     [Header("Lv2Trait")]
     [SerializeField]
     private float DashCDMultipler = 0.5f;
-    private float ChargeRecover = 0.01f;
+    public float ChargeRecover = 10f;
+    public float HealthRecover = 3f;
 
     [Header("Lv3Trait")]
     [SerializeField]
@@ -191,6 +192,11 @@ public class SkillManager : MonoBehaviour
 
     private void autoCharge()
     {
-        player.addUltCharge(ChargeRecover);
+        player.addUltCharge(ChargeRecover*Time.deltaTime);
+    }
+
+    private void autoHeal()
+    {
+        player.addUltCharge(ChargeRecover * Time.deltaTime);
     }
 }
