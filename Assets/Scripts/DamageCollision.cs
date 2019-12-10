@@ -28,6 +28,8 @@ public class DamageCollision : MonoBehaviour
                 player.GetComponent<Player>().addSingleKill();
                 if (player.GetComponent<Player>().isDashHeal)
                     player.GetComponent<Player>().DashHeal();
+                if (player.GetComponent<Player>().isDashCharge)
+                    player.GetComponent<Player>().DashCharge();
             }
             checkUltBuff(enemy);
             coll.gameObject.GetComponent<Enemy>().getHurt();

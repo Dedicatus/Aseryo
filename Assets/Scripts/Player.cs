@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public PlayerStates state;
     public UltType Utype;
     public GameObject windCollider;
+    
     [Header("Status")]
     public float maxHealth = 3f;
     public float curHealth;
@@ -69,9 +70,11 @@ public class Player : MonoBehaviour
     bool isWindOn;
     bool isRefreshDash;
     public bool isDashHeal;
+    public bool isDashCharge;
     bool isMoreChargeCollection;
     float moreChargeNumber;
     float DashHealNumber;
+    float DashChargeNumber;
     
 
     // Start is called before the first frame update
@@ -99,6 +102,7 @@ public class Player : MonoBehaviour
         isRefreshDash = false;
         canExploseThisDash = false;
         isDashHeal = false;
+        isDashCharge = false;
         isMoreChargeCollection = false;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
@@ -457,6 +461,19 @@ public class Player : MonoBehaviour
         curHealth += DashHealNumber;
         if (curHealth >= maxHealth)
             curHealth = maxHealth;
+    }
+
+    public void openDashCharge(float number)
+    {
+        isDashCharge = true;
+        DashChargeNumber = number;
+    }
+
+    public void DashCharge()
+    {
+        ultCharge += DashChargeNumber;
+        if (ultCharge >= ultCost * 3f)
+            ultCharge = ultCost * 3f;
     }
 
     public void getAttacked(float number)
