@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  Utype: 3
+  Utype: 0
   windCollider: {fileID: 175154668195815513, guid: ce032ed09a3c3f84b98e43097e74a9d8,
     type: 3}
   maxHealth: 100
@@ -342,7 +342,7 @@ MonoBehaviour:
     type: 3}
   swipeEffectRotationY: 0
   swipeEffectKillTime: 1.5
-  fireSwipeObj: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+  fireSwipeObj: {fileID: 1542937677348958, guid: e29e8285490879741b51b608edc39ac3,
     type: 3}
   fireSwipeRotationY: 0
   fireSwipeKillTime: 1.5

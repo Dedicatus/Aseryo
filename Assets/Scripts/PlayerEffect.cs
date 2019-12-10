@@ -47,13 +47,13 @@ public class PlayerEffect : MonoBehaviour
 
     public void startUltEffect()
     {
-        GameObject temp = Instantiate(ultEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, ultEffectRotationY, 0), transform);
+        GameObject temp = Instantiate(ultEffectObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, ultEffectRotationY, 0), transform);
         Destroy(temp, ultEffectKillTime);
     }
 
     public void startExplosionEffect()
     {
-        GameObject temp = Instantiate(explosionEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, explosionEffectRotationY, 0), transform);
+        GameObject temp = Instantiate(explosionEffectObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, explosionEffectRotationY, 0), transform);
         Destroy(temp, explosionEffectKillTime);
     }
 
@@ -63,17 +63,17 @@ public class PlayerEffect : MonoBehaviour
         switch (player.Utype)
         {
             case Player.UltType.NONE:
-                temp = Instantiate(swipeEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
+                temp = Instantiate(swipeEffectObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
                 Destroy(temp, swipeEffectKillTime);
                 break;
 
             case Player.UltType.FIRE:
-                temp = Instantiate(fireSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, fireSwipeRotationY + 110f, 0), transform);
+                temp = Instantiate(fireSwipeObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, fireSwipeRotationY, 0), transform);
                 Destroy(temp, fireSwipeKillTime);
                 break;
 
             case Player.UltType.ICE:
-                temp = Instantiate(iceSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, iceSwipeRotationY, 0), transform);
+                temp = Instantiate(iceSwipeObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, iceSwipeRotationY, 0), transform);
                 Destroy(temp, iceSwipeKillTime);
                 break;
 
@@ -90,7 +90,7 @@ public class PlayerEffect : MonoBehaviour
     }
     private void startDashParticle()
     {
-        GameObject temp = Instantiate(dashEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, dashEffectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
+        GameObject temp = Instantiate(dashEffectObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, dashEffectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
         Destroy(temp, dashEffectKillTime);
     }
 }
