@@ -16,7 +16,7 @@ public class LongMaxHealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player == null) return;
         if (player.GetComponent<Player>().isAddMaxHealth)
         {
             img.enabled = true;
