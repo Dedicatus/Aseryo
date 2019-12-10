@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 377686647120902679}
   - component: {fileID: 4827074437082933931}
   - component: {fileID: 5576595037845445661}
-  - component: {fileID: 2673065960290280046}
+  - component: {fileID: -4055354483324498572}
   m_Layer: 0
   m_Name: WindCollider
-  m_TagString: Untagged
+  m_TagString: Dash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2673065960290280046
+--- !u!114 &-4055354483324498572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,6 +102,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 175154668195815513}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
+  m_Script: {fileID: 11500000, guid: 6f13f36997530394e9bbdc43e06cce61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

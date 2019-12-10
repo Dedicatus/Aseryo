@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public GameObject player;
     float playerAttack;
     public enum EnemyStates { IDLING, MOVING, ATTACKING };
-    
+
     public EnemyStates state;
     public float UltCharge = 1f;
     public float onFireTime = 2.5f;
@@ -20,12 +20,15 @@ public class Enemy : MonoBehaviour
     public float Attack = 1f;
     public float Health = 2f;
     public float AttackTime = 1f;
+    public float hitByWindCD = 1.5f;
     bool isHit;
     public bool isFired = false;
     public bool isIced = false;
+    public bool isHitbyWind;
     float FireCDCount;
     float onFireCount;
     float iceCount;
+    float hitByWindCount;
     public bool isAttackEnd;
     EnemyAttackCollision enemyAttackCollision;
     EnemyAlarmCollision enemyAlarmCollision;
@@ -36,7 +39,7 @@ public class Enemy : MonoBehaviour
 
     public Enemy()
     {
-        
+
 
     }
     // Start is called before the first frame update
@@ -49,8 +52,10 @@ public class Enemy : MonoBehaviour
         AttackTimeCount = AttackTime;
         isHit = false;
         isFired = false;
+        isHitbyWind = false;
         isAttackEnd = true;
         FireCDCount = 0f;
+        hitByWindCount = 0f;
         enemyAttackCollision = transform.Find("Colliders").Find("AttackCollider").GetComponent<EnemyAttackCollision>();
         enemyAlarmCollision = transform.Find("Colliders").Find("AlarmCollider").GetComponent<EnemyAlarmCollision>();
     }
@@ -61,12 +66,13 @@ public class Enemy : MonoBehaviour
         EnemyHandler();
     }
 
-   
+
 
     void EnemyHandler()
     {
         checkDeath();
         colliderCheck();
+        checkWindHit();
         if (onFireCount > 0)
             burn();
         if (iceCount > 0)
@@ -75,7 +81,7 @@ public class Enemy : MonoBehaviour
         {
             case EnemyStates.IDLING:
                 break;
-            
+
             case EnemyStates.MOVING:
                 followPlayer();
                 break;
@@ -100,6 +106,23 @@ public class Enemy : MonoBehaviour
             enemyDrop.dropLoot();
         }
     }
+
+    public void windHit()
+    {
+        isHitbyWind = true;
+        hitByWindCount = hitByWindCD;
+    }
+
+
+    void checkWindHit()
+    {
+        if (hitByWindCount > 0)
+        {
+            hitByWindCount -= Time.deltaTime;
+            if (hitByWindCount <= 0)
+                isHitbyWind = false;
+        }
+    }        
 
     void colliderCheck()
     {

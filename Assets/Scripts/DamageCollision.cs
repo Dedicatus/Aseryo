@@ -12,7 +12,7 @@ public class DamageCollision : MonoBehaviour
 
     private void Start()
     {
-        player = transform.parent.parent.gameObject;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void OnTriggerEnter(Collider coll)

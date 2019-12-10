@@ -372,7 +372,7 @@ public class Player : MonoBehaviour
             isVibrated = false;
             if (Utype == UltType.WIND)
             {
-                GameObject temp = Instantiate(windCollider, transform.position , transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environemt").transform.Find("Effect"));
+                GameObject temp = Instantiate(windCollider, transform.position , transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environment").transform.Find("Effect"));
                 temp.GetComponent<BoxCollider>().center = new Vector3(0f, 0f, 0.6f);
                 Destroy(temp,WindDurnTime);
             }
