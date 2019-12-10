@@ -219,6 +219,7 @@ public class Player : MonoBehaviour
                         singleDashCount = 0;
                         state = PlayerStates.DASHING;
                         playerEffect.startDashEffect();
+                        GameObject.Find("AudioManager").GetComponent<AudioManager>().playDashSound();
                     }
                     ultCollider.enabled = true;
                 }
@@ -239,6 +240,7 @@ public class Player : MonoBehaviour
                         state = PlayerStates.DASHING;
                         isDashed = true;
                         playerEffect.startDashEffect();
+                        GameObject.Find("AudioManager").GetComponent<AudioManager>().playDashSound();
                     }
                     dashCollider.enabled = true;
                 }
