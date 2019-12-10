@@ -9,7 +9,7 @@ public class SkillSelect : MonoBehaviour
 
     public GameObject traitButton1, traitButton2, traitButton3;
     private SkillManager.Trait lv1Trait, lv2Trait, lv3Trait, lv4Trait;
-
+    public GameObject gm;
     private void Start()
     {
         skillManager = transform.parent.parent.Find("SkillManager").GetComponent<SkillManager>();
@@ -17,6 +17,21 @@ public class SkillSelect : MonoBehaviour
         lv2Trait = skillManager.lv2Trait;
         lv3Trait = skillManager.lv3Trait;
         lv4Trait = skillManager.lv4Trait;
+    }
+
+    void Update()
+    {
+        inputHandler();
+    }
+
+    void inputHandler()
+    {
+        if (Input.GetKey(KeyCode.JoystickButton1))
+        {
+            Debug.Log(111);
+            gm.SetActive(false);
+            Time.timeScale = 1;
+        }
     }
 
     public void startChoose()
@@ -36,6 +51,7 @@ public class SkillSelect : MonoBehaviour
 
         gameObject.SetActive(false);
         Time.timeScale = 1;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().resetUltCharge();
     }
 
     private void setUIContain()
@@ -66,9 +82,9 @@ public class SkillSelect : MonoBehaviour
 
         if (lv4Trait == SkillManager.Trait.NONE)
         {
-            traitButton1.transform.GetComponentInChildren<Text>().text = "AJAYBE";
-            traitButton2.transform.GetComponentInChildren<Text>().text = "AJAYBE";
-            traitButton3.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            traitButton1.transform.GetComponentInChildren<Text>().text = "DashHeal";
+            traitButton2.transform.GetComponentInChildren<Text>().text = "AvoidChance";
+            traitButton3.transform.GetComponentInChildren<Text>().text = "AddPerChargeAmount";
             return;
         }
 
