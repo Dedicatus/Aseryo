@@ -68,12 +68,12 @@ public class PlayerEffect : MonoBehaviour
                 break;
 
             case Player.UltType.FIRE:
-                temp = Instantiate(fireSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
+                temp = Instantiate(fireSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, fireSwipeRotationY + 110f, 0), transform);
                 Destroy(temp, fireSwipeKillTime);
                 break;
 
             case Player.UltType.ICE:
-                temp = Instantiate(iceSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, swipeEffectRotationY + 110f, 0), transform);
+                temp = Instantiate(iceSwipeObj, transform.position, transform.rotation * Quaternion.Euler(0, iceSwipeRotationY, 0), transform);
                 Destroy(temp, iceSwipeKillTime);
                 break;
 
