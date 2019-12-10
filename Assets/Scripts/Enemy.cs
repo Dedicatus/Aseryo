@@ -102,7 +102,8 @@ public class Enemy : MonoBehaviour
     }
 
     void colliderCheck()
-    { 
+    {
+        if (player == null) return;
         if (!player.GetComponent<Player>().isCollision())
         {
             Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>(), true);
@@ -172,7 +173,7 @@ public class Enemy : MonoBehaviour
 
     void followPlayer()
     {
-        
+        if (target == null) return;
         Vector3 relativePos = target.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         transform.rotation = rotation;
