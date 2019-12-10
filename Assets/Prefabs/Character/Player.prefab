@@ -105,7 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &4082285804780080764
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &4082285806324716149
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +223,7 @@ GameObject:
   - component: {fileID: 4082285806324716154}
   - component: {fileID: 4082285806324716155}
   - component: {fileID: 4375192109798654835}
+  - component: {fileID: 489831775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -290,8 +289,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  Utype: 0
-  windCollider: {fileID: 0}
+  Utype: 3
+  windCollider: {fileID: 175154668195815513, guid: ce032ed09a3c3f84b98e43097e74a9d8,
+    type: 3}
   maxHealth: 100
   attack: 10
   vibrationBaseNumber: 3
@@ -300,19 +300,18 @@ MonoBehaviour:
   turnSpeed: 250
   dashTime: 0.6
   dashGap: 0.1
-  dashCD: 0.5
+  dashCD: 1
   ultTime: 8
   ultCost: 100
   exploseTime: 0.3
-  WindDurnTime: 0.5
+  WindDurnTime: 1
   exp: 0
-  ultCharge: 0
   fireAmount: 0
   iceAmount: 0
   windAmount: 0
   isUltra: 0
-  revivable: 0
-  reviveTime: 0
+  reviveTimes: 0
+  chargeRecover: 0
   vibrationTime: 0.15
   isAddMaxHealth: 0
   dashTimer: 0
@@ -340,11 +339,11 @@ MonoBehaviour:
     type: 3}
   iceSwipeRotationY: 0
   iceSwipeKillTime: 1.5
-  windSwipeObj: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+  windSwipeObj: {fileID: 1217668729914568, guid: 16ffd1911184d684b955b8f7fd387380,
     type: 3}
   windSwipeRotationY: 0
   windSwipeKillTime: 1.5
-  windSwipeDelay: 0.5
+  windSwipeDelay: 0.6
   dashEffectObj: {fileID: 1934977346563538, guid: bb689f0379626471f94680f2f5d592a2,
     type: 3}
   dashEffectRotationY: 0
@@ -357,6 +356,26 @@ MonoBehaviour:
     type: 3}
   ultEffectRotationY: 0
   ultEffectKillTime: 1.5
+--- !u!114 &489831775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4082285806324716149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2b83b6600ac442c0ad820e9976a4cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faintEffectObj: {fileID: 7064504075086683119, guid: 4dcb762a69bf2fe40921547a70e9456a,
+    type: 3}
+  effectRotationY: 0
+  effectKillTime: 1.5
+  groundBloodObj: {fileID: 8646630590542489480, guid: 8eeeac245bc859b48b2eb8cecdeec1ef,
+    type: 3}
+  bloodRotationY: 0
+  bloodKillTime: 500
 --- !u!1 &4082285806505561880
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &4665505444236312633
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,14 +58,14 @@ public class Player : MonoBehaviour
 
     public float dashTimer;
     float dashGapCount;
-    float dashCDcount;
+    public float dashCDcount;
     float ultCount;
     float exploseTimer;
     float vibrationCount;
     int SigleDashCount;
     bool isVibrated;
     bool isWindOn;
-
+    bool isRefrashDash;
 
     
     // Start is called before the first frame update
@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
         isAddMaxHealth = false;
         isWindOn = false;
         explosionFinished = true;
+        isRefrashDash = false;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
     }
@@ -133,11 +134,12 @@ public class Player : MonoBehaviour
     {
         if (isVibrated == false && SigleDashCount >= vibrationBaseNumber)
         {
+            isRefrashDash = true;
             vibrationCount = vibrationTime;
             isVibrated = true;
         }
         vibrationCount -= Time.deltaTime;
-        if(vibrationCount>=0)
+        if(vibrationCount>0)
             XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.8f);
         else XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0f);
     }
@@ -245,6 +247,7 @@ public class Player : MonoBehaviour
         if (Input.GetAxis("LRT") > 0.19f && (isExplosed == false) && (explosionFinished == true))
         {
             SigleDashCount = 0;
+            isVibrated = false;
             startExplosion();
         }
 
@@ -254,7 +257,7 @@ public class Player : MonoBehaviour
         {
             isExplosed = false;
         }
-
+        ControllerVibration();
         switch (state)
         {
             case PlayerStates.IDLING:
@@ -269,7 +272,7 @@ public class Player : MonoBehaviour
 
             case PlayerStates.DASHING:
                 //playerCollider.enabled = false;
-                ControllerVibration();
+                
                 dashForward();
                 break;
 
@@ -361,7 +364,10 @@ public class Player : MonoBehaviour
                 state = PlayerStates.MOVING;
             else state = PlayerStates.IDLING;
             dashGapCount = dashGap;
-            dashCDcount = dashCD;
+            if (!isRefrashDash)
+                dashCDcount = dashCD;
+            else dashCDcount = 0;
+            isRefrashDash = false;
             SigleDashCount = 0;
             isVibrated = false;
             if (Utype == UltType.WIND)

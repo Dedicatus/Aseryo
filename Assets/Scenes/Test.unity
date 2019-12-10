@@ -1016,6 +1016,11 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 4082285806324716155, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
+        type: 3}
+      propertyPath: Utype
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
         type: 3}
       propertyPath: windSwipeObj
