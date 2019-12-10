@@ -1406,6 +1406,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6918857015378363678, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: HealthRecover
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918857015378363678, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: ChargeRecover
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}
       propertyPath: levelStartPoints.Array.data[0]

@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     public float Health = 2f;
     public float AttackTime = 1f;
     public float hitByWindCD = 1.5f;
+    
     bool isHit;
     public bool isFired = false;
     public bool isIced = false;

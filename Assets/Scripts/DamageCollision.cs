@@ -9,7 +9,7 @@ public class DamageCollision : MonoBehaviour
     GameObject enemy;
     enum DamageType { Dash, Explose };
     [SerializeField] DamageType dmgType;
-
+    
 
     private void Start()
     {
@@ -23,8 +23,12 @@ public class DamageCollision : MonoBehaviour
         if (coll.gameObject.tag == "Enemy")
         {   
             enemy = coll.gameObject;
-            if(dmgType == DamageType.Dash)
+            if (dmgType == DamageType.Dash)
+            {
                 player.GetComponent<Player>().addSingleKill();
+                if (player.GetComponent<Player>().isDashHeal)
+                    player.GetComponent<Player>().DashHeal();
+            }
             checkUltBuff(enemy);
             coll.gameObject.GetComponent<Enemy>().getHurt();
         }

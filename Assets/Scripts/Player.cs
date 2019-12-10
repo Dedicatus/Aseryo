@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public float curHealth;
     public float attack = 1f;
     public int vibrationBaseNumber = 3;
+    public float avoidChance = 1f;
 
     [Header("Movement")]
     public float moveSpeed = 10f;
@@ -67,8 +68,12 @@ public class Player : MonoBehaviour
     bool isVibrated;
     bool isWindOn;
     bool isRefreshDash;
-
+    public bool isDashHeal;
+    bool isMoreChargeCollection;
+    float moreChargeNumber;
+    float DashHealNumber;
     
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +98,8 @@ public class Player : MonoBehaviour
         explosionFinished = true;
         isRefreshDash = false;
         canExploseThisDash = false;
+        isDashHeal = false;
+        isMoreChargeCollection = false;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
     }
@@ -112,7 +119,7 @@ public class Player : MonoBehaviour
 
     public void resetUltCharge()
     {
-        ultCharge = 0;
+        ultCharge -= ultCost;
     }
 
     public void addSingleKill()
@@ -393,6 +400,12 @@ public class Player : MonoBehaviour
         return true;
     }
 
+    public void openMoreChargeCollect(float num)
+    {
+        isMoreChargeCollection = true;
+        moreChargeNumber = num;
+    }
+
     public void addUltCharge(float amount)
     {
         ultCharge += amount;
@@ -400,7 +413,11 @@ public class Player : MonoBehaviour
             ultCharge = ultCost*3f;
         //Debug.Log(UltCharge);
     }
-
+    public void addExtraCharge()
+    { 
+        if (isMoreChargeCollection)
+            ultCharge += moreChargeNumber;
+    }
     public void addExp(float expNum)
     {
         exp += expNum;
@@ -429,9 +446,24 @@ public class Player : MonoBehaviour
             curHealth = maxHealth;
     }
 
+    public void openDashHeal(float number)
+    {
+        isDashHeal = true;
+        DashHealNumber = number;
+    }
+
+    public void DashHeal()
+    {
+        curHealth += DashHealNumber;
+        if (curHealth >= maxHealth)
+            curHealth = maxHealth;
+    }
+
     public void getAttacked(float number)
     {
-        curHealth -= number;
+        float tempNum = Random.Range(0f, 1f);
+        if(tempNum<=avoidChance)
+            curHealth -= number;
         if (curHealth <= 0)
         {
             if (reviveTimes > 0)

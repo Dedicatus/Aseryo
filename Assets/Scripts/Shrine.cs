@@ -5,10 +5,12 @@ using UnityEngine;
 public class Shrine : MonoBehaviour
 {
     private bool activated;
+    private bool choosing;
 
     void Start()
     {
         activated = false;
+        choosing = false;
     }
 
     void Update()
@@ -31,7 +33,7 @@ public class Shrine : MonoBehaviour
         if ((Input.GetAxis("LRT") < -0.19f) && activated && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().checkUlt())
         {
             GameObject.Find("UIManager").transform.Find("SkillSelect").GetComponent<SkillSelect>().startChoose();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().resetUltCharge();
+            
         }
     }
 
