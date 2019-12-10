@@ -9,7 +9,7 @@ public class SkillSelect : MonoBehaviour
 
     public GameObject traitButton1, traitButton2, traitButton3;
     private SkillManager.Trait lv1Trait, lv2Trait, lv3Trait, lv4Trait;
-    public GameObject gm;
+    //public GameObject gm;
     private void Start()
     {
         skillManager = transform.parent.parent.Find("SkillManager").GetComponent<SkillManager>();
@@ -29,7 +29,7 @@ public class SkillSelect : MonoBehaviour
         if (Input.GetKey(KeyCode.JoystickButton1))
         {
             Debug.Log(111);
-            gm.SetActive(false);
+            gameObject.SetActive(false);
             Time.timeScale = 1;
         }
     }
