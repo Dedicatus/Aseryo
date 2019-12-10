@@ -277,7 +277,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1405178118341143102}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &275713543
+--- !u!114 &275713544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1003,28 +1003,6 @@ PrefabInstance:
       propertyPath: WindDurnTime
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4082285806324716155, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
-        type: 3}
-      propertyPath: Utype
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
-        type: 3}
-      propertyPath: fireSwipeObj
-      value: 
-      objectReference: {fileID: 9057582152244706333, guid: 67db125a7511c7f4e8a245a4a3693ad4,
-        type: 3}
-    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
-        type: 3}
-      propertyPath: iceSwipeObj
-      value: 
-      objectReference: {fileID: 4160562103353800719, guid: 79215936b95edce4c8c236e54634b10c,
-        type: 3}
-    - target: {fileID: 4375192109798654835, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
-        type: 3}
-      propertyPath: iceSwipeRotationY
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7ad8dd3ed100184da5ff0c0428e9c74, type: 3}
 --- !u!4 &1823850659 stripped
@@ -1398,6 +1376,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: System
       objectReference: {fileID: 0}
+    - target: {fileID: 2618156884904789118, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618156884904789118, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 2618156884904789118, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7607843
+      objectReference: {fileID: 0}
     - target: {fileID: 2771770305928860742, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1427,6 +1420,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955645244047829369, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4955645244047829370, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5853233438033100072, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}

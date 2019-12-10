@@ -7,7 +7,7 @@ public class HUDController : MonoBehaviour
 {
     GameObject playerObj;
     Player player;
-    public Image dash,Shining;
+    public Image dash, dashShining, explose;
     Color targetColor;
     Color shiningTargetColor;
 
@@ -23,11 +23,30 @@ public class HUDController : MonoBehaviour
     void Update()
     {
         if (player == null) return;
+        dashHUDHandler();
+
+        if (player.isExploseOpen)
+        {
+            transform.Find("Explose").gameObject.SetActive(true);
+        }
+
+        if (player.canExploseThisDash)
+        {
+            explose.color = new Color(0.76f, 0, 0, 1.0f);
+        }
+        else
+        {
+            explose.color = new Color(0.76f, 0.76f, 0.76f, 1.0f);
+        }
+    }
+
+    private void dashHUDHandler()
+    {
         if (player.singleDashCount >= 3)
         {
             //dash.color = new Color(0.8f, 0.05f, 0);
             //targetColor = new Color(0.8f, 0.05f, 0);
-            Shining.color = new Color(0.8f, 0.05f, 0, 0.39f);
+            dashShining.color = new Color(0.8f, 0.05f, 0, 0.39f);
             return;
         }
         if (player.dashCDcount <= 0)
@@ -44,7 +63,6 @@ public class HUDController : MonoBehaviour
         }
 
         dash.color = Color.Lerp(dash.color, targetColor, 0.2f);
-        Shining.color = Color.Lerp(Shining.color, shiningTargetColor, 0.2f);
-
+        dashShining.color = Color.Lerp(dashShining.color, shiningTargetColor, 0.2f);
     }
 }
