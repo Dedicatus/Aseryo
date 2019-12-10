@@ -147,7 +147,7 @@ public class SkillManager : MonoBehaviour
         switch (lv3Trait)
         {
             case Trait.FIRST:
-                //player.expoFlag = true;
+                player.isExploseOpen = true;
                 break;
             case Trait.SECOND:
                 break;
