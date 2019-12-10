@@ -295,6 +295,7 @@ MonoBehaviour:
   windCollider: {fileID: 175154668195815513, guid: ce032ed09a3c3f84b98e43097e74a9d8,
     type: 3}
   maxHealth: 100
+  curHealth: 0
   attack: 10
   vibrationBaseNumber: 3
   moveSpeed: 10
@@ -306,11 +307,13 @@ MonoBehaviour:
   ultTime: 8
   ultCost: 100
   exploseTime: 0.3
-  WindDurnTime: 0.5
+  WindDurnTime: 1
   exp: 0
+  ultCharge: 100
   fireAmount: 0
   iceAmount: 0
   windAmount: 0
+  canExploseThisDash: 0
   isUltra: 0
   reviveTimes: 0
   chargeRecover: 0
@@ -340,7 +343,7 @@ MonoBehaviour:
     type: 3}
   fireSwipeRotationY: 0
   fireSwipeKillTime: 1.5
-  iceSwipeObj: {fileID: 1107296871017770, guid: 1df8b5afcde740f4b95e64f8dded8d77,
+  iceSwipeObj: {fileID: 4160562103353800719, guid: 79215936b95edce4c8c236e54634b10c,
     type: 3}
   iceSwipeRotationY: 0
   iceSwipeKillTime: 1.5
