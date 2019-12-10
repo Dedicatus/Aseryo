@@ -41,10 +41,10 @@ public class Player : MonoBehaviour
 
     [Header("Debug")]
     public float exp = 0f;
-    public float ultCharge = 100f;
-    public int fireAmount = 0;
-    public int iceAmount = 0;
-    public int windAmount = 0;
+    private float ultCharge = 100f;
+    public float fireAmount = 0;
+    public float iceAmount = 0;
+    public float windAmount = 0;
 
     bool isDashed;
     bool isExplosed;
@@ -370,7 +370,7 @@ public class Player : MonoBehaviour
         return true;
     }
 
-    public void addUltCharge(int amount)
+    public void addUltCharge(float amount)
     {
         ultCharge += amount;
         if (ultCharge >= ultCost*3f)

@@ -6,7 +6,7 @@ public class LootBall : MonoBehaviour
 {
     public enum LootBallType {Fire, Ice, Wind};
     public LootBallType type;
-    public int lootAmount;
+    public float lootAmount;
 
     private void OnTriggerEnter(Collider coll)
     {

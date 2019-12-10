@@ -7,6 +7,7 @@ public class SkillManager : MonoBehaviour
     GameObject playerObject;
     Player player;
     public enum Trait { NONE, FIRST, SECOND, THIRD };
+    private bool isAutoCharge = false;
 
     [Header("Lv1Trait")]
     [SerializeField]
@@ -46,7 +47,10 @@ public class SkillManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (isAutoCharge)
+        {
+            autoCharge();
+        }
     }
 
     public void updateTrait(int traitNum)
@@ -131,7 +135,7 @@ public class SkillManager : MonoBehaviour
                 player.reviveTimes = 1;
                 break;
             case Trait.THIRD:
-                player.ultCharge += ChargeRecover;
+                isAutoCharge = true;    
                 break;
             default:
                 break;
@@ -181,5 +185,10 @@ public class SkillManager : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void autoCharge()
+    {
+        player.addUltCharge(ChargeRecover);
     }
 }
