@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmgType: 0
 --- !u!1 &4082285804780080764
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmgType: 0
 --- !u!1 &4082285806324716149
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,8 +316,10 @@ MonoBehaviour:
   chargeRecover: 0
   vibrationTime: 0.15
   isAddMaxHealth: 0
+  isExploseOpen: 0
   dashTimer: 0
   dashCDcount: 0
+  singleDashCount: 0
 --- !u!114 &4375192109798654835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0892c7731cd45d0b5f4fa582a7f9be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmgType: 1
 --- !u!1 &4665505444236312633
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,21 +7,24 @@ public class DamageCollision : MonoBehaviour
 {
     GameObject player;
     GameObject enemy;
-    FaintEffect faintEffect;
-    EnemyDrop enemyDrop;
+    enum DamageType { Dash, Explose };
+    [SerializeField] DamageType dmgType;
+
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     private void OnTriggerEnter(Collider coll)
     {
         if (player == null) return;
         if (coll.gameObject.tag == "Enemy")
-        {
+        {   
             enemy = coll.gameObject;
-            player.GetComponent<Player>().addSingleKill();
+            if(dmgType == DamageType.Dash)
+                player.GetComponent<Player>().addSingleKill();
             checkUltBuff(enemy);
             coll.gameObject.GetComponent<Enemy>().getHurt();
         }

@@ -73,12 +73,14 @@ public class SkillManager : MonoBehaviour
         if (lv3Trait == Trait.NONE)
         {
             lv3Trait = setTrait(traitNum);
+            lv3TraitHandler();
             return;
         }
 
         if (lv4Trait == Trait.NONE)
         {
             lv4Trait = setTrait(traitNum);
+            lv4TraitHandler();
             return;
         }
 
