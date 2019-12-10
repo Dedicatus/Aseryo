@@ -31,6 +31,14 @@ public class SkillManager : MonoBehaviour
     private float UltTimeMultiplerLV3 = 1.5f;
 
 
+    [Header("Lv4Trait")]
+    [SerializeField]
+    private float DashHealNumber = 5f;
+    [SerializeField]
+    private float AvoidChance = 0.5f;
+    [SerializeField]
+    private float MoreChargeNumber = 5f;
+
     [Header("Debug")]
     public Trait lv1Trait;
     public Trait lv2Trait;
@@ -184,12 +192,13 @@ public class SkillManager : MonoBehaviour
         switch (lv4Trait)
         {
             case Trait.FIRST:
-                //player.DashHpRecover = true;
+                player.openDashHeal(DashHealNumber);
                 break;
             case Trait.SECOND:
-
+                player.avoidChance = AvoidChance;
                 break;
             case Trait.THIRD:
+                player.openMoreChargeCollect(MoreChargeNumber);
                 break;
             default:
                 break;

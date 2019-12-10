@@ -36,6 +36,7 @@ public class SkillSelect : MonoBehaviour
 
         gameObject.SetActive(false);
         Time.timeScale = 1;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().resetUltCharge();
     }
 
     private void setUIContain()
@@ -66,9 +67,9 @@ public class SkillSelect : MonoBehaviour
 
         if (lv4Trait == SkillManager.Trait.NONE)
         {
-            traitButton1.transform.GetComponentInChildren<Text>().text = "AJAYBE";
-            traitButton2.transform.GetComponentInChildren<Text>().text = "AJAYBE";
-            traitButton3.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            traitButton1.transform.GetComponentInChildren<Text>().text = "DashHeal";
+            traitButton2.transform.GetComponentInChildren<Text>().text = "AvoidChance";
+            traitButton3.transform.GetComponentInChildren<Text>().text = "AddPerChargeAmount";
             return;
         }
 
