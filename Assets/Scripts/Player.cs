@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     public GameObject windCollider;
     [Header("Status")]
     public float maxHealth = 3f;
-    private float curHealth;
+    public float curHealth;
     public float attack = 1f;
     public int vibrationBaseNumber = 3;
 
@@ -423,8 +423,10 @@ public class Player : MonoBehaviour
     }
 
     public void addHealth(float number)
-    { 
-        
+    {
+        curHealth += number;
+        if (curHealth >= maxHealth)
+            curHealth = maxHealth;
     }
 
     public void getAttacked(float number)

@@ -8,6 +8,7 @@ public class SkillManager : MonoBehaviour
     Player player;
     public enum Trait { NONE, FIRST, SECOND, THIRD };
     private bool isAutoCharge = false;
+    private bool isAutoHeal = false;
 
     [Header("Lv1Trait")]
     [SerializeField]
@@ -21,11 +22,11 @@ public class SkillManager : MonoBehaviour
     [SerializeField]
     private float DashCDMultipler = 0.5f;
     public float ChargeRecover = 10f;
-    public float HealthRecover = 3f;
+   
 
     [Header("Lv3Trait")]
     [SerializeField]
-    private float HealthRecover = 0.01f;
+    private float HealthRecover = 3f;
     [SerializeField]
     private float UltTimeMultiplerLV3 = 1.5f;
 
@@ -51,6 +52,10 @@ public class SkillManager : MonoBehaviour
         if (isAutoCharge)
         {
             autoCharge();
+        }
+        if (isAutoHeal)
+        {
+            autoHeal();
         }
     }
 
@@ -153,6 +158,7 @@ public class SkillManager : MonoBehaviour
                 player.isExploseOpen = true;
                 break;
             case Trait.SECOND:
+                isAutoHeal = true;
                 break;
             case Trait.THIRD:
                 /*if(player.state == DASHING)
@@ -197,6 +203,6 @@ public class SkillManager : MonoBehaviour
 
     private void autoHeal()
     {
-        player.addUltCharge(ChargeRecover * Time.deltaTime);
+        player.addHealth(HealthRecover * Time.deltaTime);
     }
 }
