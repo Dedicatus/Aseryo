@@ -27,8 +27,8 @@ public class Enemy : MonoBehaviour
     public bool isIced = false;
     public bool isHitbyWind;
     float FireCDCount;
-    float onFireCount;
-    float iceCount;
+    public float onFireCount;
+    public float iceCount;
     float hitByWindCount;
     public bool isAttackEnd;
     EnemyAttackCollision enemyAttackCollision;
