@@ -297,11 +297,13 @@ MonoBehaviour:
   onFireTime: 2.5
   FireCD: 0.2
   FireDamage: 1
+  iceTime: 2
   Exp: 20
   Attack: 10
-  Health: 20
+  Health: 10
   AttackTime: 1
   isFired: 0
+  isIced: 0
   isAttackEnd: 0
 --- !u!114 &1489936351
 MonoBehaviour:

@@ -27,6 +27,7 @@ public class EnemyTrigger : MonoBehaviour
     void OnTriggerEnter(Collider coll)
     {
         if (triggered == true || coll.tag != "Player") return;
+        
 
         enemyCount = enemies.Length;
         for (int i = 0; i < enemies.Length; ++i)
