@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public float ultTime = 5f;
     public float ultCost = 100f;
     public float exploseTime = 0.3f;
+    public float WindDurnTime = 0.5f;
 
     [Header("Debug")]
     public float exp = 0f;
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour
     float vibrationCount;
     int SigleDashCount;
     bool isVibrated;
+    bool isWindOn;
 
 
     
@@ -86,6 +88,7 @@ public class Player : MonoBehaviour
         isUltra = false;
         isVibrated = false;
         isAddMaxHealth = false;
+        isWindOn = false;
         explosionFinished = true;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
@@ -136,7 +139,7 @@ public class Player : MonoBehaviour
         }
         vibrationCount -= Time.deltaTime;
         if(vibrationCount>=0)
-            XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.5f);
+            XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0.8f);
         else XInputDotNetPure.GamePad.SetVibration(PlayerIndex, 0f, 0f);
     }
 
@@ -147,7 +150,10 @@ public class Player : MonoBehaviour
         if (iceAmount >= fireAmount && iceAmount >= windAmount)
             Utype = UltType.ICE;
         if (windAmount >= iceAmount && windAmount >= fireAmount)
+        {
             Utype = UltType.WIND;
+            
+        }
     }
 
     void changeUltType(UltType UT)
@@ -239,6 +245,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetAxis("LRT") > 0.19f && (isExplosed == false) && (explosionFinished == true))
         {
+            SigleDashCount = 0;
             startExplosion();
         }
 
@@ -358,7 +365,12 @@ public class Player : MonoBehaviour
             dashCDcount = dashCD;
             SigleDashCount = 0;
             isVibrated = false;
-            //rigidBody.AddForce(transform.forward * -dashForce);
+            if (Utype == UltType.WIND)
+            {
+                GameObject temp = Instantiate(windCollider, transform.position , transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Player").transform.Find("Colliders"));
+                temp.GetComponent<BoxCollider>().center = new Vector3(0f, 0f, 0.6f);
+                Destroy(temp,WindDurnTime);
+            }
         }
         dashTimer -= Time.deltaTime;
 

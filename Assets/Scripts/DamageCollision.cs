@@ -17,6 +17,7 @@ public class DamageCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider coll)
     {
+        if (player == null) return;
         if (coll.gameObject.tag == "Enemy")
         {
             enemy = coll.gameObject;
@@ -29,6 +30,7 @@ public class DamageCollision : MonoBehaviour
 
     void checkUltBuff(GameObject ee)
     {
+        if (player == null) return;
         if (player.GetComponent<Player>().Utype == UltType.FIRE)
         {
             if (!ee.GetComponent<Enemy>().isFired)
