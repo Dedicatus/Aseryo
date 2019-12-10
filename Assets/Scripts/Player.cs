@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public enum UltType {NONE, FIRE, ICE, WIND };
     public PlayerStates state;
     public UltType Utype;
-
+    public GameObject windCollider;
     [Header("Status")]
     public float maxHealth = 3f;
     private float curHealth;
