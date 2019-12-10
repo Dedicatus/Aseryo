@@ -171,11 +171,13 @@ public class Enemy : MonoBehaviour
         iceCount -= Time.deltaTime;
         if (iceCount > 0)
         {
+            gameObject.GetComponent<Rigidbody>().mass = 99999999f;
             state = EnemyStates.IDLING;
             enemyAlarmCollision.enabled = false;
         }
         else
-        { 
+        {
+            gameObject.GetComponent<Rigidbody>().mass = 100f;
             enemyAlarmCollision.enabled = true;
             state = EnemyStates.MOVING;
         } 
