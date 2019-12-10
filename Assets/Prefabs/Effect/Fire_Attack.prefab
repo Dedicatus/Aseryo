@@ -4780,7 +4780,7 @@ Transform:
   m_GameObject: {fileID: 441231485733921528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0.12}
-  m_LocalScale: {x: 1, y: 1.0000005, z: 1.0000005}
+  m_LocalScale: {x: 0.45246, y: 0.4524602, z: 0.4524602}
   m_Children: []
   m_Father: {fileID: 5727585098925009171}
   m_RootOrder: 1
