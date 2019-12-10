@@ -9643,7 +9643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4255178557649312}
   m_Layer: 0
-  m_Name: Eff8
+  m_Name: Wind_Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48134,8 +48134,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef2be240a7a05094e90c269480d9eb2d, type: 2}
-  - {fileID: 2100000, guid: ef2be240a7a05094e90c269480d9eb2d, type: 2}
+  - {fileID: 2100000, guid: d565d212295c48d40909250f33c80e6d, type: 2}
+  - {fileID: 2100000, guid: d565d212295c48d40909250f33c80e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57927,8 +57927,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ef2be240a7a05094e90c269480d9eb2d, type: 2}
-  - {fileID: 2100000, guid: ef2be240a7a05094e90c269480d9eb2d, type: 2}
+  - {fileID: 2100000, guid: d565d212295c48d40909250f33c80e6d, type: 2}
+  - {fileID: 2100000, guid: d565d212295c48d40909250f33c80e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
