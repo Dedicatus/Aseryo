@@ -28,7 +28,7 @@ public class EnemyEffect : MonoBehaviour
     {
         if (enemy.onFireCount > 0 && isFireEffect == false)
         {
-            GameObject temp = Instantiate(OnFireObj, transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), transform);
+            GameObject temp = Instantiate(OnFireObj, transform.position+ new Vector3(0f,1f,0f), transform.rotation * Quaternion.Euler(0, 0, 0), transform);
             Destroy(temp, enemy.onFireCount);
             isFireEffect = true;
         }
@@ -40,7 +40,7 @@ public class EnemyEffect : MonoBehaviour
     {
         if (enemy.iceCount > 0 && isIceEffect == false)
         {
-            GameObject temp = Instantiate(IcedObj, transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), transform);
+            GameObject temp = Instantiate(IcedObj, transform.position + new Vector3(0f, 1f, 0f), transform.rotation * Quaternion.Euler(0, 0, 0), transform);
             Destroy(temp, enemy.iceCount);
             isIceEffect = true;
         }

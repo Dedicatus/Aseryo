@@ -361,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnFireObj: {fileID: 2441011135442550991, guid: 89956e675b749204c8e10395ce2b5fb9,
     type: 3}
-  IcedObj: {fileID: 4348950312035980760, guid: acdf13d6e1762ee459b58160758f4622, type: 3}
+  IcedObj: {fileID: 7472503673304482279, guid: acdf13d6e1762ee459b58160758f4622, type: 3}
 --- !u!114 &1813290247
 MonoBehaviour:
   m_ObjectHideFlags: 0
