@@ -7,7 +7,7 @@ public class HUDController : MonoBehaviour
 {
     GameObject playerObj;
     Player player;
-    public Image dash, dashShining, explose;
+    public Image dash, dashShining, explose, exploseShining;
     Color targetColor;
     Color shiningTargetColor;
 
@@ -28,15 +28,18 @@ public class HUDController : MonoBehaviour
         if (player.isExploseOpen)
         {
             transform.Find("Explose").gameObject.SetActive(true);
+            transform.Find("ExploseShining").gameObject.SetActive(true);
         }
 
         if (player.canExploseThisDash)
         {
-            explose.color = new Color(0.76f, 0, 0, 1.0f);
+            //explose.color = new Color(0.76f, 0, 0, 1.0f);
+            exploseShining.color = new Color(0.8f, 0.05f, 0, 0.39f);
         }
         else
         {
-            explose.color = new Color(0.76f, 0.76f, 0.76f, 1.0f);
+            //explose.color = new Color(0.76f, 0.76f, 0.76f, 1.0f);
+            exploseShining.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
     }
 
