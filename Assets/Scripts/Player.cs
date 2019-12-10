@@ -280,11 +280,13 @@ public class Player : MonoBehaviour
         {
             case PlayerStates.IDLING:
                 dashCollider.enabled = false;
+                ultCollider.enabled = false;
                 movePlayer();
                 break;
 
             case PlayerStates.MOVING:
                 dashCollider.enabled = false;
+                ultCollider.enabled = false;
                 movePlayer();
                 break;
 
