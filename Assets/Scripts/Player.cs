@@ -50,19 +50,20 @@ public class Player : MonoBehaviour
     bool isDashed;
     bool isExplosed;
     bool explosionFinished;
+    bool canExploseThisDash;
     public bool isUltra;
     public int reviveTimes;
     public bool chargeRecover;
     public float vibrationTime = 0.5f;
     public bool isAddMaxHealth;
-
+    public bool isExploseOpen;
     public float dashTimer;
     float dashGapCount;
     public float dashCDcount;
     float ultCount;
     float exploseTimer;
     float vibrationCount;
-    int SigleDashCount;
+    public int singleDashCount;
     bool isVibrated;
     bool isWindOn;
     bool isRefrashDash;
@@ -82,14 +83,16 @@ public class Player : MonoBehaviour
         Utype = UltType.NONE;
         isDashed = false;
         isExplosed = false;
+        isExploseOpen = false;
         reviveTimes = 0;
-        SigleDashCount = 0;
+        singleDashCount = 0;
         isUltra = false;
         isVibrated = false;
         isAddMaxHealth = false;
         isWindOn = false;
         explosionFinished = true;
         isRefrashDash = false;
+        canExploseThisDash = false;
         curHealth = maxHealth;
         playerEffect = transform.GetComponent<PlayerEffect>();
     }
@@ -114,7 +117,7 @@ public class Player : MonoBehaviour
 
     public void addSingleKill()
     {
-        SigleDashCount++;
+        singleDashCount++;
     }
 
     float get_angle(float x, float y)
@@ -132,9 +135,10 @@ public class Player : MonoBehaviour
 
     private void ControllerVibration()
     {
-        if (isVibrated == false && SigleDashCount >= vibrationBaseNumber)
+        if (isVibrated == false && singleDashCount >= vibrationBaseNumber)
         {
             isRefrashDash = true;
+            canExploseThisDash = true;
             vibrationCount = vibrationTime;
             isVibrated = true;
         }
@@ -201,7 +205,7 @@ public class Player : MonoBehaviour
                     {
                         dashTimer = dashTime;
                         isVibrated = false;
-                        SigleDashCount = 0;
+                        singleDashCount = 0;
                         state = PlayerStates.DASHING;
                         playerEffect.startDashEffect();
                     }
@@ -220,7 +224,7 @@ public class Player : MonoBehaviour
                     {
                         dashTimer = dashTime;
                         isVibrated = false;
-                        SigleDashCount = 0;
+                        singleDashCount = 0;
                         state = PlayerStates.DASHING;
                         isDashed = true;
                         playerEffect.startDashEffect();
@@ -244,10 +248,11 @@ public class Player : MonoBehaviour
             isDashed = false;
         }
 
-        if (Input.GetAxis("LRT") > 0.19f && (isExplosed == false) && (explosionFinished == true))
+        if (canExploseThisDash && isExploseOpen && Input.GetAxis("LRT") > 0.19f && (isExplosed == false) && (explosionFinished == true))
         {
-            SigleDashCount = 0;
+            singleDashCount = 0;
             isVibrated = false;
+            canExploseThisDash = false;
             startExplosion();
         }
 
@@ -368,7 +373,7 @@ public class Player : MonoBehaviour
                 dashCDcount = dashCD;
             else dashCDcount = 0;
             isRefrashDash = false;
-            SigleDashCount = 0;
+            singleDashCount = 0;
             isVibrated = false;
             if (Utype == UltType.WIND)
             {
