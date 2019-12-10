@@ -116,7 +116,7 @@ public class SkillManager : MonoBehaviour
                 playerObject.transform.Find("Colliders").Find("UltCollider").GetComponent<BoxCollider>().size = new Vector3(playerObject.transform.Find("Colliders").Find("UltCollider").GetComponent<BoxCollider>().size.x * DashAreaMultipler, 1, 1);
                 break;
             case Trait.SECOND:
-                player.maxHealth *= MaxHealthMultipler;
+                player.changeMaxHealth();
                 break;
             case Trait.THIRD:
                 player.ultTime *= UltTimeMultipler;

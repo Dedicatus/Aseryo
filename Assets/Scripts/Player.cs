@@ -171,15 +171,15 @@ public class Player : MonoBehaviour
             windAmount = 0;
     }
 
+    public void changeMaxHealth()
+    { 
+        isAddMaxHealth = true;
+        maxHealth = 120f;
+        curHealth = 120f;
+    }
+
     private void inputHandler()
     {
-        if (Input.GetKey(KeyCode.Q))
-        {
-            isAddMaxHealth = true;
-            maxHealth = 120f;
-            curHealth = 120f;
-        }
-
         if (dashGapCount >= 0.0f)
             dashGapCount -= Time.deltaTime;
         if (dashCDcount >= 0.0f)

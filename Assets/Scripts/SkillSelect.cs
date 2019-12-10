@@ -58,7 +58,7 @@ public class SkillSelect : MonoBehaviour
 
         if (lv3Trait == SkillManager.Trait.NONE)
         {
-            traitButton1.transform.GetComponentInChildren<Text>().text = "AJAYBE";
+            traitButton1.transform.GetComponentInChildren<Text>().text = "Explose";
             traitButton2.transform.GetComponentInChildren<Text>().text = "AJAYBE";
             traitButton3.transform.GetComponentInChildren<Text>().text = "AJAYBE";
             return;
