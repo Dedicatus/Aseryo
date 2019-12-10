@@ -202,6 +202,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 424283427741863400}
     m_Modifications:
+    - target: {fileID: 6288660166425673763, guid: d8658d6408461ed478c835a81de7fd3d,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.8039216
+      objectReference: {fileID: 0}
     - target: {fileID: 6288660166991783096, guid: d8658d6408461ed478c835a81de7fd3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -315,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 6288660166991783099, guid: d8658d6408461ed478c835a81de7fd3d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8658d6408461ed478c835a81de7fd3d, type: 3}
