@@ -53,7 +53,7 @@ public class PlayerEffect : MonoBehaviour
 
     public void startExplosionEffect()
     {
-        GameObject temp = Instantiate(explosionEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, explosionEffectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
+        GameObject temp = Instantiate(explosionEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, explosionEffectRotationY, 0), transform);
         Destroy(temp, explosionEffectKillTime);
     }
 

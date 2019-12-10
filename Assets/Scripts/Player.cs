@@ -50,9 +50,9 @@ public class Player : MonoBehaviour
     bool isExplosed;
     bool explosionFinished;
     public bool isUltra;
-    public bool revivable;
-    public int reviveTime;
-    public float vibrationTime=0.5f;
+    public int reviveTimes;
+    public bool chargeRecover;
+    public float vibrationTime = 0.5f;
     public bool isAddMaxHealth;
 
     public float dashTimer;
@@ -80,8 +80,7 @@ public class Player : MonoBehaviour
         Utype = UltType.NONE;
         isDashed = false;
         isExplosed = false;
-        revivable = false;
-        reviveTime = 0;
+        reviveTimes = 0;
         SigleDashCount = 0;
         isUltra = false;
         isVibrated = false;
@@ -405,8 +404,16 @@ public class Player : MonoBehaviour
         curHealth -= number;
         if (curHealth <= 0)
         {
+            if (reviveTimes > 0)
+            {
+                curHealth = maxHealth / 2;
+                reviveTimes--;
+                return;
+            }
             Destroy(gameObject);
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().gameOver();
+            //transform.GetComponent<FaintEffect>().startFaintEffect();
+            transform.GetComponent<FaintEffect>().startGroundBlood();
         }
     }
 }
