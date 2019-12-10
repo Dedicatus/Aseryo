@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LootBall : MonoBehaviour
 {
-    public enum LootBallType {Fire, Ice, Electric};
+    public enum LootBallType {Fire, Ice, Wind};
     public LootBallType type;
     public int lootAmount;
 
@@ -24,7 +24,7 @@ public class LootBall : MonoBehaviour
                     player.iceAmount += lootAmount;
                     player.GetComponent<Player>().addUltCharge(lootAmount);
                     break;
-                case LootBallType.Electric:
+                case LootBallType.Wind:
                     player.windAmount += lootAmount;
                     player.GetComponent<Player>().addUltCharge(lootAmount);
                     break;
