@@ -19,7 +19,7 @@ public class GameOverUI : MonoBehaviour
 
     private void inputHandler()
     {
-        if (Input.GetKey(KeyCode.JoystickButton3))
+        if (Input.GetKey(KeyCode.JoystickButton3) && GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().state == GameManager.GameStates.Playing)
         {
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
