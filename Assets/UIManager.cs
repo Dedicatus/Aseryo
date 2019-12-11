@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        if (player == null) return;
         KillCount.GetComponent<Text>().text = Mathf.RoundToInt(player.GetComponent<Player>().killCount).ToString();
 
     }
