@@ -9,7 +9,7 @@ public class EnemyDrop : MonoBehaviour
 
     public void dropLoot()
     {
-        /*
+        
         float rand = (Random.Range(0, 1.0f));
         if (rand <= dropRate)
         { 
@@ -18,9 +18,9 @@ public class EnemyDrop : MonoBehaviour
             Debug.Log(rand);
             GameObject temp = Instantiate(DropObjects[index], transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environment").transform.Find("Loot"));
         }
-        */
-        int index = Random.Range(0, DropObjects.Length);
-        GameObject temp = Instantiate(DropObjects[index], transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environment").transform.Find("Loot"));
+        
+        //int index = Random.Range(0, DropObjects.Length);
+        //GameObject temp = Instantiate(DropObjects[index], transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environment").transform.Find("Loot"));
     }
 
     private void Update()

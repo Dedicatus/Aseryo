@@ -301,7 +301,7 @@ MonoBehaviour:
   iceTime: 2
   Exp: 20
   Attack: 40
-  Health: 300
+  Health: 150
   AttackTime: 1
   hitByWindCD: 1.5
   pushDistance: 1
