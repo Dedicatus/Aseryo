@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public int level;
-    public Transform[] levelStartPoints;
 
-    public float xMin, xMax, zMin, zMax;
+    [Header("LevelStartPoint")]
+    public Transform[] levelStartPoints;
 
     [Header("Level0")]
     public float lv0_XMin;
@@ -34,6 +33,10 @@ public class LevelManager : MonoBehaviour
     public float lv4_XMax;
     public float lv4_ZMin;
     public float lv4_ZMax;
+
+    [Header("Debug")]
+    public int level;
+    public float xMin, xMax, zMin, zMax;
 
     GameObject player;
     Rigidbody playerRB;

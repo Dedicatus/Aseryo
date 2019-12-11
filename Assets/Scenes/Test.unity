@@ -1969,7 +1969,7 @@ PrefabInstance:
     - target: {fileID: 7679012819468541104, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}
       propertyPath: m_Text
-      value: 0 Kill
+      value: Kill
       objectReference: {fileID: 0}
     - target: {fileID: 7679012819468541104, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}

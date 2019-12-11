@@ -305,11 +305,11 @@ MonoBehaviour:
   turnSpeed: 250
   dashTime: 0.6
   dashGap: 0.1
-  dashCD: 1
+  dashCD: 1.2
   ultTime: 8
   ultCost: 100
   exploseTime: 0.3
-  WindDurnTime: 1
+  WindDurnTime: 0.3
   exp: 0
   ultCharge: 100
   fireAmount: 0
@@ -384,6 +384,9 @@ MonoBehaviour:
     type: 3}
   effectRotationY: 0
   effectKillTime: 1.5
+  hurtEffectObj: {fileID: 0}
+  hurtRotationY: 0
+  hurtKillTime: 1.5
   groundBloodObj: {fileID: 2213052330771944596, guid: 51ef747dbe61f8a44aa1c77f9783448d,
     type: 3}
   bloodRotationY: 0
