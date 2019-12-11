@@ -89,9 +89,9 @@ MonoBehaviour:
   FireDamage: 1
   iceTime: 2
   Exp: 20
-  Attack: 10
-  Health: 20
-  AttackTime: 1
+  Attack: 50
+  Health: 200
+  AttackTime: 0.5
   hitByWindCD: 1.5
   isFired: 0
   isIced: 0
