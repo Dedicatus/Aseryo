@@ -91,8 +91,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.8077425}
-  m_Center: {x: 0, y: 0, z: 0.40387154}
+  m_Size: {x: 1.4064602, y: 1, z: 1.8382986}
+  m_Center: {x: 0.104286626, y: 0, z: 0.41914958}
 --- !u!114 &6187807103182848241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,10 +300,12 @@ MonoBehaviour:
   FireDamage: 1
   iceTime: 2
   Exp: 20
-  Attack: 10
-  Health: 20
+  Attack: 20
+  Health: 150
   AttackTime: 1
   hitByWindCD: 1.5
+  isTreasure: 0
+  isBoss: 0
   isFired: 0
   isIced: 0
   isHitbyWind: 0
