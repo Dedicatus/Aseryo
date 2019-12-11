@@ -57,9 +57,13 @@ public class Shrine : MonoBehaviour
                 transform.Find("ShrineGuide").gameObject.SetActive(false);
                 isChoosing = false;
                 isChoosed = true;
+                GameObject.Find("UIManager").transform.Find("SkillSelect").GetComponent<SkillSelect>().isChangeDone = 0;
             }
             if (result == 2)
+            {
                 isChoosing = false;
+                GameObject.Find("UIManager").transform.Find("SkillSelect").GetComponent<SkillSelect>().isChangeDone = 0;
+            }
         }
     }
 
