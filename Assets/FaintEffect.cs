@@ -14,13 +14,13 @@ public class FaintEffect : MonoBehaviour
 
     public void startFaintEffect()
     {
-        GameObject temp = Instantiate(faintEffectObj, transform.position, transform.rotation * Quaternion.Euler(0, effectRotationY + 180f, 0), GameObject.Find("Environment").transform.Find("Effect"));
+        GameObject temp = Instantiate(faintEffectObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, effectRotationY + 180f, 0), GameObject.Find("Environment").transform.Find("Effect"));
         Destroy(temp, effectKillTime);
     }
 
     public void startGroundBlood()
     {
-        GameObject temp = Instantiate(groundBloodObj, transform.position, transform.rotation * Quaternion.Euler(0, effectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
+        GameObject temp = Instantiate(groundBloodObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, effectRotationY, 0), GameObject.Find("Environment").transform.Find("Effect"));
         Destroy(temp, bloodKillTime);
     }
 }
