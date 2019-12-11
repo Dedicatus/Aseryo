@@ -25,6 +25,7 @@ public class ElementController : MonoBehaviour
 
     void checkElement()
     {
+        if (player == null) return;
         if (player.GetComponent<Player>().Utype == Player.UltType.FIRE)
         {
             fire.SetActive(true);
