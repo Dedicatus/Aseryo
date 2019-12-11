@@ -495,7 +495,7 @@ public class Player : MonoBehaviour
         if(tempNum<=avoidChance)
             curHealth -= number;
         if (MJMode && curHealth < 41)
-            curHealth = 10f;
+            curHealth = 41f;
         if (curHealth <= 0)
         {
             if (reviveTimes > 0)
