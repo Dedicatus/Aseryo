@@ -49,7 +49,7 @@ MonoBehaviour:
   skillSelect: {fileID: 5955610961796287848}
   PlayerStatus: {fileID: 2468333229636798236}
   gameOver: {fileID: 424283428002338881}
-  Timer: {fileID: 6651684205307231538}
+  Timer: {fileID: 6519218627057822283}
 --- !u!1001 &424283429324712403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,9 +352,9 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3683625106573073056}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6651684205307231538 stripped
+--- !u!1 &6519218627057822283 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8021291429338179474, guid: 4b852e5045207d84d83820ce81c2d7aa,
+  m_CorrespondingSourceObject: {fileID: 7594818610495467755, guid: 4b852e5045207d84d83820ce81c2d7aa,
     type: 3}
   m_PrefabInstance: {fileID: 3683625106573073056}
   m_PrefabAsset: {fileID: 0}
