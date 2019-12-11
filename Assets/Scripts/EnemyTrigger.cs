@@ -16,7 +16,7 @@ public class EnemyTrigger : MonoBehaviour
 
     [Header("Chains")]
     public bool useTimer = false;
-    public float startTimer = 0.0f;
+    public float endTime = 0.0f;
     public GameObject[] chainedTrigger;
 
     public int enemyCount;
@@ -32,7 +32,11 @@ public class EnemyTrigger : MonoBehaviour
     void OnTriggerEnter(Collider coll)
     {
         if (triggered == true || coll.tag != "Player") return;
-        
+
+        if (useTimer)
+        {
+            GameObject.FindGameObjectWithTag("System").transform.Find("UIManager").GetComponent<UIManager>().showTimer(endTime);
+        }
 
         enemyCount = enemies.Length;
         for (int i = 0; i < enemies.Length; ++i)
@@ -49,9 +53,9 @@ public class EnemyTrigger : MonoBehaviour
 
         if (triggered && useTimer)
         {
-            if (startTimer >= 0)
+            if (endTime >= 0)
             {
-                startTimer -= Time.deltaTime;
+                endTime -= Time.deltaTime;
             }
             else
             {
@@ -61,7 +65,6 @@ public class EnemyTrigger : MonoBehaviour
 
         if (enemyCount == 0)
         {
-            Debug.Log("???");
             allDead = true;
 
             if (chainedTrigger != null)
