@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -48,10 +49,9 @@ public class GameManager : MonoBehaviour
         {
             case GameStates.StartScreen:
                 Time.timeScale = 0.0f;
-                if (Input.GetKey(KeyCode.JoystickButton0))
+                if (Input.GetKey(KeyCode.JoystickButton2))
                 {
                     state = GameStates.Playing;
-                    Debug.Log("1");
                 }
                 break;
 
@@ -61,8 +61,10 @@ public class GameManager : MonoBehaviour
 
             case GameStates.EndScreen:
                 Time.timeScale = 0.0f;
-                if (Input.GetKey(KeyCode.JoystickButton0))
+                if (Input.GetKey(KeyCode.JoystickButton2))
                 {
+                    Scene scene = SceneManager.GetActiveScene();
+                    SceneManager.LoadScene(scene.name);
                     state = GameStates.StartScreen;
                 }
                 break;
