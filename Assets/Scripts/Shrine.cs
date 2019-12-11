@@ -8,9 +8,11 @@ public class Shrine : MonoBehaviour
     private bool choosing;
     public bool isChoosed;
     public bool isChoosing;
+    GameObject player;
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         activated = false;
         choosing = false;
         isChoosed = false;
@@ -20,6 +22,7 @@ public class Shrine : MonoBehaviour
     void Update()
     {
         inputHandler();
+        checkGuide();
         checkSkill();
     }
 
@@ -60,5 +63,14 @@ public class Shrine : MonoBehaviour
         }
     }
 
-
+    void checkGuide()
+    {
+        if (!isChoosed)
+        { 
+            if(player.GetComponent<Player>().checkUlt())
+                transform.Find("ShrineGuide").gameObject.SetActive(true);
+            else
+                transform.Find("ShrineGuide").gameObject.SetActive(false);
+        }
+    }
 }
