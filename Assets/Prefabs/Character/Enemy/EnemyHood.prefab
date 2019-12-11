@@ -306,7 +306,7 @@ MonoBehaviour:
   hitByWindCD: 1.5
   pushDistance: 1
   isTreasure: 0
-  isBoss: 0
+  isBoss: 1
   isFired: 0
   isIced: 0
   isHitbyWind: 0
