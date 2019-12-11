@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
                     state = GameStates.Playing;
                     Time.timeScale = 1.0f;
                 }
+
+                if (Input.GetKey(KeyCode.JoystickButton6))
+                {
+                    Application.Quit();
+                }
                 break;
 
             case GameStates.Playing:
