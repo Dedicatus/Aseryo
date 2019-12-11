@@ -20,4 +20,12 @@ public class EnemyAlarmCollision : MonoBehaviour
             Enemy.GetComponent<Enemy>().changeState(2);
         }
     }
+
+    private void OnTriggerExit(Collider coll)
+    {
+        if (coll.gameObject.tag == "Player")
+        {
+            Enemy.GetComponent<Enemy>().changeState(1);
+        }
+    }
 }

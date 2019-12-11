@@ -7,6 +7,7 @@ public class HealthBarController : MonoBehaviour
     GameObject player;
     RectTransform rect;
     bool isAddHealth;
+    float healthRate;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,20 +23,20 @@ public class HealthBarController : MonoBehaviour
         if (player.GetComponent<Player>().isAddMaxHealth&&!isAddHealth)
         {
             isAddHealth = true;
-            rect.sizeDelta = new Vector2(400f, 15f);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(35.0f, -29.0f);
+            rect.sizeDelta = new Vector2(438f, 5f);
+            //GetComponent<RectTransform>().anchoredPosition = new Vector2(312.0f, -55.0f);
         }
         if (isAddHealth)
         {
-            float health = 3.4f * player.GetComponent<Player>().getHealth();
-            rect.sizeDelta = new Vector2(health, 15f);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(-165f + health / 2f, -29.0f);
+            float health = 2.19f * player.GetComponent<Player>().getHealth();
+            rect.sizeDelta = new Vector2(health, 5f);
+            //GetComponent<RectTransform>().anchoredPosition = new Vector2(-165f + health / 2f, -29.0f);
         }
         else
         {
-            float health = 3.5f * player.GetComponent<Player>().getHealth();
-            rect.sizeDelta = new Vector2(health, 15f);
-            GetComponent<RectTransform>().anchoredPosition = new Vector2(-155f + health / 2f, -29.0f);
+            float health = 3.47f * player.GetComponent<Player>().getHealth();
+            rect.sizeDelta = new Vector2(health, 5f);
+            //GetComponent<RectTransform>().anchoredPosition = new Vector2(142f + health / 2f, -55.0f);
         }
     }
 }

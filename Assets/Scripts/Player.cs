@@ -192,8 +192,8 @@ public class Player : MonoBehaviour
     public void changeMaxHealth()
     { 
         isAddMaxHealth = true;
-        maxHealth = 120f;
-        curHealth = 120f;
+        maxHealth = 200f;
+        curHealth = 200f;
     }
 
     private void inputHandler()

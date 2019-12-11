@@ -210,7 +210,7 @@ public class Enemy : MonoBehaviour
     void followPlayer()
     {
         if (target == null) return;
-        Vector3 relativePos = target.position - transform.position;
+        Vector3 relativePos = new Vector3 (target.position.x - transform.position.x, 0, target.position.z - transform.position.z);
         if ((isFlee&&!isBoss)||isTreasure)
             relativePos = -relativePos;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);

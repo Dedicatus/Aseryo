@@ -18,12 +18,11 @@ public class UltBarController : MonoBehaviour
     {
         if (player == null) return;
         float Ult = player.GetComponent<Player>().getUltCharge();
-        float width = 0.6f*Ult;
-        if (Ult >= 200f)
-            width += 20f;
-        else if (Ult < 200f && Ult >= 100f)
-            width += 10f;
-        rect.sizeDelta = new Vector2(width, 22f);
-        GetComponent<RectTransform>().anchoredPosition = new Vector2(-86f + width / 2f, -24f);
+        float width = 0.9f*Ult;
+        if (Ult >= 180f)
+            width += 30f;
+        else if (Ult < 180f && Ult >= 90f)
+            width += 15f;
+        rect.sizeDelta = new Vector2(width, 24f);
     }
 }
