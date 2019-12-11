@@ -1858,6 +1858,26 @@ PrefabInstance:
       propertyPath: levelStartPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1446904592}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_XMin
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_XMax
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_ZMin
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_ZMax
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8355374580702447513, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}
       propertyPath: m_TagString
@@ -2235,6 +2255,22 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 700226649}
+    - target: {fileID: 963194229, guid: 89a79501bbbc244b7bb4bfb392db4600, type: 3}
+      propertyPath: xMin
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194229, guid: 89a79501bbbc244b7bb4bfb392db4600, type: 3}
+      propertyPath: xMax
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194229, guid: 89a79501bbbc244b7bb4bfb392db4600, type: 3}
+      propertyPath: zMin
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 963194229, guid: 89a79501bbbc244b7bb4bfb392db4600, type: 3}
+      propertyPath: zMax
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4832731181012818299, guid: 89a79501bbbc244b7bb4bfb392db4600,
         type: 3}
       propertyPath: m_LocalPosition.x

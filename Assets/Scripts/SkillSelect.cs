@@ -28,7 +28,6 @@ public class SkillSelect : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.JoystickButton1))
         {
-            Debug.Log(111);
             gameObject.SetActive(false);
             Time.timeScale = 1;
         }
