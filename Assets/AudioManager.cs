@@ -23,16 +23,19 @@ public class AudioManager : MonoBehaviour
 
     public void playDashSound()
     {
+        transform.GetComponent<AudioSource>().volume = 0.6f;
         source.PlayOneShot(dash);
     }
 
     public void playExploseSound()
     {
+        transform.GetComponent<AudioSource>().volume = 0.6f;
         source.PlayOneShot(explose);
     }
 
     public void playUltSound()
     {
+        transform.GetComponent<AudioSource>().volume = 1.0f;
         source.PlayOneShot(ult);
     }
 }
