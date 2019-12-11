@@ -123,7 +123,7 @@ MonoBehaviour:
   Exp: 20
   Attack: 40
   Health: 50
-  AttackTime: 0.1
+  AttackTime: 1.2
   hitByWindCD: 1.5
   isFired: 0
   isIced: 0

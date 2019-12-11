@@ -22,6 +22,10 @@ public class Enemy : MonoBehaviour
     public float AttackTime = 1f;
     public float hitByWindCD = 1.5f;
     
+    public bool isTreasure = false;
+    public bool isBoss;
+
+    bool isFlee = false;
     bool isHit;
     public bool isFired = false;
     public bool isIced = false;
@@ -53,6 +57,7 @@ public class Enemy : MonoBehaviour
         AttackTimeCount = AttackTime;
         isHit = false;
         isFired = false;
+        isBoss = false;
         isHitbyWind = false;
         isAttackEnd = true;
         FireCDCount = 0f;
@@ -140,7 +145,8 @@ public class Enemy : MonoBehaviour
 
     public void catchOnFire()
     {
-        isFired = true;
+        //isFired = true;
+        
         onFireCount = onFireTime;
         FireCDCount = FireCD;
     }
@@ -151,18 +157,20 @@ public class Enemy : MonoBehaviour
         FireCDCount -= Time.deltaTime;
         if (onFireCount >= 0)
         {
+            isFlee = true;
             if (FireCDCount <= 0)
             {
                 Health -= FireDamage;
                 FireCDCount = FireCD;
             }
         }
+        else isFlee = false;
         
     }
     
     public void getIced()
     {
-        isIced = true;
+        //isIced = true;
         iceCount = iceTime;
     }
 
@@ -201,8 +209,12 @@ public class Enemy : MonoBehaviour
     {
         if (target == null) return;
         Vector3 relativePos = target.position - transform.position;
+        if ((isFlee&&!isBoss)||isTreasure)
+            relativePos = -relativePos;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         transform.rotation = rotation;
+        //
+            //transform.rotation = Quaternion.Euler(0f, 30f, 0f);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
