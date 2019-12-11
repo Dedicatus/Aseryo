@@ -263,6 +263,7 @@ public class Player : MonoBehaviour
             ultCharge -= ultCost;
             ultCount = ultTime;
             playerEffect.startUltEffect();
+            GameObject.Find("AudioManager").GetComponent<AudioManager>().playUltSound();
         }
 
         if(Input.GetKey(KeyCode.M))
@@ -336,6 +337,7 @@ public class Player : MonoBehaviour
         explosionFinished = false;
         exploseTimer = exploseTime;
         playerEffect.startExplosionEffect();
+        GameObject.Find("AudioManager").GetComponent<AudioManager>().playExploseSound();
     }
 
     private void movePlayer()
