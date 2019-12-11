@@ -288,6 +288,11 @@ PrefabInstance:
       propertyPath: useTimer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6882418513323203267, guid: b38a828c8746e2643b6f3b80ea7b8139,
+        type: 3}
+      propertyPath: endTime
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6882418513323203278, guid: b38a828c8746e2643b6f3b80ea7b8139,
         type: 3}
       propertyPath: m_Name
@@ -1652,6 +1657,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: System
       objectReference: {fileID: 0}
+    - target: {fileID: 1405178119333029437, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_TagString
+      value: System
+      objectReference: {fileID: 0}
     - target: {fileID: 1856227724921161789, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}
       propertyPath: img
@@ -1697,6 +1707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720514157607970776, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_Name
+      value: Timer
       objectReference: {fileID: 0}
     - target: {fileID: 4955645242601431502, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}
