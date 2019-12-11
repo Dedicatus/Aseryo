@@ -50,18 +50,21 @@ public class HUDController : MonoBehaviour
             //dash.color = new Color(0.8f, 0.05f, 0);
             //targetColor = new Color(0.8f, 0.05f, 0);
             dashShining.color = new Color(0.8f, 0.05f, 0, 0.39f);
+            transform.Find("DashGuide").gameObject.SetActive(true);
             return;
         }
         if (player.dashCDcount <= 0)
         {
             //targetColor = new Color(0.8f, 0.05f, 0);
             shiningTargetColor = new Color(0.8f, 0.05f, 0, 0.39f);
+            transform.Find("DashGuide").gameObject.SetActive(true);
         }
 
         if (player.state == Player.PlayerStates.DASHING)
         {
             //dash.color = new Color(0.8f, 0.8f, 0.8f);
             //targetColor = new Color(0.8f, 0.8f, 0.8f);
+            transform.Find("DashGuide").gameObject.SetActive(false);
             shiningTargetColor = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
 

@@ -15227,8 +15227,7 @@ Transform:
   m_Children:
   - {fileID: 3227824156566354345}
   - {fileID: 665838410}
-  - {fileID: 9201831342314708694}
-  - {fileID: 7449584224801029095}
+  - {fileID: 6218872285883233948}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15303,6 +15302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f738462e0f9e096458948b26998e9d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isChoosed: 0
 --- !u!1 &3227824156566354344
 GameObject:
   m_ObjectHideFlags: 0
@@ -16420,12 +16420,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5479558406949334583}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0.013, y: 1.75, z: 0.007}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: 0.013000488, y: 1.75, z: 0.0069999695}
+  m_LocalScale: {x: 0.1, y: 0.10000001, z: 1}
   m_Children: []
-  m_Father: {fileID: 3227824154618324502}
-  m_RootOrder: 2
+  m_Father: {fileID: 6218872285883233948}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!212 &3444907687552245586
 SpriteRenderer:
@@ -17116,12 +17116,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7067237614939726603}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0.007, y: 1.75, z: -0.016}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 1}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: 0.0069999695, y: 1.75, z: -0.015999794}
+  m_LocalScale: {x: 0.05, y: 0.050000004, z: 1}
   m_Children: []
-  m_Father: {fileID: 3227824154618324502}
-  m_RootOrder: 3
+  m_Father: {fileID: 6218872285883233948}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!212 &9153599442014204000
 SpriteRenderer:
@@ -17659,6 +17659,38 @@ Transform:
   - {fileID: 7409434072711873864}
   m_Father: {fileID: 5006512735314820929}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7838920646409257012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6218872285883233948}
+  m_Layer: 0
+  m_Name: ShrineGuide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6218872285883233948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838920646409257012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 9201831342314708694}
+  - {fileID: 7449584224801029095}
+  m_Father: {fileID: 3227824154618324502}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8107028039735952642
 GameObject:
