@@ -89,7 +89,7 @@ MonoBehaviour:
   FireDamage: 1
   iceTime: 2
   Exp: 20
-  Attack: 8
+  Attack: 2
   Health: 20
   AttackTime: 0.4
   hitByWindCD: 1.5
@@ -510,7 +510,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ab2f06623a450874eb4010293b83ef3d, type: 2}
+      objectReference: {fileID: 2100000, guid: 2e8e623873afadd449a698b9c9ab20db, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62c810045b88e9c4994c53e77aa7c1ea, type: 3}
 --- !u!1 &3498792479767579142 stripped
