@@ -8,13 +8,13 @@ public class CameraFollow : MonoBehaviour
 
     public Vector3 offset;
 
-    float xMin, xMax, zMin, zMax;
+    public float xMin, xMax, zMin, zMax;
 
     LevelManager levelManager;
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    {   
         if (target == null) return;
 
         levelManager = GameObject.FindGameObjectWithTag("System").transform.Find("LevelManager").GetComponent<LevelManager>();
