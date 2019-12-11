@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
     public float iceAmount = 0;
     public float windAmount = 0;
 
-    bool isDashed;
     bool isExplosed;
     bool explosionFinished;
     public bool canExploseThisDash;
@@ -93,7 +92,6 @@ public class Player : MonoBehaviour
         dashTimer = 0.0f;
         state = PlayerStates.IDLING;
         Utype = UltType.NONE;
-        isDashed = false;
         isExplosed = false;
         isExploseOpen = false;
         reviveTimes = 0;
@@ -214,6 +212,7 @@ public class Player : MonoBehaviour
                 isUltra = false;
             }
         }
+
         if (isUltra)
         {
             if (dashGapCount <= 0.0f)
@@ -221,7 +220,7 @@ public class Player : MonoBehaviour
                 if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
                 {
                     
-                    if (((state == PlayerStates.MOVING)|| (state == PlayerStates.IDLING)) && (isDashed == false))
+                    if ((state == PlayerStates.MOVING)|| (state == PlayerStates.IDLING))
                     {
                         dashTimer = dashTime;
                         isVibrated = false;
@@ -241,13 +240,12 @@ public class Player : MonoBehaviour
                 if (Input.GetKey(KeyCode.JoystickButton0) || Input.GetKey(KeyCode.Space))
                 {
                     
-                    if (((state == PlayerStates.MOVING) || (state == PlayerStates.IDLING)) && (isDashed == false))
+                    if ((state == PlayerStates.MOVING) || (state == PlayerStates.IDLING))
                     {
                         dashTimer = dashTime;
                         isVibrated = false;
                         singleDashCount = 0;
                         state = PlayerStates.DASHING;
-                        isDashed = true;
                         playerEffect.startDashEffect();
                         GameObject.Find("AudioManager").GetComponent<AudioManager>().playDashSound();
                     }
@@ -276,10 +274,7 @@ public class Player : MonoBehaviour
             MJMode = false;
         }
 
-        if (Input.GetKeyUp(KeyCode.JoystickButton0) || Input.GetKeyUp(KeyCode.Space))
-        {
-            isDashed = false;
-        }
+
 
         if (canExploseThisDash && isExploseOpen && Input.GetAxis("LRT") > 0.19f && (isExplosed == false) && (explosionFinished == true))
         {

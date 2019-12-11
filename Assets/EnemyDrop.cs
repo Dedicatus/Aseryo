@@ -14,8 +14,6 @@ public class EnemyDrop : MonoBehaviour
         if (rand <= dropRate)
         { 
             int index = Random.Range(0, DropObjects.Length);
-            Debug.Log(dropRate);
-            Debug.Log(rand);
             GameObject temp = Instantiate(DropObjects[index], transform.position, transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environment").transform.Find("Loot"));
         }
         
