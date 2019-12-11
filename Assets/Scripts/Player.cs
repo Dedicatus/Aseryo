@@ -265,6 +265,16 @@ public class Player : MonoBehaviour
             playerEffect.startUltEffect();
         }
 
+        if(Input.GetKey(KeyCode.M))
+        {
+            MJMode = true;
+        }
+
+        if (Input.GetKey(KeyCode.J))
+        {
+            MJMode = false;
+        }
+
         if (Input.GetKeyUp(KeyCode.JoystickButton0) || Input.GetKeyUp(KeyCode.Space))
         {
             isDashed = false;
