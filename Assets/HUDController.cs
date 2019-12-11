@@ -42,13 +42,15 @@ public class HUDController : MonoBehaviour
             exploseShining.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
 
-        if (player.checkUlt())
+        if (player.checkUlt()&&!player.isUltra)
         {
-            transform.Find("UltimateShinning").gameObject.SetActive(true);
+            transform.Find("UltimateShining").gameObject.SetActive(true);
+            transform.Find("Ultimate").gameObject.SetActive(false);
         }
         else
         {
-            transform.Find("UltimateShinning").gameObject.SetActive(false);
+            transform.Find("Ultimate").gameObject.SetActive(true);
+            transform.Find("UltimateShining").gameObject.SetActive(false);
         }
 
     }
