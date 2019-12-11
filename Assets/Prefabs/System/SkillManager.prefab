@@ -43,6 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 400c0ee02a9c91c4e9e67f745b3b789b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DashAreaMultipler: 2
+  MaxHealthMultipler: 1.5
+  UltTimeMultipler: 1.5
+  DashCDMultipler: 0.5
+  ChargeRecover: 10
+  HealthRecover: 3
+  UltTimeMultiplerLV3: 1.5
+  DashChargeNumber: 2
+  DashHealNumber: 5
+  AvoidChance: 0.5
+  MoreChargeNumber: 5
   lv1Trait: 0
   lv2Trait: 0
   lv3Trait: 0

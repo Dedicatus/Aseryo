@@ -3280,7 +3280,6 @@ MonoBehaviour:
   traitButton1: {fileID: 6288660165634768751}
   traitButton2: {fileID: 6288660165703520677}
   traitButton3: {fileID: 6288660165821678586}
-  gm: {fileID: 0}
 --- !u!1 &6288660167206348830
 GameObject:
   m_ObjectHideFlags: 0
