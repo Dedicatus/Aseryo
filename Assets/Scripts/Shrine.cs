@@ -50,7 +50,6 @@ public class Shrine : MonoBehaviour
         if (isChoosing)
         {
             int result = GameObject.Find("UIManager").transform.Find("SkillSelect").GetComponent<SkillSelect>().isChangeDone;
-            Debug.Log(result);
             if (result == 1)
             {
                 transform.Find("BuddhaStatus").transform.Find("pf_torch_stick_01").gameObject.SetActive(false);
