@@ -1843,7 +1843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9107648151404075080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2660,7 +2660,7 @@ GameObject:
   - component: {fileID: 2058243220965316612}
   - component: {fileID: 703878177517875931}
   m_Layer: 5
-  m_Name: L2
+  m_Name: R2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2724,4 +2724,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: L2
+  m_Text: R2

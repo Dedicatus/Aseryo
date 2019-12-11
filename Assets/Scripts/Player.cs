@@ -504,8 +504,8 @@ public class Player : MonoBehaviour
         float tempNum = Random.Range(0f, 1f);
         if(tempNum<=avoidChance)
             curHealth -= number;
-        if (MJMode && curHealth < 10)
-            curHealth = 10f;
+        if (MJMode && curHealth < 41)
+            curHealth = 41f;
         if (curHealth <= 0)
         {
             if (reviveTimes > 0)

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject skillSelect, PlayerStatus, startScreen, gameOver, Timer, KillCount;
+    public GameObject skillSelect, PlayerStatus, startScreen, endScreen, gameOver, Timer, KillCount;
     bool timerActive;
     float timeCount;
     GameObject player;
@@ -40,8 +40,12 @@ public class UIManager : MonoBehaviour
             case GameManager.GameStates.StartScreen:
                 startScreen.SetActive(true);
                 break;
+            case GameManager.GameStates.EndScreen:
+                endScreen.SetActive(true);
+                break;
             default:
                 startScreen.SetActive(false);
+                endScreen.SetActive(false);
                 break;
         }
     }

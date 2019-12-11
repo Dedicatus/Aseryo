@@ -80,6 +80,8 @@ MonoBehaviour:
   repeat: 0
   enemies: []
   spawnPoints: []
+  useTimer: 0
+  endTime: 0
   chainedTrigger:
   - {fileID: 0}
   enemyCount: 0
