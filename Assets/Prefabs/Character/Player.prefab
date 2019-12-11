@@ -309,7 +309,7 @@ MonoBehaviour:
   ultTime: 8
   ultCost: 100
   exploseTime: 0.3
-  WindDurnTime: 1
+  WindDurnTime: 0.3
   exp: 0
   ultCharge: 100
   fireAmount: 0
