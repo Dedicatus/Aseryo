@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 231057902}
   - component: {fileID: -7632197508623913245}
   m_Layer: 0
-  m_Name: TEnemy
+  m_Name: TreasureEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,7 +425,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ba3fdd90aef64283b282970b0b6ff86, type: 2}
+      objectReference: {fileID: 2100000, guid: cc0f1531507f50347867dbbab80647c8, type: 2}
     - target: {fileID: -6057140222963153312, guid: 532ed4abfc8a1b9408c443dd8008bbf5,
         type: 3}
       propertyPath: m_Controller
