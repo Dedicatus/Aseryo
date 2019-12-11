@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public float attack = 1f;
     public int vibrationBaseNumber = 3;
     public float avoidChance = 1f;
+    public float killCount = 0f;
 
     [Header("Movement")]
     public float moveSpeed = 10f;
@@ -75,6 +76,7 @@ public class Player : MonoBehaviour
     float moreChargeNumber;
     float DashHealNumber;
     float DashChargeNumber;
+
     
 
     // Start is called before the first frame update
@@ -129,6 +131,11 @@ public class Player : MonoBehaviour
     public void addSingleKill()
     {
         singleDashCount++;
+    }
+
+    public void addKillCount()
+    {
+        killCount++;
     }
 
     float get_angle(float x, float y)

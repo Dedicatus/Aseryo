@@ -102,7 +102,7 @@ public class Enemy : MonoBehaviour
             faintEffect = transform.GetComponent<FaintEffect>();
             faintEffect.startFaintEffect();
             faintEffect.startGroundBlood();
-
+            player.GetComponent<Player>().addKillCount();
             enemyDrop = transform.GetComponent<EnemyDrop>();
             enemyDrop.dropLoot();
         }
