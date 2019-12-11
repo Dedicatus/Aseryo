@@ -117,6 +117,10 @@ MonoBehaviour:
     type: 3}
   effectRotationY: 0
   effectKillTime: 1.5
+  hurtEffectObj: {fileID: 3743697550064341411, guid: a77a37e6e1b17c047a6d128607beba24,
+    type: 3}
+  hurtRotationY: 0
+  hurtKillTime: 1.5
   groundBloodObj: {fileID: 8646630590542489480, guid: eb6eed307250c1b42bb86037f8c4f877,
     type: 3}
   bloodRotationY: 0

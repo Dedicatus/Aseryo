@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     public float Health = 2f;
     public float AttackTime = 1f;
     public float hitByWindCD = 1.5f;
-    
+    public float pushDistance = 2f;
     public bool isTreasure = false;
     public bool isBoss;
 
@@ -41,6 +41,7 @@ public class Enemy : MonoBehaviour
 
     FaintEffect faintEffect;
     EnemyDrop enemyDrop;
+    Rigidbody rigidBody;
 
     public Enemy()
     {
@@ -50,6 +51,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rigidBody = GetComponent<Rigidbody>();
         state = EnemyStates.IDLING;
         player = GameObject.FindGameObjectWithTag("Player");
         target = player.transform;
@@ -242,6 +244,8 @@ public class Enemy : MonoBehaviour
 
     public void getHurt()
     {
+        faintEffect = transform.GetComponent<FaintEffect>();
+        faintEffect.startHurtEffect();
         Health -= playerAttack;
     }
 
