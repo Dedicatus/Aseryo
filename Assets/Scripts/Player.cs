@@ -20,8 +20,9 @@ public class Player : MonoBehaviour
     public PlayerStates state;
     public UltType Utype;
     public GameObject windCollider;
-    
+
     [Header("Status")]
+    public bool MJMode = false;
     public float maxHealth = 3f;
     public float curHealth;
     public float attack = 1f;
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
     public bool isAddMaxHealth;
     public bool isExploseOpen;
     public float dashTimer;
+    
     float dashGapCount;
     public float dashCDcount;
     float ultCount;
@@ -492,6 +494,8 @@ public class Player : MonoBehaviour
         float tempNum = Random.Range(0f, 1f);
         if(tempNum<=avoidChance)
             curHealth -= number;
+        if (MJMode && curHealth < 10)
+            curHealth = 10f;
         if (curHealth <= 0)
         {
             if (reviveTimes > 0)
