@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  lootAmount: 5
+  lootAmount: 1
 --- !u!1001 &1941877065264968275
 PrefabInstance:
   m_ObjectHideFlags: 0

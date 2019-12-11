@@ -122,10 +122,10 @@ MonoBehaviour:
   iceTime: 2
   Exp: 20
   Attack: 40
-  Health: 50
+  Health: 60
   AttackTime: 1.2
   hitByWindCD: 1.5
-  pushForce: 500
+  pushDistance: 2
   isTreasure: 0
   isBoss: 0
   isFired: 0
