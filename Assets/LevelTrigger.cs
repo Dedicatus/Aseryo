@@ -9,7 +9,7 @@ public class LevelTrigger : MonoBehaviour
 
     private void Start()
     {
-        levelManager = GameObject.Find("System").transform.Find("LevelManager").GetComponent<LevelManager>();
+        levelManager = GameObject.FindGameObjectWithTag("System").transform.Find("LevelManager").GetComponent<LevelManager>();
 
         if (!activated)
         {

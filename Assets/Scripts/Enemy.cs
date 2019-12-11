@@ -196,7 +196,8 @@ public class Enemy : MonoBehaviour
     void attackPlayer()
     {
         AttackTimeCount -= Time.deltaTime;
-        
+
+        if (player == null) return;
         if (AttackTimeCount <= 0)
         {
             isAttackEnd = true;
