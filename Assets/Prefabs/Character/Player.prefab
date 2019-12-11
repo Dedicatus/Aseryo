@@ -299,6 +299,7 @@ MonoBehaviour:
   attack: 10
   vibrationBaseNumber: 3
   avoidChance: 1
+  killCount: 0
   moveSpeed: 10
   dashForce: 450
   turnSpeed: 250
@@ -383,7 +384,7 @@ MonoBehaviour:
     type: 3}
   effectRotationY: 0
   effectKillTime: 1.5
-  groundBloodObj: {fileID: 8646630590542489480, guid: 8eeeac245bc859b48b2eb8cecdeec1ef,
+  groundBloodObj: {fileID: 2213052330771944596, guid: 51ef747dbe61f8a44aa1c77f9783448d,
     type: 3}
   bloodRotationY: 0
   bloodKillTime: 500
