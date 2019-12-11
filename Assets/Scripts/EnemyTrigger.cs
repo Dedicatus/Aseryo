@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
 {
-    public bool activated = true;
+    [SerializeField]
+    bool activated = true;
     [SerializeField]
     private bool repeat = false;
     
@@ -12,6 +13,10 @@ public class EnemyTrigger : MonoBehaviour
     bool allDead = false;
     public GameObject[] enemies;
     public GameObject[] spawnPoints;
+
+    [Header("Chains")]
+    public bool useTimer = false;
+    public float startTimer = 0.0f;
     public GameObject[] chainedTrigger;
 
     public int enemyCount;
@@ -35,24 +40,41 @@ public class EnemyTrigger : MonoBehaviour
             Instantiate(enemies[i], spawnPoints[i].gameObject.transform.position, spawnPoints[i].gameObject.transform.rotation, transform.Find("EnemyHolder").transform);
         }
 
-        //Debug.Log("1: " + enemyCount);
         if (!repeat) triggered = true;                                                                                                                                                                                                                                                                                                            
     }
 
     void Update()
     {
         if (!triggered || allDead) return;
+
+        if (triggered && useTimer)
+        {
+            if (startTimer >= 0)
+            {
+                startTimer -= Time.deltaTime;
+            }
+            else
+            {
+                enemyCount = 0;
+            }
+        }
+
         if (enemyCount == 0)
         {
+            Debug.Log("???");
             allDead = true;
+
             if (chainedTrigger != null)
             {
                 for (int i = 0; i < chainedTrigger.Length; ++i)
                 {
-                    chainedTrigger[i].transform.GetComponent<BoxCollider>().enabled = true;
+                   chainedTrigger[i].transform.GetComponent<BoxCollider>().enabled = true;
                 }
+
             }
         }
+
+
     }
         
 }
