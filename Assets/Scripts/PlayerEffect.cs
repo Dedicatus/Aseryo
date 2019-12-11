@@ -85,7 +85,7 @@ public class PlayerEffect : MonoBehaviour
 
     private void startWindSwipe()
     {
-        GameObject temp = Instantiate(windSwipeObj, transform.position + new Vector3(0, 1.0f, 0), transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environment").transform.Find("Effect"));
+        GameObject temp = Instantiate(windSwipeObj, transform.position + new Vector3(0, 2.0f, 0), transform.rotation * Quaternion.Euler(0, 0, 0), GameObject.Find("Environment").transform.Find("Effect"));
         Destroy(temp, windSwipeKillTime);
     }
     private void startDashParticle()

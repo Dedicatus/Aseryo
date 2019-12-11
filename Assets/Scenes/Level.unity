@@ -19341,7 +19341,7 @@ PrefabInstance:
     - target: {fileID: 4082285805179131161, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4082285805179131161, guid: b7ad8dd3ed100184da5ff0c0428e9c74,
         type: 3}
@@ -36545,6 +36545,11 @@ PrefabInstance:
       propertyPath: levelStartPoints.Array.data[1]
       value: 
       objectReference: {fileID: 353271093}
+    - target: {fileID: 8675095085551765533, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6681ba1615d13e4eae804f4a9839e67, type: 3}
 --- !u!1 &1046271175
