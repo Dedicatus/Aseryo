@@ -52,11 +52,12 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKey(KeyCode.JoystickButton2))
                 {
                     state = GameStates.Playing;
+                    Time.timeScale = 1.0f;
                 }
                 break;
 
             case GameStates.Playing:
-                Time.timeScale = 1.0f;
+                
                 break;
 
             case GameStates.EndScreen:
