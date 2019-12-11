@@ -41,6 +41,16 @@ public class HUDController : MonoBehaviour
             //explose.color = new Color(0.76f, 0.76f, 0.76f, 1.0f);
             exploseShining.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         }
+
+        if (player.checkUlt())
+        {
+            transform.Find("UltimateShinning").gameObject.SetActive(true);
+        }
+        else
+        {
+            transform.Find("UltimateShinning").gameObject.SetActive(false);
+        }
+
     }
 
     private void dashHUDHandler()
