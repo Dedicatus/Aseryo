@@ -294,6 +294,7 @@ MonoBehaviour:
   Utype: 0
   windCollider: {fileID: 175154668195815513, guid: ce032ed09a3c3f84b98e43097e74a9d8,
     type: 3}
+  MJMode: 0
   maxHealth: 100
   curHealth: 0
   attack: 25
@@ -311,7 +312,7 @@ MonoBehaviour:
   exploseTime: 0.3
   WindDurnTime: 0.3
   exp: 0
-  ultCharge: 100
+  ultCharge: 0
   fireAmount: 0
   iceAmount: 0
   windAmount: 0
