@@ -123,7 +123,7 @@ MonoBehaviour:
   Exp: 20
   Attack: 40
   Health: 60
-  AttackTime: 0.5
+  AttackTime: 0.75
   hitByWindCD: 1.5
   pushDistance: 2
   isTreasure: 0
