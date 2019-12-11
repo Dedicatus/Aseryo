@@ -300,7 +300,7 @@ MonoBehaviour:
   FireDamage: 1
   iceTime: 2
   Exp: 20
-  Attack: 10
+  Attack: 21
   Health: 20
   AttackTime: 1
   hitByWindCD: 1.5

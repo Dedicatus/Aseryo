@@ -953,7 +953,7 @@ MonoBehaviour:
   dash: {fileID: 7147583627211830536}
   dashShining: {fileID: 3219070037262074875}
   explose: {fileID: 4023330599814079091}
-  exploseShining: {fileID: 0}
+  exploseShining: {fileID: 3469986456240812700}
 --- !u!1 &8227620090011581310
 GameObject:
   m_ObjectHideFlags: 0
