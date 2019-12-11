@@ -20,7 +20,7 @@ public class SkillSelect : MonoBehaviour
     public Text traitText3;
     public Image traitImg3;
     public GameObject select3;
-
+    public int isChangeDone;
     public bool isChanged = false;
 
     private SkillManager.Trait lv1Trait, lv2Trait, lv3Trait, lv4Trait;
@@ -32,6 +32,7 @@ public class SkillSelect : MonoBehaviour
         lv2Trait = skillManager.lv2Trait;
         lv3Trait = skillManager.lv3Trait;
         lv4Trait = skillManager.lv4Trait;
+        isChangeDone = 0;
     }
 
     void Update()
@@ -64,6 +65,7 @@ public class SkillSelect : MonoBehaviour
         {
             gameObject.SetActive(false);
             Time.timeScale = 1;
+            isChangeDone = 2;
         }
 
         if (Input.GetAxis("Horizontal_L") > 0.19f)
@@ -91,6 +93,7 @@ public class SkillSelect : MonoBehaviour
         if (Input.GetKey(KeyCode.JoystickButton2))
         {
             chooseTrait(selectNum);
+            isChangeDone = 1;
         }
     }
 

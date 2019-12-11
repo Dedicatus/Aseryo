@@ -6,16 +6,21 @@ public class Shrine : MonoBehaviour
 {
     private bool activated;
     private bool choosing;
+    public bool isChoosed;
+    public bool isChoosing;
 
     void Start()
     {
         activated = false;
         choosing = false;
+        isChoosed = false;
+        isChoosing = false;
     }
 
     void Update()
     {
         inputHandler();
+        checkSkill();
     }
 
     public void ShrineEntered()
@@ -30,11 +35,30 @@ public class Shrine : MonoBehaviour
 
     private void inputHandler()
     {
-        if ((Input.GetAxis("LRT") < -0.19f) && activated && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().checkUlt())
+        if (!isChoosed&&(Input.GetAxis("LRT") < -0.19f) && activated && GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().checkUlt())
         {
             GameObject.Find("UIManager").transform.Find("SkillSelect").GetComponent<SkillSelect>().startChoose();
-            
+            isChoosing = true;
         }
     }
+
+    void checkSkill()
+    {
+        if (isChoosing)
+        {
+            int result = GameObject.Find("UIManager").transform.Find("SkillSelect").GetComponent<SkillSelect>().isChangeDone;
+            Debug.Log(result);
+            if (result == 1)
+            {
+                transform.Find("BuddhaStatus").transform.Find("pf_torch_stick_01").gameObject.SetActive(false);
+                transform.Find("ShrineGuide").gameObject.SetActive(false);
+                isChoosing = false;
+                isChoosed = true;
+            }
+            if (result == 2)
+                isChoosing = false;
+        }
+    }
+
 
 }
