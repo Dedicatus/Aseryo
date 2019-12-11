@@ -1858,6 +1858,26 @@ PrefabInstance:
       propertyPath: levelStartPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1446904592}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_XMin
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_XMax
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_ZMin
+      value: -500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7861939578303958755, guid: a6681ba1615d13e4eae804f4a9839e67,
+        type: 3}
+      propertyPath: lv0_ZMax
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8355374580702447513, guid: a6681ba1615d13e4eae804f4a9839e67,
         type: 3}
       propertyPath: m_TagString
