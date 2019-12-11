@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public enum GameStates { StartScreen, Playing, EndScreen};
+    public GameStates state;
     public GameObject UIManager;
     public float waitTime = 2f;
     float waitTimeCount;
     // Start is called before the first frame update
     void Start()
     {
+        state = GameStates.StartScreen;
         waitTimeCount = 0;
     }
 
@@ -17,6 +20,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         countGameOver();
+        inputHandler();
     }
 
     void countGameOver()
@@ -36,5 +40,33 @@ public class GameManager : MonoBehaviour
     public void gameOver()
     {
         waitTimeCount = waitTime;
+    }
+
+    void inputHandler()
+    {
+        switch (state)
+        {
+            case GameStates.StartScreen:
+                Time.timeScale = 0.0f;
+                if (Input.GetKey(KeyCode.JoystickButton0))
+                {
+                    state = GameStates.Playing;
+                    Debug.Log("1");
+                }
+                break;
+
+            case GameStates.Playing:
+                Time.timeScale = 1.0f;
+                break;
+
+            case GameStates.EndScreen:
+                Time.timeScale = 0.0f;
+                if (Input.GetKey(KeyCode.JoystickButton0))
+                {
+                    state = GameStates.StartScreen;
+                }
+                break;
+        }
+
     }
 }

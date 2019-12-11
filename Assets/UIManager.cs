@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject skillSelect, PlayerStatus, gameOver, Timer, KillCount;
+    public GameObject skillSelect, PlayerStatus, startScreen, gameOver, Timer, KillCount;
     bool timerActive;
     float timeCount;
     GameObject player;
@@ -35,6 +35,15 @@ public class UIManager : MonoBehaviour
         if (player == null) return;
         KillCount.GetComponent<Text>().text = Mathf.RoundToInt(player.GetComponent<Player>().killCount).ToString();
 
+        switch (GameObject.FindGameObjectWithTag("System").transform.Find("GameManager").GetComponent<GameManager>().state)
+        {
+            case GameManager.GameStates.StartScreen:
+                startScreen.SetActive(true);
+                break;
+            default:
+                startScreen.SetActive(false);
+                break;
+        }
     }
 
     public void showGameOver()

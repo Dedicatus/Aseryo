@@ -71,7 +71,7 @@ public class EnemyTrigger : MonoBehaviour
             {
                 for (int i = 0; i < chainedTrigger.Length; ++i)
                 {
-                   chainedTrigger[i].transform.GetComponent<BoxCollider>().enabled = true;
+                   if (chainedTrigger[i].transform.GetComponent<BoxCollider>() != null) chainedTrigger[i].transform.GetComponent<BoxCollider>().enabled = true;
                 }
 
             }
