@@ -50,6 +50,18 @@ MonoBehaviour:
   PlayerStatus: {fileID: 2468333229636798236}
   gameOver: {fileID: 424283428002338881}
   Timer: {fileID: 6519218627057822283}
+--- !u!114 &1745391436228567963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499667528911368007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5051303de6bd1ca40b94fd6a16cb9f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &424283429324712403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,6 +230,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerStatus
       objectReference: {fileID: 0}
+    - target: {fileID: 1674305834470068608, guid: 4b852e5045207d84d83820ce81c2d7aa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -127.1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1674305834470068608, guid: 4b852e5045207d84d83820ce81c2d7aa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 89
+      objectReference: {fileID: 0}
     - target: {fileID: 4259594540180387450, guid: 4b852e5045207d84d83820ce81c2d7aa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,6 +402,12 @@ RectTransform:
 --- !u!1 &6519218627057822283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7594818610495467755, guid: 4b852e5045207d84d83820ce81c2d7aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 3683625106573073056}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6499667528911368007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7578899199255164391, guid: 4b852e5045207d84d83820ce81c2d7aa,
     type: 3}
   m_PrefabInstance: {fileID: 3683625106573073056}
   m_PrefabAsset: {fileID: 0}

@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject skillSelect, PlayerStatus, gameOver, Timer;
+    public GameObject skillSelect, PlayerStatus, gameOver, Timer, KillCount;
     bool timerActive;
     float timeCount;
+    GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -30,6 +31,9 @@ public class UIManager : MonoBehaviour
                 timerActive = false;
             }
         }
+
+        KillCount.GetComponent<Text>().text = Mathf.RoundToInt(player.GetComponent<Player>().killCount).ToString();
+
     }
 
     public void showGameOver()
