@@ -9,7 +9,7 @@ public class EnemyDrop : MonoBehaviour
 
     public void dropLoot()
     {
-        if (Random.Range(0, 1.0f) >= dropRate)
+        if (Random.Range(0, 1.0f) <= dropRate)
         { 
             int index = Random.Range(0, DropObjects.Length);
 
