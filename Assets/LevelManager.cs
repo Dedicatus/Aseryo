@@ -56,6 +56,7 @@ public class LevelManager : MonoBehaviour
         {
             playerRB.MovePosition(levelStartPoints[level].position);
             ++level;
+            player.GetComponent<Player>().curHealth = player.GetComponent<Player>().maxHealth;
         }
 
         levelEdgeHandler();
